@@ -8,19 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dima117/bemhint-deps-schema.git"
+    "url": "git+https://github.com/bemhint/bemhint-deps-schema.git"
   },
   "keywords": [
     "bemhint",
     "deps",
     "schema"
   ],
-  "author": "dima117",
+  "author": "Dmitry Andriyanov https://github.com/dima117",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dima117/bemhint-deps-schema/issues"
+    "url": "https://github.com/bemhint/bemhint-deps-schema/issues"
   },
-  "homepage": "https://github.com/dima117/bemhint-deps-schema#readme",
+  "homepage": "https://github.com/bemhint/bemhint-deps-schema#readme",
   "dependencies": {
     "ajv": "^4.0.5"
   },
