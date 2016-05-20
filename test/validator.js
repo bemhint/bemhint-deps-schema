@@ -59,11 +59,19 @@ describe('schema validator', function() {
             }
         });
 
+        checkValidObject('elem can be string array', {
+            mustDeps: {
+                elem: ['qwf', 'qwdqwf']
+            }
+        });
+
         checkValidObject('can be empty', {});
 
         checkInvalidObject('block can not be a number', { mustDeps: { block: 1234 } }, 'type', { type: 'string' });
-        checkInvalidObject('elem can not be a number', { mustDeps: { elem: 1234 } }, 'type', { type: 'string' });
+        checkInvalidObject('elem can not be a number', { mustDeps: { elem: 1234 } }, 'type', { type: 'string,array' });
         checkInvalidObject('tech can not be a number', { mustDeps: { tech: 1234 } }, 'type', { type: 'string' });
+
+        checkInvalidObject('elem can not be a number array', { mustDeps: { elem: [1234] } }, 'type', { type: 'string' });
     });
 
     describe('- mods', function() {
@@ -82,10 +90,18 @@ describe('schema validator', function() {
             }
         });
 
+        checkValidObject('values must be string array', {
+            mustDeps: {
+                mods: { asd: ['qwf', 'qwdqwf'] }
+            }
+        });
+
         checkInvalidObject('mods can not be a number', { mustDeps: { mods: 1234 } }, 'type', { type: 'object' });
 
         checkInvalidObject('values can not be a number',
-            { mustDeps: { mods: { asd: 12345 } } }, 'type', { type: 'string,boolean' });
+            { mustDeps: { mods: { asd: 12345 } } }, 'type', { type: 'string,boolean,array' });
+        checkInvalidObject('values can not be a number array',
+            { mustDeps: { mods: { asd: [134] } } }, 'type', { type: 'string' });
     });
 
     describe('- elems', function() {

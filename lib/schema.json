@@ -33,7 +33,10 @@
             "properties": {
                 "tech": { "type": "string" },
                 "block": { "type": "string" },
-                "elem": { "type": "string" },
+                "elem": {
+                    "type": ["string", "array"],
+                    "items": { "type": "string" }
+                },
                 "elems": {
                     "type": "array",
                     "items": { "$ref": "#/definitions/element" }
@@ -45,7 +48,10 @@
         "modifiers": {
             "type": "object",
             "patternProperties": {
-              "^[^\\s]+$": { "type": [ "string", "boolean" ] }
+              "^[^\\s]+$": {
+                  "type": [ "string", "boolean", "array" ],
+                  "items": { "type": "string" }
+              }
             },
             "additionalProperties": false
         },
