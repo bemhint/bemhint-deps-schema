@@ -1,0 +1,27 @@
+{
+  "name": "bemhint-deps-schema",
+  "version": "1.0.0",
+  "description": "Plugin for bemhint which checks *.deps.js to be written by specification",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dima117/bemhint-deps-schema.git"
+  },
+  "keywords": [
+    "bemhint",
+    "deps",
+    "schema"
+  ],
+  "author": "dima117",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dima117/bemhint-deps-schema/issues"
+  },
+  "homepage": "https://github.com/dima117/bemhint-deps-schema#readme",
+  "dependencies": {
+    "ajv": "^4.0.5"
+  }
+}
