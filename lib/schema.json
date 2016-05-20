@@ -55,6 +55,7 @@
               "elem": { "type": "string" },
               "mods": { "$ref": "#/definitions/modifiers" }
             },
+            "required": ["elem"],
             "additionalProperties": false
         }
     }
