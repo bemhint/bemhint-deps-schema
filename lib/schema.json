@@ -1,30 +1,35 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": ["object", "array"],
-    "items": { "$ref": "#/definitions/entity" },
-    "extend": { "$ref": "#/definitions/entity" },
+    "items": { "type": "object", "$ref": "#/definitions/entity" },
+    "$ref": "#/definitions/entity",
     "definitions": {
         "entity": {
-            "type": "object",
             "properties": {
                 "block": { "type": "string" },
                 "elem": { "type": "string" },
                 "mod": { "type": "string" },
                 "val": { "type": "string" },
                 "tech": { "type": "string" },
-                "mustDeps": { "$ref": "#/definitions/deps" },
-                "shouldDeps": { "$ref": "#/definitions/deps" },
-                "noDeps": { "$ref": "#/definitions/deps" }
+                "mustDeps": {
+                    "type": ["object", "array"],
+                    "items": { "type": "object", "$ref": "#/definitions/dependency" },
+                    "$ref": "#/definitions/dependency"
+                },
+                "shouldDeps": {
+                    "type": ["object", "array"],
+                    "items": { "type": "object", "$ref": "#/definitions/dependency" },
+                    "$ref": "#/definitions/dependency"
+                },
+                "noDeps": {
+                    "type": ["object", "array"],
+                    "items": { "type": "object", "$ref": "#/definitions/dependency" },
+                    "$ref": "#/definitions/dependency"
+                }
             },
             "additionalProperties": false
         },
-        "deps": {
-            "type": ["object", "array"],
-            "items": { "$ref": "#/definitions/dependency" },
-            "extend": { "$ref": "#/definitions/dependency" }
-        },
         "dependency": {
-            "type": "object",
             "properties": {
                 "tech": { "type": "string" },
                 "block": { "type": "string" },
@@ -49,7 +54,8 @@
             "properties": {
               "elem": { "type": "string" },
               "mods": { "$ref": "#/definitions/modifiers" }
-            }
+            },
+            "additionalProperties": false
         }
     }
 }
