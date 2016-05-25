@@ -1,7 +1,8 @@
 'use strict';
 
 var chai = require('chai'),
-    validator = require('../lib/validator');;
+    validator = require('../lib/validator'),
+    formatter = require('../lib/formatter');
 
 global.sinon = require('sinon');
 global.assert = chai.assert;
@@ -20,9 +21,9 @@ global.checkValidObject = function(title, obj) {
         validate(content, errorCallback);
         assert.notCalled(errorCallback);
     });
-}
+};
 
-global.checkInvalidObject = function(title, obj, errorType, params) {
+global.checkInvalidObject = function(title, obj, errorType, params, showError) {
     var fullTitle = title + ': NO',
         content = '(' + JSON.stringify(obj) + ')';
 
@@ -35,8 +36,16 @@ global.checkInvalidObject = function(title, obj, errorType, params) {
 
         arg1 = errorCallback.getCall(0).args[1];
 
+        showError && console.log(JSON.stringify(arg1));
+
         assert.calledOnce(errorCallback);
         assert.strictEqual(arg1.keyword, errorType);
         assert.deepEqual(arg1.params, params);
     });
 }
+
+global.checkMsgFormat = function(title, error, msg) {
+    it(title, function() {
+        assert.equal(formatter(error), msg);
+    });
+};

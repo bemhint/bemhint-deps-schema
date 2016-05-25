@@ -11,19 +11,20 @@
                 "mod": { "type": "string" },
                 "val": { "type": "string" },
                 "tech": { "type": "string" },
+                "include": { "enum": [false] },
                 "mustDeps": {
-                    "type": ["object", "array"],
-                    "items": { "type": "object", "$ref": "#/definitions/dependency" },
+                    "type": ["string", "object", "array"],
+                    "items": { "type": ["string", "object"], "$ref": "#/definitions/dependency" },
                     "$ref": "#/definitions/dependency"
                 },
                 "shouldDeps": {
-                    "type": ["object", "array"],
-                    "items": { "type": "object", "$ref": "#/definitions/dependency" },
+                    "type": ["string", "object", "array"],
+                    "items": { "type": ["string", "object"], "$ref": "#/definitions/dependency" },
                     "$ref": "#/definitions/dependency"
                 },
                 "noDeps": {
-                    "type": ["object", "array"],
-                    "items": { "type": "object", "$ref": "#/definitions/dependency" },
+                    "type": ["string", "object", "array"],
+                    "items": { "type": ["string", "object"], "$ref": "#/definitions/dependency" },
                     "$ref": "#/definitions/dependency"
                 }
             },

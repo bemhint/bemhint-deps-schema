@@ -18,15 +18,22 @@ describe('schema validator', function() {
             elem: 'elem',
             mod: 'modName',
             val: 'modValue',
-            tech: 'techName'
+            tech: 'techName',
+            include: false
         });
 
         checkValidObject('can be empty', {});
 
-        checkValidObject('deps fields can be arrays', {
+        checkValidObject('deps fields can be object arrays', {
             mustDeps: [{ block : 'b2' }],
             shouldDeps: [{ block : 'b2' }],
             noDeps: [{ block : 'b2' }]
+        });
+
+        checkValidObject('deps fields can be string arrays', {
+            mustDeps: ['b2'],
+            shouldDeps: ['b2'],
+            noDeps: ['b2']
         });
 
         checkValidObject('deps fields can be objects', {
@@ -35,15 +42,24 @@ describe('schema validator', function() {
             noDeps: { block : 'b2' }
         });
 
+        checkValidObject('deps fields can be string', {
+            mustDeps: 'b2',
+            shouldDeps: 'b2',
+            noDeps: 'b2',
+        });
+
         checkInvalidObject('block can not be a number', { block: 123 }, 'type', { type: 'string' });
         checkInvalidObject('elem can not be a number', { elem: 123 }, 'type', { type: 'string' });
         checkInvalidObject('mod can not be a number', { mod: 123 }, 'type', { type: 'string' });
         checkInvalidObject('val can not be a number', { val: 123 }, 'type', { type: 'string' });
         checkInvalidObject('tech can not be a number', { tech: 123 }, 'type', { type: 'string' });
 
-        checkInvalidObject('mustDeps can not be a number', { mustDeps: 123 }, 'type', { type: 'object,array' });
-        checkInvalidObject('shouldDeps can not be a number', { shouldDeps: 123 }, 'type', { type: 'object,array' });
-        checkInvalidObject('noDeps can not be a number', { noDeps: 123 }, 'type', { type: 'object,array' });
+        checkInvalidObject('include can not be a string', { include: 'yes' }, 'enum', { });
+        checkInvalidObject('include can not be true', { include: true }, 'enum', { });
+
+        checkInvalidObject('mustDeps can not be a number', { mustDeps: 123 }, 'type', { type: 'string,object,array' });
+        checkInvalidObject('shouldDeps can not be a number', { shouldDeps: 123 }, 'type', { type: 'string,object,array' });
+        checkInvalidObject('noDeps can not be a number', { noDeps: 123 }, 'type', { type: 'string,object,array' });
 
         checkInvalidObject('other fields are not allowed',
             { wegwrgw: 'qwefweg' }, 'additionalProperties', { additionalProperty: 'wegwrgw' });
