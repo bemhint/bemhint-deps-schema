@@ -1,0 +1,61 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description":"нужно доделать: типы элементов, взаимоисключающие наборы полей",
+
+    "type": ["string", "object", "array"],
+    "items": {
+        "type": ["string", "object"],
+        "$ref": "#/definitions/entity"
+    },
+    "$ref": "#/definitions/entity",
+
+    "definitions": {
+        "entity": {
+            "properties": {
+                "block": { "type": "string" },
+                "elem": { "type": "string" },
+                "elems": { "type": "string" },
+                "mod": { "type": "string" },
+                "val": { "type": "string" },
+                "mods": { "$ref": "#/definitions/modifiers" },
+                "tech": { "type": "string" },
+                "include": { "enum": [false] },
+                "mustDeps": {
+                    "type": ["string", "object", "array"],
+                    "items": {
+                        "type": ["string", "object"],
+                        "$ref": "#/definitions/entity"
+                    },
+                    "$ref": "#/definitions/entity"
+                },
+                "shouldDeps": {
+                    "type": ["string", "object", "array"],
+                    "items": {
+                        "type": ["string", "object"],
+                        "$ref": "#/definitions/entity"
+                    },
+                    "$ref": "#/definitions/entity"
+                },
+                "noDeps": {
+                    "type": ["string", "object", "array"],
+                    "items": {
+                        "type": ["string", "object"],
+                        "$ref": "#/definitions/entity"
+                    },
+                    "$ref": "#/definitions/entity"
+                }
+            },
+            "additionalProperties": false
+        },
+        "modifiers": {
+            "type": "object",
+            "patternProperties": {
+                "^[^\\s]+$": {
+                    "type": ["string", "boolean", "array"],
+                    "items": { "type": "string" }
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}
