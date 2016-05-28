@@ -49,9 +49,9 @@ describe('schema validator', function() {
         });
 
         checkInvalidObject('block can not be a number', { block: 123 }, 'type', { type: 'string' });
-        checkInvalidObject('elem can not be a number', { elem: 123 }, 'type', { type: 'string' });
-        checkInvalidObject('mod can not be a number', { mod: 123 }, 'type', { type: 'string' });
-        checkInvalidObject('val can not be a number', { val: 123 }, 'type', { type: 'string' });
+        checkInvalidObject('elem can not be a number', { elem: 123 }, 'type', { type: 'string,array' });
+        checkInvalidObject('mod can not be a number', { mod: 123, val: "yes" }, 'type', { type: 'string' });
+        checkInvalidObject('val can not be a number', { mod: "hidden", val: 123 }, 'type', { type: 'string,boolean' });
         checkInvalidObject('tech can not be a number', { tech: 123 }, 'type', { type: 'string' });
 
         checkInvalidObject('include can not be a string', { include: 'yes' }, 'enum', { });
@@ -88,6 +88,8 @@ describe('schema validator', function() {
         checkInvalidObject('tech can not be a number', { mustDeps: { tech: 1234 } }, 'type', { type: 'string' });
 
         checkInvalidObject('elem can not be a number array', { mustDeps: { elem: [1234] } }, 'type', { type: 'string' });
+
+        checkInvalidObject('can not has elem and elems fields both', { mustDeps: { elem: "el1", elems: ["el2"] } }, 'not', { }, true);
     });
 
     describe('- mods', function() {
@@ -128,7 +130,8 @@ describe('schema validator', function() {
            }
         });
 
-        checkInvalidObject('can not be an object', { mustDeps: { elems: { elem: 'test' } } }, 'type', { type: 'array' });
+        checkValidObject('can be an object', { mustDeps: { elems: { elem: 'test' } } });
+        checkValidObject('can be a string', { mustDeps: { elems: "test" } });
     });
 
     describe('- elems item', function() {

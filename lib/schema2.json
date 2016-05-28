@@ -1,7 +1,5 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description":"нужно доделать: типы элементов, взаимоисключающие наборы полей",
-
     "type": ["string", "object", "array"],
     "items": {
         "type": ["string", "object"],
@@ -13,10 +11,20 @@
         "entity": {
             "properties": {
                 "block": { "type": "string" },
-                "elem": { "type": "string" },
-                "elems": { "type": "string" },
+                "elem": {
+                    "type": ["string", "array"],
+                    "items": { "type": "string" }
+                },
+                "elems": {
+                    "type": ["string", "object", "array"],
+                        "items": {
+                            "type": ["string", "object"],
+                            "$ref": "#/definitions/elemEntity"
+                        },
+                    "$ref": "#/definitions/elemEntity"
+                },
                 "mod": { "type": "string" },
-                "val": { "type": "string" },
+                "val": { "type": ["string", "boolean"] },
                 "mods": { "$ref": "#/definitions/modifiers" },
                 "tech": { "type": "string" },
                 "include": { "enum": [false] },
@@ -45,7 +53,55 @@
                     "$ref": "#/definitions/entity"
                 }
             },
+            "dependencies": {
+                "elem": { "not": { "required": ["elems"] } },
+                "mod": { "required": ["val"], "not": { "required": ["mods"] } },
+                "val": { "required": ["mod"] }
+            },
             "additionalProperties": false
+        },
+        "elemEntity": {
+            "properties": {
+                "elem": {
+                    "type": ["string", "array"],
+                    "items": { "type": "string" }
+                },
+                "mod": { "type": "string" },
+                "val": { "type": ["string", "boolean"] },
+                "mods": { "$ref": "#/definitions/modifiers" },
+                "tech": { "type": "string" },
+                "include": { "enum": [false] },
+                "mustDeps": {
+                    "type": ["string", "object", "array"],
+                    "items": {
+                        "type": ["string", "object"],
+                        "$ref": "#/definitions/entity"
+                    },
+                    "$ref": "#/definitions/entity"
+                },
+                "shouldDeps": {
+                    "type": ["string", "object", "array"],
+                    "items": {
+                        "type": ["string", "object"],
+                        "$ref": "#/definitions/entity"
+                    },
+                    "$ref": "#/definitions/entity"
+                },
+                "noDeps": {
+                    "type": ["string", "object", "array"],
+                    "items": {
+                        "type": ["string", "object"],
+                        "$ref": "#/definitions/entity"
+                    },
+                    "$ref": "#/definitions/entity"
+                }
+            },
+            "required": ["elem"],
+            "additionalProperties": false,
+            "dependencies": {
+                "mod": { "required": ["val"] },
+                "val": { "not": { "required": ["mods"] } }
+            }
         },
         "modifiers": {
             "type": "object",

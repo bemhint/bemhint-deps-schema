@@ -34,11 +34,10 @@ global.checkInvalidObject = function(title, obj, errorType, params, showError) {
 
         validate(content, errorCallback);
 
+        assert.calledOnce(errorCallback);
         arg1 = errorCallback.getCall(0).args[1];
 
         showError && console.log(JSON.stringify(arg1));
-
-        assert.calledOnce(errorCallback);
         assert.strictEqual(arg1.keyword, errorType);
         assert.deepEqual(arg1.params, params);
     });
