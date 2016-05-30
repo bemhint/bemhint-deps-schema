@@ -17,3 +17,4 @@ module.exports = {
         'bemhint-deps-schema': true
     }
 };
+```
