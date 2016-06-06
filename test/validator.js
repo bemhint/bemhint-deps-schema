@@ -4,15 +4,47 @@ describe('schema validator', function() {
 
     describe('- root', function() {
 
-        checkValidObject('can be an array', [
+        checkValidObject('can be a string', '');
+        checkValidObject('can be an object', { block: 'b-page'});
+
+        checkValidObject('can be a string array', ['input', 'select']);
+
+        checkValidObject('can be an object array', [
             { block: 'b-block-name'},
             { block: 'b-block-name', elem: 'form' }
         ]);
 
-        checkValidObject('can be an object', { block: 'b-page'});
+        checkInvalidObject('can not be a number', 1234, 'type', { type: 'string,object,array' });
+        checkInvalidObject('can not be a number array', [123], 'type', { type: 'string,object' });
+
     });
 
     describe('- entity', function() {
+
+        checkValidObject('can be empty', {});
+
+        // block
+        checkValidObject('can have "block" field (string)', { block: 'bBlock' });
+
+        checkInvalidObject('"block" field can not be a number', { block: 1234 }, 'type', { type: 'string' });
+
+        // mod
+        checkValidObject('can have "mod" field (string)', { mod: 'modifier' });
+
+        checkInvalidObject('"mod" field can not be a number', { mod: 1234 }, 'type', { type: 'string' });
+
+        // val
+        checkValidObject('can have "val" field (string)', { mod: 'modifier', val: 'value1' });
+
+        checkValidObject('can have "val" field (boolean)', { mod: 'modifier', val: true });
+
+        checkInvalidObject('"val" field can not be a number', { mod: 'xxx', val: 12 }, 'type', { type: 'string,boolean' });
+
+        checkInvalidObject('can not comtains "val" field without "mod" field', { val: 'value' }, 'required', { missingProperty: 'mod' });
+
+
+
+
         checkValidObject('can have plane fields', {
             block: 'bBlock',
             elem: 'elem',
@@ -22,7 +54,7 @@ describe('schema validator', function() {
             include: false
         });
 
-        checkValidObject('can be empty', {});
+
 
         checkValidObject('deps fields can be object arrays', {
             mustDeps: [{ block : 'b2' }],
@@ -48,10 +80,7 @@ describe('schema validator', function() {
             noDeps: 'b2',
         });
 
-        checkInvalidObject('block can not be a number', { block: 123 }, 'type', { type: 'string' });
         checkInvalidObject('elem can not be a number', { elem: 123 }, 'type', { type: 'string,array' });
-        checkInvalidObject('mod can not be a number', { mod: 123, val: "yes" }, 'type', { type: 'string' });
-        checkInvalidObject('val can not be a number', { mod: "hidden", val: 123 }, 'type', { type: 'string,boolean' });
         checkInvalidObject('tech can not be a number', { tech: 123 }, 'type', { type: 'string' });
 
         checkInvalidObject('include can not be a string', { include: 'yes' }, 'enum', { });

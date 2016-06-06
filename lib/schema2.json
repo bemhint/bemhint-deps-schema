@@ -55,7 +55,7 @@
             },
             "dependencies": {
                 "elem": { "not": { "required": ["elems"] } },
-                "mod": { "required": ["val"], "not": { "required": ["mods"] } },
+                "mod": { "not": { "required": ["mods"] } },
                 "val": { "required": ["mod"] }
             },
             "additionalProperties": false
