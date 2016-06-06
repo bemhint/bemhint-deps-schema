@@ -20,7 +20,7 @@ function validateEntity(wrapper) {
 
     describe('- item', function() {
 
-        checkValidObject('can be empty', {});
+        checkValidObject('can be empty', wrapper({}));
 
         // block
         checkValidObject('can have "block" field (string)', wrapper({ block: 'bBlock' }));
@@ -42,21 +42,21 @@ function validateEntity(wrapper) {
         checkInvalidObject('can not comtains "val" field without "mod" field', wrapper({ val: 'value' }), 'required', { missingProperty: 'mod' });
 
         // mods
-        checkValidObject('"mods" must be an object', { mods: { }});
+        checkValidObject('"mods" must be an object', wrapper({ mods: { }}));
 
-        checkInvalidObject('"mods" can not be a number', { mods: 1234 }, 'type', { type: 'object' });
+        checkInvalidObject('"mods" can not be a number', wrapper({ mods: 1234 }), 'type', { type: 'object' });
 
-        checkValidObject('"mods" values can be a boolean', { mods: { asd: true } });
+        checkValidObject('"mods" values can be a boolean', wrapper({ mods: { asd: true } }));
 
-        checkValidObject('"mods" values can be a string', { mods: { asd: 'qwfeg' } });
+        checkValidObject('"mods" values can be a string', wrapper({ mods: { asd: 'qwfeg' } }));
 
-        checkInvalidObject('"mods" values can not be a number', { mods: { asd: 12345 } }, 'type', { type: 'string,boolean,array' });
+        checkInvalidObject('"mods" values can not be a number', wrapper({ mods: { asd: 12345 } }), 'type', { type: 'string,boolean,array' });
 
-        checkValidObject('"mods" values can be string array', { mods: { asd: ['qwf', 'qwdqwf'] } });
+        checkValidObject('"mods" values can be string array', wrapper({ mods: { asd: ['qwf', 'qwdqwf'] } }));
 
-        checkInvalidObject('"mods" values can not be a number array', { mods: { asd: [134] } }, 'type', { type: 'string' });
+        checkInvalidObject('"mods" values can not be a number array', wrapper({ mods: { asd: [134] } }), 'type', { type: 'string' });
 
-        checkInvalidObject('can not has "mod" and "mods" fields both', { mod: 'test', mods: {} }, 'not', { });
+        checkInvalidObject('can not has "mod" and "mods" fields both', wrapper({ mod: 'test', mods: {} }), 'not', { });
 
         // tech
         checkValidObject('can have "tech" field (string)', wrapper({ tech: 'bemhtml' }));
