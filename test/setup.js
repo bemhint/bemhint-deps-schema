@@ -4,6 +4,8 @@ var chai = require('chai'),
     validator = require('../lib/validator'),
     formatter = require('../lib/formatter');
 
+chai.use(require('chai-subset'));
+
 global.sinon = require('sinon');
 global.assert = chai.assert;
 
@@ -28,7 +30,6 @@ global.checkInvalidObject = function(title, obj, errorType, params, showError) {
         content = '(' + JSON.stringify(obj) + ')';
 
     it(fullTitle, function() {
-
         var errorCallback = sinon.spy(),
             arg1;
 
