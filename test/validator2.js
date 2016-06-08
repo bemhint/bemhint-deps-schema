@@ -51,15 +51,35 @@ function validateEntity(wrapper){
 
     validateEntityFields(wrapper.createInnerWrapper());
 
+    validateModifiers(wrapper.createInnerWrapper());
+
     // other fields
     wrapper.addCase('other fields are not allowed', { xxx: 'test' }, { keyword: 'additionalProperties', params: { additionalProperty: 'xxx' }});
 }
 
 function validateEntityFields(wrapper) {
+
+    wrapper.addCase('can be empty object', { });
+
     // block
     wrapper.addCase('can have "block" field (string)', { block: 'bBlock' });
 
     wrapper.addCase('"block" field can not be a number', { block: 1234 }, { keyword: 'type', params: { type: 'string' } });
+
+    // mod
+    wrapper.addCase('can have "mod" field (string)', { mod: 'modifier' });
+
+    wrapper.addCase('"mod" field can not be a number', { mod: 1234 }, { keyword: 'type', params: { type: 'string' } });
+
+    // val
+    wrapper.addCase('can have "val" field (string)', { mod: 'm1', val: 'v1' });
+
+    wrapper.addCase('can have "val" field (boolean)', { mod: 'm2', val: true });
+
+    wrapper.addCase('"val" field can not be a number', { mod: 'xxx', val: 12 }, { keyword: 'type', params: { type: 'string,boolean' } });
+
+    wrapper.addCase('can not contains "val" field without "mod" field', { val: 'value' }, { keyword: 'required', params: { missingProperty: 'mod' } });
+
 
     // tech
     wrapper.addCase('can have "tech" field (string)', { tech: 'bemhtml' });
@@ -72,6 +92,28 @@ function validateEntityFields(wrapper) {
     wrapper.addCase('include can not be a string', { include: 'yes' }, { keyword: 'enum', schema: [false] });
 
     wrapper.addCase('include can not be true', { include: true }, { keyword: 'enum', schema: [false] });
+}
+
+function validateModifiers(wrapper) {
+
+    // todo: move mods field into wrapper
+
+    // mods
+    wrapper.addCase('"mods" must be an object', { mods: { }});
+
+    wrapper.addCase('"mods" can not be a number', { mods: 1234 }, { keyword: 'type', params: { type: 'object' } });
+
+    wrapper.addCase('"mods" values can be a boolean', { mods: { asd: true } });
+
+    wrapper.addCase('"mods" values can be a string', { mods: { asd: 'qwfeg' } });
+
+    wrapper.addCase('"mods" values can not be a number', { mods: { asd: 12345 } }, { keyword: 'type', params: { type: 'string,boolean,array' } });
+
+    wrapper.addCase('"mods" values can be string array', { mods: { asd: ['qwf', 'qwdqwf'] } });
+
+    wrapper.addCase('"mods" values can not be a number array', { mods: { asd: [134] } }, { keyword: 'type', params: { type: 'string' } });
+
+    wrapper.addCase('can not has "mod" and "mods" fields both', { mod: 'test', mods: {} }, { keyword: 'not', schema: { required: ['mods'] } });
 }
 
 

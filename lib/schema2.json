@@ -66,8 +66,6 @@
                     "type": ["string", "array"],
                     "items": { "type": "string" }
                 },
-                "mod": { "type": "string" },
-                "val": { "type": ["string", "boolean"] },
                 "mods": { "$ref": "#/definitions/modifiers" },
                 "tech": { "type": "string" },
                 "include": { "enum": [false] },
