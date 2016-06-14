@@ -12,8 +12,12 @@
             "properties": {
                 "block": { "type": "string" },
                 "elem": {
-                    "type": ["string", "array"],
-                    "items": { "type": "string" }
+                    "type": ["string", "object", "array"],
+                        "items": {
+                            "type": ["string", "object"],
+                            "$ref": "#/definitions/elemEntity"
+                        },
+                    "$ref": "#/definitions/elemEntity"
                 },
                 "elems": {
                     "type": ["string", "object", "array"],
@@ -95,11 +99,7 @@
                 }
             },
             "required": ["elem"],
-            "additionalProperties": false,
-            "dependencies": {
-                "mod": { "required": ["val"] },
-                "val": { "not": { "required": ["mods"] } }
-            }
+            "additionalProperties": false
         },
         "modifiers": {
             "type": "object",

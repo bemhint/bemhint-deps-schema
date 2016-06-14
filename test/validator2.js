@@ -49,9 +49,13 @@ function validateEntity(wrapper){
 
     wrapper.addCase('can not be a number array', [1234], { keyword: 'type', params: { type: 'string,object' } });
 
-    validateEntityFields(wrapper.createInnerWrapper());
+    validateEntityFields(wrapper);
 
-    validateModifiers(wrapper.createInnerWrapper());
+    validateElements(wrapper);
+
+    validateModifiers(wrapper.createInnerWrapper('mods value', function(obj) { return { mods: obj } }));
+
+    wrapper.addCase('can not has "mod" and "mods" fields both', { mod: 'test', mods: {} }, { keyword: 'not', schema: { required: ['mods'] } });
 
     // other fields
     wrapper.addCase('other fields are not allowed', { xxx: 'test' }, { keyword: 'additionalProperties', params: { additionalProperty: 'xxx' }});
@@ -94,39 +98,59 @@ function validateEntityFields(wrapper) {
     wrapper.addCase('include can not be true', { include: true }, { keyword: 'enum', schema: [false] });
 }
 
+function validateElemEntity(wrapper) {
+
+    wrapper.addCase('can be a string', '');
+
+    wrapper.addCase('can be a string array', ['']);
+
+    wrapper.addCase('can be an object', { elem: '' });
+
+    wrapper.addCase('can be an object array', [{ elem: '' }]);
+
+    wrapper.addCase('should have "elem" property', [{ }], { keyword: 'required', params: { missingProperty: 'elem' } });
+
+    validateModifiers(wrapper.createInnerWrapper('mods value', function(obj) { return { elem: 'el1', mods: obj } }));
+}
+
+function validateElements(wrapper) {
+
+    validateElemEntity(wrapper.createInnerWrapper('elem value', function(obj) { return { elem: obj } }));
+
+    validateElemEntity(wrapper.createInnerWrapper('elems value', function(obj) { return { elems: obj } }));
+
+    wrapper.addCase('can not has "elem" and "elems" fields both', { elem: 'test', elems: 'test' }, { keyword: 'not', schema: { required: ['elems'] } });
+}
+
 function validateModifiers(wrapper) {
-
-    // todo: move mods field into wrapper
-
     // mods
-    wrapper.addCase('"mods" must be an object', { mods: { }});
+    wrapper.addCase('must be an object', { });
 
-    wrapper.addCase('"mods" can not be a number', { mods: 1234 }, { keyword: 'type', params: { type: 'object' } });
+    wrapper.addCase('can not be a number', 1234, { keyword: 'type', params: { type: 'object' } });
 
-    wrapper.addCase('"mods" values can be a boolean', { mods: { asd: true } });
+    wrapper.addCase('values can be a boolean', { asd: true });
 
-    wrapper.addCase('"mods" values can be a string', { mods: { asd: 'qwfeg' } });
+    wrapper.addCase('values can be a string', { asd: 'qwfeg' });
 
-    wrapper.addCase('"mods" values can not be a number', { mods: { asd: 12345 } }, { keyword: 'type', params: { type: 'string,boolean,array' } });
+    wrapper.addCase('values can not be a number', { asd: 12345 }, { keyword: 'type', params: { type: 'string,boolean,array' } });
 
-    wrapper.addCase('"mods" values can be string array', { mods: { asd: ['qwf', 'qwdqwf'] } });
+    wrapper.addCase('values can be string array', { asd: ['qwf', 'qwdqwf'] });
 
-    wrapper.addCase('"mods" values can not be a number array', { mods: { asd: [134] } }, { keyword: 'type', params: { type: 'string' } });
-
-    wrapper.addCase('can not has "mod" and "mods" fields both', { mod: 'test', mods: {} }, { keyword: 'not', schema: { required: ['mods'] } });
+    wrapper.addCase('values can not be a number array', { asd: [134] }, { keyword: 'type', params: { type: 'string' } });
 }
 
 
 function buildTestCases() {
-    var cases = [];
+    var cases = [],
+        wrapper = new Wrapper('root', cases);
 
-    validateEntity(new Wrapper('root', cases));
+    validateEntity(wrapper);
 
-    validateEntity(new Wrapper('mustDeps item', cases, function(obj) { return { mustDeps: obj } }));
+    validateEntity(wrapper.createInnerWrapper('mustDeps item', function(obj) { return { mustDeps: obj } }));
 
-    validateEntity(new Wrapper('shouldDeps item', cases, function(obj) { return { shouldDeps: obj } }));
+    validateEntity(wrapper.createInnerWrapper('shouldDeps item', function(obj) { return { shouldDeps: obj } }));
 
-    validateEntity(new Wrapper('noDeps item', cases, function(obj) { return { noDeps: obj } }));
+    validateEntity(wrapper.createInnerWrapper('noDeps item', function(obj) { return { noDeps: obj } }));
 
     return cases;
 }
