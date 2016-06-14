@@ -176,7 +176,9 @@ function buildTestCases() {
 
 var cases = buildTestCases();
 
-console.log(JSON.stringify(cases, null, 4));
+require('fs').writeFileSync('testcases.json', JSON.stringify(cases, null, 4));
+
+//console.log(JSON.stringify(cases, null, 4));
 
 describe('schema', function() {
 
