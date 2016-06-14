@@ -33,7 +33,7 @@ Wrapper.prototype.createInnerWrapper = function(){
 };
 
 
-function validateEntity(wrapper){
+function validateEntity(wrapper, recursive){
 
     // simple root
     wrapper.addCase('can be a string', '');
@@ -51,14 +51,28 @@ function validateEntity(wrapper){
 
     validateEntityFields(wrapper);
 
-    validateElements(wrapper);
+    // elems
+    validateElemEntity(wrapper.createInnerWrapper('elem value', function(obj) { return { elem: obj } }), recursive);
 
+    validateElemEntity(wrapper.createInnerWrapper('elems value', function(obj) { return { elems: obj } }), recursive);
+
+    wrapper.addCase('can not has "elem" and "elems" fields both', { elem: 'test', elems: 'test' }, { keyword: 'not', schema: { required: ['elems'] } });
+
+    // mods
     validateModifiers(wrapper.createInnerWrapper('mods value', function(obj) { return { mods: obj } }));
 
     wrapper.addCase('can not has "mod" and "mods" fields both', { mod: 'test', mods: {} }, { keyword: 'not', schema: { required: ['mods'] } });
 
     // other fields
     wrapper.addCase('other fields are not allowed', { xxx: 'test' }, { keyword: 'additionalProperties', params: { additionalProperty: 'xxx' }});
+
+    if (recursive) {
+        validateEntity(wrapper.createInnerWrapper('mustDeps item', function(obj) { return { mustDeps: obj } }));
+
+        validateEntity(wrapper.createInnerWrapper('shouldDeps item', function(obj) { return { shouldDeps: obj } }));
+
+        validateEntity(wrapper.createInnerWrapper('noDeps item', function(obj) { return { noDeps: obj } }));
+    }
 }
 
 function validateEntityFields(wrapper) {
@@ -98,7 +112,7 @@ function validateEntityFields(wrapper) {
     wrapper.addCase('include can not be true', { include: true }, { keyword: 'enum', schema: [false] });
 }
 
-function validateElemEntity(wrapper) {
+function validateElemEntity(wrapper, recursive) {
 
     wrapper.addCase('can be a string', '');
 
@@ -123,15 +137,14 @@ function validateElemEntity(wrapper) {
     wrapper.addCase('include can not be a string', { elem: 'el1', include: 'yes' }, { keyword: 'enum', schema: [false] });
 
     wrapper.addCase('include can not be true', { elem: 'el1', include: true }, { keyword: 'enum', schema: [false] });
-}
 
-function validateElements(wrapper) {
+    if (recursive) {
+        validateEntity(wrapper.createInnerWrapper('mustDeps item', function(obj) { return { elem: 'el1', mustDeps: obj } }));
 
-    validateElemEntity(wrapper.createInnerWrapper('elem value', function(obj) { return { elem: obj } }));
+        validateEntity(wrapper.createInnerWrapper('shouldDeps item', function(obj) { return { elem: 'el1', shouldDeps: obj } }));
 
-    validateElemEntity(wrapper.createInnerWrapper('elems value', function(obj) { return { elems: obj } }));
-
-    wrapper.addCase('can not has "elem" and "elems" fields both', { elem: 'test', elems: 'test' }, { keyword: 'not', schema: { required: ['elems'] } });
+        validateEntity(wrapper.createInnerWrapper('noDeps item', function(obj) { return { elem: 'el1', noDeps: obj } }));
+    }
 }
 
 function validateModifiers(wrapper) {
@@ -156,13 +169,7 @@ function buildTestCases() {
     var cases = [],
         wrapper = new Wrapper('root', cases);
 
-    validateEntity(wrapper);
-
-    validateEntity(wrapper.createInnerWrapper('mustDeps item', function(obj) { return { mustDeps: obj } }));
-
-    validateEntity(wrapper.createInnerWrapper('shouldDeps item', function(obj) { return { shouldDeps: obj } }));
-
-    validateEntity(wrapper.createInnerWrapper('noDeps item', function(obj) { return { noDeps: obj } }));
+    validateEntity(wrapper, true);
 
     return cases;
 }
