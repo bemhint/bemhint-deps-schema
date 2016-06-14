@@ -111,6 +111,18 @@ function validateElemEntity(wrapper) {
     wrapper.addCase('should have "elem" property', [{ }], { keyword: 'required', params: { missingProperty: 'elem' } });
 
     validateModifiers(wrapper.createInnerWrapper('mods value', function(obj) { return { elem: 'el1', mods: obj } }));
+
+    // tech
+    wrapper.addCase('can have "tech" field (string)', { elem: 'el1', tech: 'bemhtml' });
+
+    wrapper.addCase('"tech" field can not be a number', { elem: 'el1', tech: 1234 }, { keyword: 'type', params: { type: 'string' } });
+
+    // include
+    wrapper.addCase('can have "include" field (false)', { elem: 'el1', include: false });
+
+    wrapper.addCase('include can not be a string', { elem: 'el1', include: 'yes' }, { keyword: 'enum', schema: [false] });
+
+    wrapper.addCase('include can not be true', { elem: 'el1', include: true }, { keyword: 'enum', schema: [false] });
 }
 
 function validateElements(wrapper) {
