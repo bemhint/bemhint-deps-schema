@@ -1,6 +1,6 @@
 {
   "name": "bemhint-deps-schema",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Plugin for bemhint which checks *.deps.js to be written by specification",
   "main": "lib/index.js",
   "scripts": {
