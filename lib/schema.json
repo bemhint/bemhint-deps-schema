@@ -1,115 +1,156 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": ["string", "object", "array"],
-    "items": {
-        "type": ["string", "object"],
-        "$ref": "#/definitions/entity"
-    },
-    "$ref": "#/definitions/entity",
+    "$ref": "#/definitions/Set",
 
     "definitions": {
-        "entity": {
+        "Set": {
+            "switch": [
+                {
+                    "if": { "type": "object" },
+                    "then": { "$ref": "#/definitions/Entity" }
+                },
+                {
+                    "if": { "type": "array" },
+                    "then": {
+                        "minItems": 1,
+                        "items": {
+                            "switch": [
+                                {
+                                    "if": { "type": "object" },
+                                    "then": { "$ref": "#/definitions/Entity" }
+                                },
+                                {
+                                    "then": { "type": ["string", "object"] }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "then": { "type": ["string", "object", "array"] }
+                }
+            ]
+        },
+
+        "Entity": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": false,
             "properties": {
                 "block": { "type": "string" },
-                "elem": {
-                    "type": ["string", "object", "array"],
-                        "items": {
-                            "type": ["string", "object"],
-                            "$ref": "#/definitions/elemEntity"
-                        },
-                    "$ref": "#/definitions/elemEntity"
-                },
+                "elem": { "$ref": "#/definitions/ElemPlainEntity" },
                 "elems": {
-                    "type": ["string", "object", "array"],
-                        "items": {
-                            "type": ["string", "object"],
-                            "$ref": "#/definitions/elemEntity"
+                    "switch": [
+                        {
+                            "if": { "type": "object" },
+                            "then": { "$ref": "#/definitions/ElemEntity" }
                         },
-                    "$ref": "#/definitions/elemEntity"
+                        {
+                            "if": { "type": "array" },
+                            "then": {
+                                "minItems": 1,
+                                "items": {
+                                    "switch": [
+                                        {
+                                            "if": { "type": "object" },
+                                            "then": { "$ref": "#/definitions/ElemEntity" }
+                                        },
+                                        {
+                                            "then": { "type": ["string", "object"] }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "then": { "type": ["string", "object", "array"] }
+                        }
+                    ]
                 },
                 "mod": { "type": "string" },
-                "val": { "type": ["string", "boolean"] },
-                "mods": { "$ref": "#/definitions/modifiers" },
+                "val": {
+                    "switch": [
+                        {
+                            "if": { "type": "boolean" },
+                            "then": { "enum": [true] }
+                        },
+                        {
+                            "then": { "type": ["string", "boolean"] }
+                        }
+                    ]
+                },
+                "mods": { "$ref": "#/definitions/Modifiers" },
                 "tech": { "type": "string" },
                 "include": { "enum": [false] },
-                "mustDeps": {
-                    "type": ["string", "object", "array"],
-                    "items": {
-                        "type": ["string", "object"],
-                        "$ref": "#/definitions/entity"
-                    },
-                    "$ref": "#/definitions/entity"
-                },
-                "shouldDeps": {
-                    "type": ["string", "object", "array"],
-                    "items": {
-                        "type": ["string", "object"],
-                        "$ref": "#/definitions/entity"
-                    },
-                    "$ref": "#/definitions/entity"
-                },
-                "noDeps": {
-                    "type": ["string", "object", "array"],
-                    "items": {
-                        "type": ["string", "object"],
-                        "$ref": "#/definitions/entity"
-                    },
-                    "$ref": "#/definitions/entity"
-                }
+
+                "noDeps": { "$ref": "#/definitions/Set" },
+                "mustDeps": { "$ref": "#/definitions/Set" },
+                "shouldDeps": { "$ref": "#/definitions/Set" }
             },
             "dependencies": {
-                "elem": { "not": { "required": ["elems"] } },
-                "mod": { "not": { "required": ["mods"] } },
-                "val": { "required": ["mod"] }
-            },
-            "additionalProperties": false
-        },
-        "elemEntity": {
-            "properties": {
                 "elem": {
-                    "type": ["string", "array"],
-                    "items": { "type": "string" }
+                    "not": { "required": ["elems"] }
                 },
-                "mods": { "$ref": "#/definitions/modifiers" },
+                "mod": {
+                    "not": { "required": ["mods"] }
+                },
+                "val": {
+                    "not": { "required": ["mods"] }
+                }
+            }
+        },
+
+        "ElemPlainEntity": {
+            "switch": [
+                {
+                    "if": { "type": "array" },
+                    "then": {
+                        "minItems": 1,
+                        "items": { "type": "string" }
+                    }
+                },
+                {
+                    "then": { "type": ["string", "array"] }
+                }
+            ]
+        },
+
+        "ElemEntity": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "elem": { "$ref": "#/definitions/ElemPlainEntity" },
+                "mods": { "$ref": "#/definitions/Modifiers" },
                 "tech": { "type": "string" },
                 "include": { "enum": [false] },
-                "mustDeps": {
-                    "type": ["string", "object", "array"],
-                    "items": {
-                        "type": ["string", "object"],
-                        "$ref": "#/definitions/entity"
-                    },
-                    "$ref": "#/definitions/entity"
-                },
-                "shouldDeps": {
-                    "type": ["string", "object", "array"],
-                    "items": {
-                        "type": ["string", "object"],
-                        "$ref": "#/definitions/entity"
-                    },
-                    "$ref": "#/definitions/entity"
-                },
-                "noDeps": {
-                    "type": ["string", "object", "array"],
-                    "items": {
-                        "type": ["string", "object"],
-                        "$ref": "#/definitions/entity"
-                    },
-                    "$ref": "#/definitions/entity"
-                }
+
+                "noDeps": { "$ref": "#/definitions/Set" },
+                "mustDeps": { "$ref": "#/definitions/Set" },
+                "shouldDeps": { "$ref": "#/definitions/Set" }
             },
-            "required": ["elem"],
-            "additionalProperties": false
+            "required": ["elem"]
         },
-        "modifiers": {
+
+        "Modifiers": {
             "type": "object",
-            "patternProperties": {
-                "^[^\\s]+$": {
-                    "type": ["string", "boolean", "array"],
-                    "items": { "type": "string" }
-                }
-            },
-            "additionalProperties": false
+            "minProperties": 1,
+            "additionalProperties": {
+                "switch": [
+                    {
+                        "if": { "type": "boolean" },
+                        "then": { "enum": [true] }
+                    },
+                    {
+                        "if": { "type": "array" },
+                        "then": {
+                            "minItems": 1,
+                            "items": { "type": "string" }
+                        }
+                    },
+                    {
+                        "then": { "type": ["boolean", "string", "array"] }
+                    }
+                ]
+            }
         }
     }
 }
