@@ -1,90 +1,80 @@
 {
-    "$ref": "#/definitions/Set",
+    "$ref": "#/definitions/set",
 
     "definitions": {
-        "Set": {
+        "set": {
+            "type": ["string", "object", "array"],
             "switch": [
                 {
                     "if": { "type": "object" },
-                    "then": { "$ref": "#/definitions/Entity" }
+                    "then": { "$ref": "#/definitions/entity" }
                 },
                 {
                     "if": { "type": "array" },
                     "then": {
                         "minItems": 1,
                         "items": {
+                            "type": ["string", "object"],
                             "switch": [
                                 {
                                     "if": { "type": "object" },
-                                    "then": { "$ref": "#/definitions/Entity" }
-                                },
-                                {
-                                    "then": { "type": ["string", "object"] }
+                                    "then": { "$ref": "#/definitions/entity" }
                                 }
                             ]
                         }
                     }
-                },
-                {
-                    "then": { "type": ["string", "object", "array"] }
                 }
             ]
         },
 
-        "Entity": {
+        "entity": {
             "type": "object",
             "minProperties": 1,
             "additionalProperties": false,
             "properties": {
                 "block": { "type": "string" },
-                "elem": { "$ref": "#/definitions/ElemPlainEntity" },
+                "elem": { "$ref": "#/definitions/elemPlainEntity" },
                 "elems": {
+                    "type": ["string", "object", "array"],
                     "switch": [
                         {
                             "if": { "type": "object" },
-                            "then": { "$ref": "#/definitions/ElemEntity" }
+                            "then": { "$ref": "#/definitions/elemEntity" }
                         },
                         {
                             "if": { "type": "array" },
                             "then": {
                                 "minItems": 1,
                                 "items": {
+                                    "type": ["string", "object"],
                                     "switch": [
                                         {
                                             "if": { "type": "object" },
-                                            "then": { "$ref": "#/definitions/ElemEntity" }
-                                        },
-                                        {
-                                            "then": { "type": ["string", "object"] }
+                                            "then": { "$ref": "#/definitions/elemEntity" }
                                         }
                                     ]
                                 }
                             }
-                        },
-                        {
-                            "then": { "type": ["string", "object", "array"] }
                         }
                     ]
                 },
                 "mod": { "type": "string" },
                 "val": {
+                    "type": ["string", "boolean"],
                     "switch": [
                         {
                             "if": { "type": "boolean" },
                             "then": { "enum": [true] }
-                        },
-                        {
-                            "then": { "type": ["string", "boolean"] }
                         }
                     ]
                 },
-                "mods": { "$ref": "#/definitions/Modifiers" },
+                "mods": { "$ref": "#/definitions/modifiers" },
                 "tech": { "type": "string" },
                 "include": { "enum": [false] },
 
-                "noDeps": { "$ref": "#/definitions/Set" },
-                "mustDeps": { "$ref": "#/definitions/Set" },
-                "shouldDeps": { "$ref": "#/definitions/Set" }
+                "noDeps": { "$ref": "#/definitions/set" },
+                "mustDeps": { "$ref": "#/definitions/set" },
+                "shouldDeps": { "$ref": "#/definitions/set" }
             },
             "dependencies": {
                 "elem": {
@@ -93,47 +83,38 @@
                 "mod": {
                     "not": { "required": ["mods"] }
                 },
-                "val": {
-                    "not": { "required": ["mods"] }
-                }
+                "val": { "required": ["mod"] }
             }
         },
 
-        "ElemPlainEntity": {
-            "switch": [
-                {
-                    "if": { "type": "array" },
-                    "then": {
-                        "minItems": 1,
-                        "items": { "type": "string" }
-                    }
-                },
-                {
-                    "then": { "type": ["string", "array"] }
-                }
-            ]
+        "elemPlainEntity": {
+            "type": ["string", "array"],
+
+            "minItems": 1,
+            "items": { "type": "string" }
         },
 
-        "ElemEntity": {
+        "elemEntity": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "elem": { "$ref": "#/definitions/ElemPlainEntity" },
-                "mods": { "$ref": "#/definitions/Modifiers" },
+                "elem": { "$ref": "#/definitions/elemPlainEntity" },
+                "mods": { "$ref": "#/definitions/modifiers" },
                 "tech": { "type": "string" },
                 "include": { "enum": [false] },
 
-                "noDeps": { "$ref": "#/definitions/Set" },
-                "mustDeps": { "$ref": "#/definitions/Set" },
-                "shouldDeps": { "$ref": "#/definitions/Set" }
+                "noDeps": { "$ref": "#/definitions/set" },
+                "mustDeps": { "$ref": "#/definitions/set" },
+                "shouldDeps": { "$ref": "#/definitions/set" }
             },
             "required": ["elem"]
         },
 
-        "Modifiers": {
+        "modifiers": {
             "type": "object",
             "minProperties": 1,
             "additionalProperties": {
+                "type": ["boolean", "string", "array"],
                 "switch": [
                     {
                         "if": { "type": "boolean" },
@@ -145,9 +126,6 @@
                             "minItems": 1,
                             "items": { "type": "string" }
                         }
-                    },
-                    {
-                        "then": { "type": ["boolean", "string", "array"] }
                     }
                 ]
             }

@@ -1,4 +1,6 @@
-describe('formatter', function() {
+'use strict';
+
+describe('formatter', () => {
 
     checkMsgFormat('enum', {
             keyword: 'enum',

@@ -1,6 +1,6 @@
 'use strict';
 
-var chai = require('chai'),
+const chai = require('chai'),
     validator = require('../lib/validator'),
     formatter = require('../lib/formatter');
 
