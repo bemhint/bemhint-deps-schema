@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/bemhint/bemhint-deps-schema#readme",
   "dependencies": {
-    "ajv": "^4.0.5"
+    "ajv": "^4.8.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",

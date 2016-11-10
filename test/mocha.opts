@@ -1,3 +1,4 @@
+./test/cases/*.js
 --reporter spec
 --require test/setup
 --recursive

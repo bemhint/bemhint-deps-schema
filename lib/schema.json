@@ -1,115 +1,134 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": ["string", "object", "array"],
-    "items": {
-        "type": ["string", "object"],
-        "$ref": "#/definitions/entity"
-    },
-    "$ref": "#/definitions/entity",
+    "$ref": "#/definitions/set",
 
     "definitions": {
+        "set": {
+            "type": ["string", "object", "array"],
+            "switch": [
+                {
+                    "if": { "type": "object" },
+                    "then": { "$ref": "#/definitions/entity" }
+                },
+                {
+                    "if": { "type": "array" },
+                    "then": {
+                        "minItems": 1,
+                        "items": {
+                            "type": ["string", "object"],
+                            "switch": [
+                                {
+                                    "if": { "type": "object" },
+                                    "then": { "$ref": "#/definitions/entity" }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+
         "entity": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": false,
             "properties": {
                 "block": { "type": "string" },
-                "elem": {
-                    "type": ["string", "object", "array"],
-                        "items": {
-                            "type": ["string", "object"],
-                            "$ref": "#/definitions/elemEntity"
-                        },
-                    "$ref": "#/definitions/elemEntity"
-                },
+                "elem": { "$ref": "#/definitions/elemPlainEntity" },
                 "elems": {
                     "type": ["string", "object", "array"],
-                        "items": {
-                            "type": ["string", "object"],
-                            "$ref": "#/definitions/elemEntity"
+                    "switch": [
+                        {
+                            "if": { "type": "object" },
+                            "then": { "$ref": "#/definitions/elemEntity" }
                         },
-                    "$ref": "#/definitions/elemEntity"
+                        {
+                            "if": { "type": "array" },
+                            "then": {
+                                "minItems": 1,
+                                "items": {
+                                    "type": ["string", "object"],
+                                    "switch": [
+                                        {
+                                            "if": { "type": "object" },
+                                            "then": { "$ref": "#/definitions/elemEntity" }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
                 },
                 "mod": { "type": "string" },
-                "val": { "type": ["string", "boolean"] },
+                "val": {
+                    "type": ["string", "boolean"],
+                    "switch": [
+                        {
+                            "if": { "type": "boolean" },
+                            "then": { "enum": [true] }
+                        }
+                    ]
+                },
                 "mods": { "$ref": "#/definitions/modifiers" },
                 "tech": { "type": "string" },
                 "include": { "enum": [false] },
-                "mustDeps": {
-                    "type": ["string", "object", "array"],
-                    "items": {
-                        "type": ["string", "object"],
-                        "$ref": "#/definitions/entity"
-                    },
-                    "$ref": "#/definitions/entity"
-                },
-                "shouldDeps": {
-                    "type": ["string", "object", "array"],
-                    "items": {
-                        "type": ["string", "object"],
-                        "$ref": "#/definitions/entity"
-                    },
-                    "$ref": "#/definitions/entity"
-                },
-                "noDeps": {
-                    "type": ["string", "object", "array"],
-                    "items": {
-                        "type": ["string", "object"],
-                        "$ref": "#/definitions/entity"
-                    },
-                    "$ref": "#/definitions/entity"
-                }
+
+                "noDeps": { "$ref": "#/definitions/set" },
+                "mustDeps": { "$ref": "#/definitions/set" },
+                "shouldDeps": { "$ref": "#/definitions/set" }
             },
             "dependencies": {
-                "elem": { "not": { "required": ["elems"] } },
-                "mod": { "not": { "required": ["mods"] } },
-                "val": { "required": ["mod"] }
-            },
-            "additionalProperties": false
-        },
-        "elemEntity": {
-            "properties": {
                 "elem": {
-                    "type": ["string", "array"],
-                    "items": { "type": "string" }
+                    "not": { "required": ["elems"] }
                 },
+                "mod": {
+                    "not": { "required": ["mods"] }
+                },
+                "val": { "required": ["mod"] }
+            }
+        },
+
+        "elemPlainEntity": {
+            "type": ["string", "array"],
+
+            "minItems": 1,
+            "items": { "type": "string" }
+        },
+
+        "elemEntity": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "elem": { "$ref": "#/definitions/elemPlainEntity" },
                 "mods": { "$ref": "#/definitions/modifiers" },
                 "tech": { "type": "string" },
                 "include": { "enum": [false] },
-                "mustDeps": {
-                    "type": ["string", "object", "array"],
-                    "items": {
-                        "type": ["string", "object"],
-                        "$ref": "#/definitions/entity"
-                    },
-                    "$ref": "#/definitions/entity"
-                },
-                "shouldDeps": {
-                    "type": ["string", "object", "array"],
-                    "items": {
-                        "type": ["string", "object"],
-                        "$ref": "#/definitions/entity"
-                    },
-                    "$ref": "#/definitions/entity"
-                },
-                "noDeps": {
-                    "type": ["string", "object", "array"],
-                    "items": {
-                        "type": ["string", "object"],
-                        "$ref": "#/definitions/entity"
-                    },
-                    "$ref": "#/definitions/entity"
-                }
+
+                "noDeps": { "$ref": "#/definitions/set" },
+                "mustDeps": { "$ref": "#/definitions/set" },
+                "shouldDeps": { "$ref": "#/definitions/set" }
             },
-            "required": ["elem"],
-            "additionalProperties": false
+            "required": ["elem"]
         },
+
         "modifiers": {
             "type": "object",
-            "patternProperties": {
-                "^[^\\s]+$": {
-                    "type": ["string", "boolean", "array"],
-                    "items": { "type": "string" }
-                }
-            },
-            "additionalProperties": false
+            "minProperties": 1,
+            "additionalProperties": {
+                "type": ["boolean", "string", "array"],
+                "switch": [
+                    {
+                        "if": { "type": "boolean" },
+                        "then": { "enum": [true] }
+                    },
+                    {
+                        "if": { "type": "array" },
+                        "then": {
+                            "minItems": 1,
+                            "items": { "type": "string" }
+                        }
+                    }
+                ]
+            }
         }
     }
 }
