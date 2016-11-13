@@ -1,19 +1,18 @@
 'use strict';
 
-const fs = require('fs'),
-    Wrapper = require('../wrapper'),
+const baseSchema = require('../../lib/schema.json'),
     testCases = buildTestCases();
 
-fs.writeFileSync('testcases.json', JSON.stringify(testCases, null, 4));
+dump('testcases.json', testCases);
 
-describe('schema', () => {
+describe('base-schema', () => {
 
     testCases.forEach(data => {
         it(data.title, () => {
             const content = '(' + JSON.stringify(data.obj) + ')',
                 errorCallback = sinon.spy();
 
-            validate(content, errorCallback);
+            validate(baseSchema, content, errorCallback);
 
             if (data.error) {
                 assert.calledOnce(errorCallback);

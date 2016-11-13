@@ -1,6 +1,8 @@
 'use strict';
 
-const chai = require('chai'),
+const fs = require('fs'),
+    chai = require('chai'),
+    loader = require('../lib/loader'),
     validator = require('../lib/validator'),
     formatter = require('../lib/formatter');
 
@@ -11,10 +13,17 @@ global.assert = chai.assert;
 
 sinon.assert.expose(chai.assert, {prefix: ''});
 
+global.loader = loader;
 global.validate = validator;
 
-global.checkMsgFormat = function(title, error, msg) {
+global.Wrapper = require('./wrapper');
+
+global.checkMsgFormat = (title, error, msg) => {
     it(title, function() {
         assert.equal(formatter(error), msg);
     });
+};
+
+global.dump = (fileName, jsonData) => {
+    fs.writeFileSync(fileName, JSON.stringify(jsonData, null, 4));
 };
