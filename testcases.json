@@ -49,38 +49,6 @@
         }
     },
     {
-        "title": "root: single item: can have \"mod\" string field",
-        "obj": {
-            "mod": "color"
-        }
-    },
-    {
-        "title": "root: single item: can have \"val\" string field with \"mod\"",
-        "obj": {
-            "mod": "color",
-            "val": "black"
-        }
-    },
-    {
-        "title": "root: single item: can have \"val\" boolean `true` field",
-        "obj": {
-            "mod": "color",
-            "val": true
-        }
-    },
-    {
-        "title": "root: single item: can have \"tech\" string field",
-        "obj": {
-            "tech": "bemhtml"
-        }
-    },
-    {
-        "title": "root: single item: can have \"include\" boolean `false` field",
-        "obj": {
-            "include": false
-        }
-    },
-    {
         "title": "root: single item: can not be an empty object",
         "obj": {},
         "error": {
@@ -115,41 +83,30 @@
         }
     },
     {
-        "title": "root: single item: \"mod\" field can not be a number",
+        "title": "root: single item: can not have \"elem\" and \"elems\" fields",
         "obj": {
-            "mod": 1234
+            "elem": "test",
+            "elems": "test"
         },
         "error": {
-            "keyword": "type",
-            "params": {
-                "type": "string"
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "elems"
+                ]
             }
         }
     },
     {
-        "title": "root: single item: \"val\" field can not be a number",
+        "title": "root: single item: can have \"tech\" string field",
         "obj": {
-            "mod": "size",
-            "val": 12
-        },
-        "error": {
-            "keyword": "type",
-            "params": {
-                "type": "string,boolean"
-            }
+            "tech": "bemhtml"
         }
     },
     {
-        "title": "root: single item: \"val\" field can not be `false`",
+        "title": "root: single item: can have \"include\" boolean `false` field",
         "obj": {
-            "mod": "size",
-            "val": false
-        },
-        "error": {
-            "keyword": "enum",
-            "schema": [
-                true
-            ]
+            "include": false
         }
     },
     {
@@ -185,50 +142,6 @@
             "keyword": "enum",
             "schema": [
                 false
-            ]
-        }
-    },
-    {
-        "title": "root: single item: can not have \"elem\" and \"elems\" fields",
-        "obj": {
-            "elem": "test",
-            "elems": "test"
-        },
-        "error": {
-            "keyword": "not",
-            "schema": {
-                "required": [
-                    "elems"
-                ]
-            }
-        }
-    },
-    {
-        "title": "root: single item: can not have \"mod\" and \"mods\" fields",
-        "obj": {
-            "mod": "color",
-            "mods": {
-                "size": "s"
-            }
-        },
-        "error": {
-            "keyword": "not",
-            "schema": {
-                "required": [
-                    "mods"
-                ]
-            }
-        }
-    },
-    {
-        "title": "root: single item: can not have \"val\" without \"mod\" fields",
-        "obj": {
-            "val": "red"
-        },
-        "error": {
-            "keyword": "required",
-            "schema": [
-                "mod"
             ]
         }
     },
@@ -327,6 +240,104 @@
         }
     },
     {
+        "title": "root: single item: elems value: single item: can have \"elem\" string field",
+        "obj": {
+            "elems": {
+                "elem": "button"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: single item: can not be an empty object",
+        "obj": {
+            "elems": {}
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: single item: other fields are not allowed",
+        "obj": {
+            "elems": {
+                "elem": "key",
+                "name": "test"
+            }
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: single item: can have \"tech\" string field",
+        "obj": {
+            "elems": {
+                "elem": "button",
+                "tech": "bemhtml"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: single item: can have \"include\" boolean `false` field",
+        "obj": {
+            "elems": {
+                "elem": "button",
+                "include": false
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: single item: \"tech\" field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "button",
+                "tech": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: single item: include can not be a string",
+        "obj": {
+            "elems": {
+                "elem": "button",
+                "include": "yes"
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: single item: elems value: single item: include can not be true",
+        "obj": {
+            "elems": {
+                "elem": "button",
+                "include": true
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
         "title": "root: single item: elems value: single item: elem value: can be a string",
         "obj": {
             "elems": {
@@ -376,56 +387,40 @@
         }
     },
     {
-        "title": "root: single item: elems value: single item: can have \"tech\" string field",
+        "title": "root: single item: elems value: single item: can have \"mod\" string field",
         "obj": {
             "elems": {
-                "elem": "key",
-                "tech": "bemhtml"
+                "elem": "button",
+                "mod": "color"
             }
         }
     },
     {
-        "title": "root: single item: elems value: single item: can have \"include\" boolean `false` field",
+        "title": "root: single item: elems value: single item: can have \"val\" string field with \"mod\"",
         "obj": {
             "elems": {
-                "elem": "key",
-                "include": false
+                "elem": "button",
+                "mod": "color",
+                "val": "black"
             }
         }
     },
     {
-        "title": "root: single item: elems value: single item: can not be an empty object",
+        "title": "root: single item: elems value: single item: can have \"val\" boolean `true` field",
         "obj": {
-            "elems": {}
-        },
-        "error": {
-            "keyword": "required",
-            "params": {
-                "missingProperty": "elem"
+            "elems": {
+                "elem": "button",
+                "mod": "color",
+                "val": true
             }
         }
     },
     {
-        "title": "root: single item: elems value: single item: other fields are not allowed",
+        "title": "root: single item: elems value: single item: \"mod\" field can not be a number",
         "obj": {
             "elems": {
-                "elem": "key",
-                "name": "test"
-            }
-        },
-        "error": {
-            "keyword": "additionalProperties",
-            "params": {
-                "additionalProperty": "name"
-            }
-        }
-    },
-    {
-        "title": "root: single item: elems value: single item: \"tech\" field can not be a number",
-        "obj": {
-            "elems": {
-                "elem": "key",
-                "tech": 1234
+                "elem": "button",
+                "mod": 1234
             }
         },
         "error": {
@@ -436,40 +431,77 @@
         }
     },
     {
-        "title": "root: single item: elems value: single item: include can not be a string",
+        "title": "root: single item: elems value: single item: \"val\" field can not be a number",
         "obj": {
             "elems": {
-                "elem": "key",
-                "include": "yes"
+                "elem": "button",
+                "mod": "size",
+                "val": 12
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: single item: \"val\" field can not be `false`",
+        "obj": {
+            "elems": {
+                "elem": "button",
+                "mod": "size",
+                "val": false
             }
         },
         "error": {
             "keyword": "enum",
             "schema": [
-                false
+                true
             ]
         }
     },
     {
-        "title": "root: single item: elems value: single item: include can not be true",
+        "title": "root: single item: elems value: single item: can not have \"val\" without \"mod\" fields",
         "obj": {
             "elems": {
-                "elem": "key",
-                "include": true
+                "elem": "button",
+                "val": "red"
             }
         },
         "error": {
-            "keyword": "enum",
+            "keyword": "required",
             "schema": [
-                false
+                "mod"
             ]
+        }
+    },
+    {
+        "title": "root: single item: elems value: single item: can not have \"mod\" and \"mods\" fields",
+        "obj": {
+            "elems": {
+                "elem": "button",
+                "mod": "color",
+                "mods": {
+                    "size": "s"
+                }
+            }
+        },
+        "error": {
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "mods"
+                ]
+            }
         }
     },
     {
         "title": "root: single item: elems value: single item: mods value: can have string value",
         "obj": {
             "elems": {
-                "elem": "key",
+                "elem": "button",
                 "mods": {
                     "color": "red"
                 }
@@ -480,7 +512,7 @@
         "title": "root: single item: elems value: single item: mods value: can have `true` value",
         "obj": {
             "elems": {
-                "elem": "key",
+                "elem": "button",
                 "mods": {
                     "color": true
                 }
@@ -491,7 +523,7 @@
         "title": "root: single item: elems value: single item: mods value: can have string array value",
         "obj": {
             "elems": {
-                "elem": "key",
+                "elem": "button",
                 "mods": {
                     "color": [
                         "red",
@@ -505,7 +537,7 @@
         "title": "root: single item: elems value: single item: mods value: can not be an empty object",
         "obj": {
             "elems": {
-                "elem": "key",
+                "elem": "button",
                 "mods": {}
             }
         },
@@ -520,7 +552,7 @@
         "title": "root: single item: elems value: single item: mods value: can not be a number",
         "obj": {
             "elems": {
-                "elem": "key",
+                "elem": "button",
                 "mods": 1234
             }
         },
@@ -535,7 +567,7 @@
         "title": "root: single item: elems value: single item: mods value: can not have `false` value",
         "obj": {
             "elems": {
-                "elem": "key",
+                "elem": "button",
                 "mods": {
                     "color": false
                 }
@@ -552,7 +584,7 @@
         "title": "root: single item: elems value: single item: mods value: can not have number value",
         "obj": {
             "elems": {
-                "elem": "key",
+                "elem": "button",
                 "mods": {
                     "size": 1234
                 }
@@ -569,7 +601,7 @@
         "title": "root: single item: elems value: single item: mods value: can not have number in array value",
         "obj": {
             "elems": {
-                "elem": "key",
+                "elem": "button",
                 "mods": {
                     "size": [
                         1234,
@@ -790,6 +822,120 @@
         }
     },
     {
+        "title": "root: single item: elems value: array item: can have \"elem\" string field",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "button"
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: single item: elems value: array item: can not be an empty object",
+        "obj": {
+            "elems": [
+                {}
+            ]
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: array item: other fields are not allowed",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "key",
+                    "name": "test"
+                }
+            ]
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: array item: can have \"tech\" string field",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "button",
+                    "tech": "bemhtml"
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: single item: elems value: array item: can have \"include\" boolean `false` field",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "button",
+                    "include": false
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: single item: elems value: array item: \"tech\" field can not be a number",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "button",
+                    "tech": 1234
+                }
+            ]
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: array item: include can not be a string",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "button",
+                    "include": "yes"
+                }
+            ]
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: single item: elems value: array item: include can not be true",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "button",
+                    "include": true
+                }
+            ]
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
         "title": "root: single item: elems value: array item: elem value: can be a string",
         "obj": {
             "elems": [
@@ -847,65 +993,47 @@
         }
     },
     {
-        "title": "root: single item: elems value: array item: can have \"tech\" string field",
+        "title": "root: single item: elems value: array item: can have \"mod\" string field",
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
-                    "tech": "bemhtml"
+                    "elem": "button",
+                    "mod": "color"
                 }
             ]
         }
     },
     {
-        "title": "root: single item: elems value: array item: can have \"include\" boolean `false` field",
+        "title": "root: single item: elems value: array item: can have \"val\" string field with \"mod\"",
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
-                    "include": false
+                    "elem": "button",
+                    "mod": "color",
+                    "val": "black"
                 }
             ]
         }
     },
     {
-        "title": "root: single item: elems value: array item: can not be an empty object",
-        "obj": {
-            "elems": [
-                {}
-            ]
-        },
-        "error": {
-            "keyword": "required",
-            "params": {
-                "missingProperty": "elem"
-            }
-        }
-    },
-    {
-        "title": "root: single item: elems value: array item: other fields are not allowed",
+        "title": "root: single item: elems value: array item: can have \"val\" boolean `true` field",
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
-                    "name": "test"
+                    "elem": "button",
+                    "mod": "color",
+                    "val": true
                 }
             ]
-        },
-        "error": {
-            "keyword": "additionalProperties",
-            "params": {
-                "additionalProperty": "name"
-            }
         }
     },
     {
-        "title": "root: single item: elems value: array item: \"tech\" field can not be a number",
+        "title": "root: single item: elems value: array item: \"mod\" field can not be a number",
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
-                    "tech": 1234
+                    "elem": "button",
+                    "mod": 1234
                 }
             ]
         },
@@ -917,37 +1045,78 @@
         }
     },
     {
-        "title": "root: single item: elems value: array item: include can not be a string",
+        "title": "root: single item: elems value: array item: \"val\" field can not be a number",
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
-                    "include": "yes"
+                    "elem": "button",
+                    "mod": "size",
+                    "val": 12
+                }
+            ]
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: array item: \"val\" field can not be `false`",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "button",
+                    "mod": "size",
+                    "val": false
                 }
             ]
         },
         "error": {
             "keyword": "enum",
             "schema": [
-                false
+                true
             ]
         }
     },
     {
-        "title": "root: single item: elems value: array item: include can not be true",
+        "title": "root: single item: elems value: array item: can not have \"val\" without \"mod\" fields",
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
-                    "include": true
+                    "elem": "button",
+                    "val": "red"
                 }
             ]
         },
         "error": {
-            "keyword": "enum",
+            "keyword": "required",
             "schema": [
-                false
+                "mod"
             ]
+        }
+    },
+    {
+        "title": "root: single item: elems value: array item: can not have \"mod\" and \"mods\" fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "button",
+                    "mod": "color",
+                    "mods": {
+                        "size": "s"
+                    }
+                }
+            ]
+        },
+        "error": {
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "mods"
+                ]
+            }
         }
     },
     {
@@ -955,7 +1124,7 @@
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": "red"
                     }
@@ -968,7 +1137,7 @@
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": true
                     }
@@ -981,7 +1150,7 @@
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": [
                             "red",
@@ -997,7 +1166,7 @@
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {}
                 }
             ]
@@ -1014,7 +1183,7 @@
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": 1234
                 }
             ]
@@ -1031,7 +1200,7 @@
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": false
                     }
@@ -1050,7 +1219,7 @@
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "size": 1234
                     }
@@ -1069,7 +1238,7 @@
         "obj": {
             "elems": [
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "size": [
                             1234,
@@ -1321,6 +1490,128 @@
         }
     },
     {
+        "title": "root: single item: elems value: mixed array item: can have \"elem\" string field",
+        "obj": {
+            "elems": [
+                "spin",
+                {
+                    "elem": "button"
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: single item: elems value: mixed array item: can not be an empty object",
+        "obj": {
+            "elems": [
+                "spin",
+                {}
+            ]
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: mixed array item: other fields are not allowed",
+        "obj": {
+            "elems": [
+                "spin",
+                {
+                    "elem": "key",
+                    "name": "test"
+                }
+            ]
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: mixed array item: can have \"tech\" string field",
+        "obj": {
+            "elems": [
+                "spin",
+                {
+                    "elem": "button",
+                    "tech": "bemhtml"
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: single item: elems value: mixed array item: can have \"include\" boolean `false` field",
+        "obj": {
+            "elems": [
+                "spin",
+                {
+                    "elem": "button",
+                    "include": false
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: single item: elems value: mixed array item: \"tech\" field can not be a number",
+        "obj": {
+            "elems": [
+                "spin",
+                {
+                    "elem": "button",
+                    "tech": 1234
+                }
+            ]
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: mixed array item: include can not be a string",
+        "obj": {
+            "elems": [
+                "spin",
+                {
+                    "elem": "button",
+                    "include": "yes"
+                }
+            ]
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: single item: elems value: mixed array item: include can not be true",
+        "obj": {
+            "elems": [
+                "spin",
+                {
+                    "elem": "button",
+                    "include": true
+                }
+            ]
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
         "title": "root: single item: elems value: mixed array item: elem value: can be a string",
         "obj": {
             "elems": [
@@ -1382,70 +1673,51 @@
         }
     },
     {
-        "title": "root: single item: elems value: mixed array item: can have \"tech\" string field",
+        "title": "root: single item: elems value: mixed array item: can have \"mod\" string field",
         "obj": {
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
-                    "tech": "bemhtml"
+                    "elem": "button",
+                    "mod": "color"
                 }
             ]
         }
     },
     {
-        "title": "root: single item: elems value: mixed array item: can have \"include\" boolean `false` field",
+        "title": "root: single item: elems value: mixed array item: can have \"val\" string field with \"mod\"",
         "obj": {
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
-                    "include": false
+                    "elem": "button",
+                    "mod": "color",
+                    "val": "black"
                 }
             ]
         }
     },
     {
-        "title": "root: single item: elems value: mixed array item: can not be an empty object",
-        "obj": {
-            "elems": [
-                "spin",
-                {}
-            ]
-        },
-        "error": {
-            "keyword": "required",
-            "params": {
-                "missingProperty": "elem"
-            }
-        }
-    },
-    {
-        "title": "root: single item: elems value: mixed array item: other fields are not allowed",
+        "title": "root: single item: elems value: mixed array item: can have \"val\" boolean `true` field",
         "obj": {
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
-                    "name": "test"
+                    "elem": "button",
+                    "mod": "color",
+                    "val": true
                 }
             ]
-        },
-        "error": {
-            "keyword": "additionalProperties",
-            "params": {
-                "additionalProperty": "name"
-            }
         }
     },
     {
-        "title": "root: single item: elems value: mixed array item: \"tech\" field can not be a number",
+        "title": "root: single item: elems value: mixed array item: \"mod\" field can not be a number",
         "obj": {
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
-                    "tech": 1234
+                    "elem": "button",
+                    "mod": 1234
                 }
             ]
         },
@@ -1457,39 +1729,82 @@
         }
     },
     {
-        "title": "root: single item: elems value: mixed array item: include can not be a string",
+        "title": "root: single item: elems value: mixed array item: \"val\" field can not be a number",
         "obj": {
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
-                    "include": "yes"
+                    "elem": "button",
+                    "mod": "size",
+                    "val": 12
+                }
+            ]
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: single item: elems value: mixed array item: \"val\" field can not be `false`",
+        "obj": {
+            "elems": [
+                "spin",
+                {
+                    "elem": "button",
+                    "mod": "size",
+                    "val": false
                 }
             ]
         },
         "error": {
             "keyword": "enum",
             "schema": [
-                false
+                true
             ]
         }
     },
     {
-        "title": "root: single item: elems value: mixed array item: include can not be true",
+        "title": "root: single item: elems value: mixed array item: can not have \"val\" without \"mod\" fields",
         "obj": {
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
-                    "include": true
+                    "elem": "button",
+                    "val": "red"
                 }
             ]
         },
         "error": {
-            "keyword": "enum",
+            "keyword": "required",
             "schema": [
-                false
+                "mod"
             ]
+        }
+    },
+    {
+        "title": "root: single item: elems value: mixed array item: can not have \"mod\" and \"mods\" fields",
+        "obj": {
+            "elems": [
+                "spin",
+                {
+                    "elem": "button",
+                    "mod": "color",
+                    "mods": {
+                        "size": "s"
+                    }
+                }
+            ]
+        },
+        "error": {
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "mods"
+                ]
+            }
         }
     },
     {
@@ -1498,7 +1813,7 @@
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": "red"
                     }
@@ -1512,7 +1827,7 @@
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": true
                     }
@@ -1526,7 +1841,7 @@
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": [
                             "red",
@@ -1543,7 +1858,7 @@
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {}
                 }
             ]
@@ -1561,7 +1876,7 @@
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": 1234
                 }
             ]
@@ -1579,7 +1894,7 @@
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": false
                     }
@@ -1599,7 +1914,7 @@
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "size": 1234
                     }
@@ -1619,7 +1934,7 @@
             "elems": [
                 "spin",
                 {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "size": [
                             1234,
@@ -1882,6 +2197,93 @@
             "keyword": "minItems",
             "params": {
                 "limit": 1
+            }
+        }
+    },
+    {
+        "title": "root: single item: can have \"mod\" string field",
+        "obj": {
+            "mod": "color"
+        }
+    },
+    {
+        "title": "root: single item: can have \"val\" string field with \"mod\"",
+        "obj": {
+            "mod": "color",
+            "val": "black"
+        }
+    },
+    {
+        "title": "root: single item: can have \"val\" boolean `true` field",
+        "obj": {
+            "mod": "color",
+            "val": true
+        }
+    },
+    {
+        "title": "root: single item: \"mod\" field can not be a number",
+        "obj": {
+            "mod": 1234
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: single item: \"val\" field can not be a number",
+        "obj": {
+            "mod": "size",
+            "val": 12
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: single item: \"val\" field can not be `false`",
+        "obj": {
+            "mod": "size",
+            "val": false
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: single item: can not have \"val\" without \"mod\" fields",
+        "obj": {
+            "val": "red"
+        },
+        "error": {
+            "keyword": "required",
+            "schema": [
+                "mod"
+            ]
+        }
+    },
+    {
+        "title": "root: single item: can not have \"mod\" and \"mods\" fields",
+        "obj": {
+            "mod": "color",
+            "mods": {
+                "size": "s"
+            }
+        },
+        "error": {
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "mods"
+                ]
             }
         }
     },
@@ -2149,48 +2551,6 @@
         ]
     },
     {
-        "title": "root: array item: can have \"mod\" string field",
-        "obj": [
-            {
-                "mod": "color"
-            }
-        ]
-    },
-    {
-        "title": "root: array item: can have \"val\" string field with \"mod\"",
-        "obj": [
-            {
-                "mod": "color",
-                "val": "black"
-            }
-        ]
-    },
-    {
-        "title": "root: array item: can have \"val\" boolean `true` field",
-        "obj": [
-            {
-                "mod": "color",
-                "val": true
-            }
-        ]
-    },
-    {
-        "title": "root: array item: can have \"tech\" string field",
-        "obj": [
-            {
-                "tech": "bemhtml"
-            }
-        ]
-    },
-    {
-        "title": "root: array item: can have \"include\" boolean `false` field",
-        "obj": [
-            {
-                "include": false
-            }
-        ]
-    },
-    {
         "title": "root: array item: can not be an empty object",
         "obj": [
             {}
@@ -2231,48 +2591,37 @@
         }
     },
     {
-        "title": "root: array item: \"mod\" field can not be a number",
+        "title": "root: array item: can not have \"elem\" and \"elems\" fields",
         "obj": [
             {
-                "mod": 1234
+                "elem": "test",
+                "elems": "test"
             }
         ],
         "error": {
-            "keyword": "type",
-            "params": {
-                "type": "string"
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "elems"
+                ]
             }
         }
     },
     {
-        "title": "root: array item: \"val\" field can not be a number",
+        "title": "root: array item: can have \"tech\" string field",
         "obj": [
             {
-                "mod": "size",
-                "val": 12
+                "tech": "bemhtml"
             }
-        ],
-        "error": {
-            "keyword": "type",
-            "params": {
-                "type": "string,boolean"
-            }
-        }
+        ]
     },
     {
-        "title": "root: array item: \"val\" field can not be `false`",
+        "title": "root: array item: can have \"include\" boolean `false` field",
         "obj": [
             {
-                "mod": "size",
-                "val": false
+                "include": false
             }
-        ],
-        "error": {
-            "keyword": "enum",
-            "schema": [
-                true
-            ]
-        }
+        ]
     },
     {
         "title": "root: array item: \"tech\" field can not be a number",
@@ -2313,56 +2662,6 @@
             "keyword": "enum",
             "schema": [
                 false
-            ]
-        }
-    },
-    {
-        "title": "root: array item: can not have \"elem\" and \"elems\" fields",
-        "obj": [
-            {
-                "elem": "test",
-                "elems": "test"
-            }
-        ],
-        "error": {
-            "keyword": "not",
-            "schema": {
-                "required": [
-                    "elems"
-                ]
-            }
-        }
-    },
-    {
-        "title": "root: array item: can not have \"mod\" and \"mods\" fields",
-        "obj": [
-            {
-                "mod": "color",
-                "mods": {
-                    "size": "s"
-                }
-            }
-        ],
-        "error": {
-            "keyword": "not",
-            "schema": {
-                "required": [
-                    "mods"
-                ]
-            }
-        }
-    },
-    {
-        "title": "root: array item: can not have \"val\" without \"mod\" fields",
-        "obj": [
-            {
-                "val": "red"
-            }
-        ],
-        "error": {
-            "keyword": "required",
-            "schema": [
-                "mod"
             ]
         }
     },
@@ -2479,6 +2778,120 @@
         }
     },
     {
+        "title": "root: array item: elems value: single item: can have \"elem\" string field",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "button"
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: array item: elems value: single item: can not be an empty object",
+        "obj": [
+            {
+                "elems": {}
+            }
+        ],
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: array item: elems value: single item: other fields are not allowed",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "key",
+                    "name": "test"
+                }
+            }
+        ],
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: array item: elems value: single item: can have \"tech\" string field",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "button",
+                    "tech": "bemhtml"
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: array item: elems value: single item: can have \"include\" boolean `false` field",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "button",
+                    "include": false
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: array item: elems value: single item: \"tech\" field can not be a number",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "button",
+                    "tech": 1234
+                }
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: array item: elems value: single item: include can not be a string",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "button",
+                    "include": "yes"
+                }
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: array item: elems value: single item: include can not be true",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "button",
+                    "include": true
+                }
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
         "title": "root: array item: elems value: single item: elem value: can be a string",
         "obj": [
             {
@@ -2536,65 +2949,47 @@
         }
     },
     {
-        "title": "root: array item: elems value: single item: can have \"tech\" string field",
+        "title": "root: array item: elems value: single item: can have \"mod\" string field",
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
-                    "tech": "bemhtml"
+                    "elem": "button",
+                    "mod": "color"
                 }
             }
         ]
     },
     {
-        "title": "root: array item: elems value: single item: can have \"include\" boolean `false` field",
+        "title": "root: array item: elems value: single item: can have \"val\" string field with \"mod\"",
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
-                    "include": false
+                    "elem": "button",
+                    "mod": "color",
+                    "val": "black"
                 }
             }
         ]
     },
     {
-        "title": "root: array item: elems value: single item: can not be an empty object",
-        "obj": [
-            {
-                "elems": {}
-            }
-        ],
-        "error": {
-            "keyword": "required",
-            "params": {
-                "missingProperty": "elem"
-            }
-        }
-    },
-    {
-        "title": "root: array item: elems value: single item: other fields are not allowed",
+        "title": "root: array item: elems value: single item: can have \"val\" boolean `true` field",
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
-                    "name": "test"
+                    "elem": "button",
+                    "mod": "color",
+                    "val": true
                 }
             }
-        ],
-        "error": {
-            "keyword": "additionalProperties",
-            "params": {
-                "additionalProperty": "name"
-            }
-        }
+        ]
     },
     {
-        "title": "root: array item: elems value: single item: \"tech\" field can not be a number",
+        "title": "root: array item: elems value: single item: \"mod\" field can not be a number",
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
-                    "tech": 1234
+                    "elem": "button",
+                    "mod": 1234
                 }
             }
         ],
@@ -2606,37 +3001,78 @@
         }
     },
     {
-        "title": "root: array item: elems value: single item: include can not be a string",
+        "title": "root: array item: elems value: single item: \"val\" field can not be a number",
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
-                    "include": "yes"
+                    "elem": "button",
+                    "mod": "size",
+                    "val": 12
+                }
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: array item: elems value: single item: \"val\" field can not be `false`",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "button",
+                    "mod": "size",
+                    "val": false
                 }
             }
         ],
         "error": {
             "keyword": "enum",
             "schema": [
-                false
+                true
             ]
         }
     },
     {
-        "title": "root: array item: elems value: single item: include can not be true",
+        "title": "root: array item: elems value: single item: can not have \"val\" without \"mod\" fields",
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
-                    "include": true
+                    "elem": "button",
+                    "val": "red"
                 }
             }
         ],
         "error": {
-            "keyword": "enum",
+            "keyword": "required",
             "schema": [
-                false
+                "mod"
             ]
+        }
+    },
+    {
+        "title": "root: array item: elems value: single item: can not have \"mod\" and \"mods\" fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "button",
+                    "mod": "color",
+                    "mods": {
+                        "size": "s"
+                    }
+                }
+            }
+        ],
+        "error": {
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "mods"
+                ]
+            }
         }
     },
     {
@@ -2644,7 +3080,7 @@
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": "red"
                     }
@@ -2657,7 +3093,7 @@
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": true
                     }
@@ -2670,7 +3106,7 @@
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": [
                             "red",
@@ -2686,7 +3122,7 @@
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {}
                 }
             }
@@ -2703,7 +3139,7 @@
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": 1234
                 }
             }
@@ -2720,7 +3156,7 @@
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": false
                     }
@@ -2739,7 +3175,7 @@
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "size": 1234
                     }
@@ -2758,7 +3194,7 @@
         "obj": [
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "size": [
                             1234,
@@ -3010,6 +3446,136 @@
         }
     },
     {
+        "title": "root: array item: elems value: array item: can have \"elem\" string field",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: array item: elems value: array item: can not be an empty object",
+        "obj": [
+            {
+                "elems": [
+                    {}
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: array item: elems value: array item: other fields are not allowed",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "key",
+                        "name": "test"
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: array item: elems value: array item: can have \"tech\" string field",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "tech": "bemhtml"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: array item: elems value: array item: can have \"include\" boolean `false` field",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "include": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: array item: elems value: array item: \"tech\" field can not be a number",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "tech": 1234
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: array item: elems value: array item: include can not be a string",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "include": "yes"
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: array item: elems value: array item: include can not be true",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "include": true
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
         "title": "root: array item: elems value: array item: elem value: can be a string",
         "obj": [
             {
@@ -3075,74 +3641,54 @@
         }
     },
     {
-        "title": "root: array item: elems value: array item: can have \"tech\" string field",
+        "title": "root: array item: elems value: array item: can have \"mod\" string field",
         "obj": [
             {
                 "elems": [
                     {
-                        "elem": "key",
-                        "tech": "bemhtml"
+                        "elem": "button",
+                        "mod": "color"
                     }
                 ]
             }
         ]
     },
     {
-        "title": "root: array item: elems value: array item: can have \"include\" boolean `false` field",
+        "title": "root: array item: elems value: array item: can have \"val\" string field with \"mod\"",
         "obj": [
             {
                 "elems": [
                     {
-                        "elem": "key",
-                        "include": false
+                        "elem": "button",
+                        "mod": "color",
+                        "val": "black"
                     }
                 ]
             }
         ]
     },
     {
-        "title": "root: array item: elems value: array item: can not be an empty object",
-        "obj": [
-            {
-                "elems": [
-                    {}
-                ]
-            }
-        ],
-        "error": {
-            "keyword": "required",
-            "params": {
-                "missingProperty": "elem"
-            }
-        }
-    },
-    {
-        "title": "root: array item: elems value: array item: other fields are not allowed",
+        "title": "root: array item: elems value: array item: can have \"val\" boolean `true` field",
         "obj": [
             {
                 "elems": [
                     {
-                        "elem": "key",
-                        "name": "test"
+                        "elem": "button",
+                        "mod": "color",
+                        "val": true
                     }
                 ]
             }
-        ],
-        "error": {
-            "keyword": "additionalProperties",
-            "params": {
-                "additionalProperty": "name"
-            }
-        }
+        ]
     },
     {
-        "title": "root: array item: elems value: array item: \"tech\" field can not be a number",
+        "title": "root: array item: elems value: array item: \"mod\" field can not be a number",
         "obj": [
             {
                 "elems": [
                     {
-                        "elem": "key",
-                        "tech": 1234
+                        "elem": "button",
+                        "mod": 1234
                     }
                 ]
             }
@@ -3155,13 +3701,34 @@
         }
     },
     {
-        "title": "root: array item: elems value: array item: include can not be a string",
+        "title": "root: array item: elems value: array item: \"val\" field can not be a number",
         "obj": [
             {
                 "elems": [
                     {
-                        "elem": "key",
-                        "include": "yes"
+                        "elem": "button",
+                        "mod": "size",
+                        "val": 12
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: array item: elems value: array item: \"val\" field can not be `false`",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "mod": "size",
+                        "val": false
                     }
                 ]
             }
@@ -3169,27 +3736,51 @@
         "error": {
             "keyword": "enum",
             "schema": [
-                false
+                true
             ]
         }
     },
     {
-        "title": "root: array item: elems value: array item: include can not be true",
+        "title": "root: array item: elems value: array item: can not have \"val\" without \"mod\" fields",
         "obj": [
             {
                 "elems": [
                     {
-                        "elem": "key",
-                        "include": true
+                        "elem": "button",
+                        "val": "red"
                     }
                 ]
             }
         ],
         "error": {
-            "keyword": "enum",
+            "keyword": "required",
             "schema": [
-                false
+                "mod"
             ]
+        }
+    },
+    {
+        "title": "root: array item: elems value: array item: can not have \"mod\" and \"mods\" fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "mod": "color",
+                        "mods": {
+                            "size": "s"
+                        }
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "mods"
+                ]
+            }
         }
     },
     {
@@ -3198,7 +3789,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": "red"
                         }
@@ -3213,7 +3804,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": true
                         }
@@ -3228,7 +3819,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": [
                                 "red",
@@ -3246,7 +3837,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {}
                     }
                 ]
@@ -3265,7 +3856,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": 1234
                     }
                 ]
@@ -3284,7 +3875,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": false
                         }
@@ -3305,7 +3896,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "size": 1234
                         }
@@ -3326,7 +3917,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "size": [
                                 1234,
@@ -3609,6 +4200,144 @@
         }
     },
     {
+        "title": "root: array item: elems value: mixed array item: can have \"elem\" string field",
+        "obj": [
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: array item: elems value: mixed array item: can not be an empty object",
+        "obj": [
+            {
+                "elems": [
+                    "spin",
+                    {}
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: array item: elems value: mixed array item: other fields are not allowed",
+        "obj": [
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "key",
+                        "name": "test"
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: array item: elems value: mixed array item: can have \"tech\" string field",
+        "obj": [
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "tech": "bemhtml"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: array item: elems value: mixed array item: can have \"include\" boolean `false` field",
+        "obj": [
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "include": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: array item: elems value: mixed array item: \"tech\" field can not be a number",
+        "obj": [
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "tech": 1234
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: array item: elems value: mixed array item: include can not be a string",
+        "obj": [
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "include": "yes"
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: array item: elems value: mixed array item: include can not be true",
+        "obj": [
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "include": true
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
         "title": "root: array item: elems value: mixed array item: elem value: can be a string",
         "obj": [
             {
@@ -3678,79 +4407,58 @@
         }
     },
     {
-        "title": "root: array item: elems value: mixed array item: can have \"tech\" string field",
+        "title": "root: array item: elems value: mixed array item: can have \"mod\" string field",
         "obj": [
             {
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
-                        "tech": "bemhtml"
+                        "elem": "button",
+                        "mod": "color"
                     }
                 ]
             }
         ]
     },
     {
-        "title": "root: array item: elems value: mixed array item: can have \"include\" boolean `false` field",
+        "title": "root: array item: elems value: mixed array item: can have \"val\" string field with \"mod\"",
         "obj": [
             {
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
-                        "include": false
+                        "elem": "button",
+                        "mod": "color",
+                        "val": "black"
                     }
                 ]
             }
         ]
     },
     {
-        "title": "root: array item: elems value: mixed array item: can not be an empty object",
-        "obj": [
-            {
-                "elems": [
-                    "spin",
-                    {}
-                ]
-            }
-        ],
-        "error": {
-            "keyword": "required",
-            "params": {
-                "missingProperty": "elem"
-            }
-        }
-    },
-    {
-        "title": "root: array item: elems value: mixed array item: other fields are not allowed",
+        "title": "root: array item: elems value: mixed array item: can have \"val\" boolean `true` field",
         "obj": [
             {
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
-                        "name": "test"
+                        "elem": "button",
+                        "mod": "color",
+                        "val": true
                     }
                 ]
             }
-        ],
-        "error": {
-            "keyword": "additionalProperties",
-            "params": {
-                "additionalProperty": "name"
-            }
-        }
+        ]
     },
     {
-        "title": "root: array item: elems value: mixed array item: \"tech\" field can not be a number",
+        "title": "root: array item: elems value: mixed array item: \"mod\" field can not be a number",
         "obj": [
             {
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
-                        "tech": 1234
+                        "elem": "button",
+                        "mod": 1234
                     }
                 ]
             }
@@ -3763,14 +4471,36 @@
         }
     },
     {
-        "title": "root: array item: elems value: mixed array item: include can not be a string",
+        "title": "root: array item: elems value: mixed array item: \"val\" field can not be a number",
         "obj": [
             {
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
-                        "include": "yes"
+                        "elem": "button",
+                        "mod": "size",
+                        "val": 12
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: array item: elems value: mixed array item: \"val\" field can not be `false`",
+        "obj": [
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "mod": "size",
+                        "val": false
                     }
                 ]
             }
@@ -3778,28 +4508,53 @@
         "error": {
             "keyword": "enum",
             "schema": [
-                false
+                true
             ]
         }
     },
     {
-        "title": "root: array item: elems value: mixed array item: include can not be true",
+        "title": "root: array item: elems value: mixed array item: can not have \"val\" without \"mod\" fields",
         "obj": [
             {
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
-                        "include": true
+                        "elem": "button",
+                        "val": "red"
                     }
                 ]
             }
         ],
         "error": {
-            "keyword": "enum",
+            "keyword": "required",
             "schema": [
-                false
+                "mod"
             ]
+        }
+    },
+    {
+        "title": "root: array item: elems value: mixed array item: can not have \"mod\" and \"mods\" fields",
+        "obj": [
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "mod": "color",
+                        "mods": {
+                            "size": "s"
+                        }
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "mods"
+                ]
+            }
         }
     },
     {
@@ -3809,7 +4564,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": "red"
                         }
@@ -3825,7 +4580,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": true
                         }
@@ -3841,7 +4596,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": [
                                 "red",
@@ -3860,7 +4615,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {}
                     }
                 ]
@@ -3880,7 +4635,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": 1234
                     }
                 ]
@@ -3900,7 +4655,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": false
                         }
@@ -3922,7 +4677,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "size": 1234
                         }
@@ -3944,7 +4699,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "size": [
                                 1234,
@@ -4238,6 +4993,109 @@
             "keyword": "minItems",
             "params": {
                 "limit": 1
+            }
+        }
+    },
+    {
+        "title": "root: array item: can have \"mod\" string field",
+        "obj": [
+            {
+                "mod": "color"
+            }
+        ]
+    },
+    {
+        "title": "root: array item: can have \"val\" string field with \"mod\"",
+        "obj": [
+            {
+                "mod": "color",
+                "val": "black"
+            }
+        ]
+    },
+    {
+        "title": "root: array item: can have \"val\" boolean `true` field",
+        "obj": [
+            {
+                "mod": "color",
+                "val": true
+            }
+        ]
+    },
+    {
+        "title": "root: array item: \"mod\" field can not be a number",
+        "obj": [
+            {
+                "mod": 1234
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: array item: \"val\" field can not be a number",
+        "obj": [
+            {
+                "mod": "size",
+                "val": 12
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: array item: \"val\" field can not be `false`",
+        "obj": [
+            {
+                "mod": "size",
+                "val": false
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: array item: can not have \"val\" without \"mod\" fields",
+        "obj": [
+            {
+                "val": "red"
+            }
+        ],
+        "error": {
+            "keyword": "required",
+            "schema": [
+                "mod"
+            ]
+        }
+    },
+    {
+        "title": "root: array item: can not have \"mod\" and \"mods\" fields",
+        "obj": [
+            {
+                "mod": "color",
+                "mods": {
+                    "size": "s"
+                }
+            }
+        ],
+        "error": {
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "mods"
+                ]
             }
         }
     },
@@ -4552,53 +5410,6 @@
         ]
     },
     {
-        "title": "root: mixed array item: can have \"mod\" string field",
-        "obj": [
-            "input",
-            {
-                "mod": "color"
-            }
-        ]
-    },
-    {
-        "title": "root: mixed array item: can have \"val\" string field with \"mod\"",
-        "obj": [
-            "input",
-            {
-                "mod": "color",
-                "val": "black"
-            }
-        ]
-    },
-    {
-        "title": "root: mixed array item: can have \"val\" boolean `true` field",
-        "obj": [
-            "input",
-            {
-                "mod": "color",
-                "val": true
-            }
-        ]
-    },
-    {
-        "title": "root: mixed array item: can have \"tech\" string field",
-        "obj": [
-            "input",
-            {
-                "tech": "bemhtml"
-            }
-        ]
-    },
-    {
-        "title": "root: mixed array item: can have \"include\" boolean `false` field",
-        "obj": [
-            "input",
-            {
-                "include": false
-            }
-        ]
-    },
-    {
         "title": "root: mixed array item: can not be an empty object",
         "obj": [
             "input",
@@ -4642,51 +5453,40 @@
         }
     },
     {
-        "title": "root: mixed array item: \"mod\" field can not be a number",
+        "title": "root: mixed array item: can not have \"elem\" and \"elems\" fields",
         "obj": [
             "input",
             {
-                "mod": 1234
+                "elem": "test",
+                "elems": "test"
             }
         ],
         "error": {
-            "keyword": "type",
-            "params": {
-                "type": "string"
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "elems"
+                ]
             }
         }
     },
     {
-        "title": "root: mixed array item: \"val\" field can not be a number",
+        "title": "root: mixed array item: can have \"tech\" string field",
         "obj": [
             "input",
             {
-                "mod": "size",
-                "val": 12
+                "tech": "bemhtml"
             }
-        ],
-        "error": {
-            "keyword": "type",
-            "params": {
-                "type": "string,boolean"
-            }
-        }
+        ]
     },
     {
-        "title": "root: mixed array item: \"val\" field can not be `false`",
+        "title": "root: mixed array item: can have \"include\" boolean `false` field",
         "obj": [
             "input",
             {
-                "mod": "size",
-                "val": false
+                "include": false
             }
-        ],
-        "error": {
-            "keyword": "enum",
-            "schema": [
-                true
-            ]
-        }
+        ]
     },
     {
         "title": "root: mixed array item: \"tech\" field can not be a number",
@@ -4730,59 +5530,6 @@
             "keyword": "enum",
             "schema": [
                 false
-            ]
-        }
-    },
-    {
-        "title": "root: mixed array item: can not have \"elem\" and \"elems\" fields",
-        "obj": [
-            "input",
-            {
-                "elem": "test",
-                "elems": "test"
-            }
-        ],
-        "error": {
-            "keyword": "not",
-            "schema": {
-                "required": [
-                    "elems"
-                ]
-            }
-        }
-    },
-    {
-        "title": "root: mixed array item: can not have \"mod\" and \"mods\" fields",
-        "obj": [
-            "input",
-            {
-                "mod": "color",
-                "mods": {
-                    "size": "s"
-                }
-            }
-        ],
-        "error": {
-            "keyword": "not",
-            "schema": {
-                "required": [
-                    "mods"
-                ]
-            }
-        }
-    },
-    {
-        "title": "root: mixed array item: can not have \"val\" without \"mod\" fields",
-        "obj": [
-            "input",
-            {
-                "val": "red"
-            }
-        ],
-        "error": {
-            "keyword": "required",
-            "schema": [
-                "mod"
             ]
         }
     },
@@ -4908,6 +5655,128 @@
         }
     },
     {
+        "title": "root: mixed array item: elems value: single item: can have \"elem\" string field",
+        "obj": [
+            "input",
+            {
+                "elems": {
+                    "elem": "button"
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: mixed array item: elems value: single item: can not be an empty object",
+        "obj": [
+            "input",
+            {
+                "elems": {}
+            }
+        ],
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: single item: other fields are not allowed",
+        "obj": [
+            "input",
+            {
+                "elems": {
+                    "elem": "key",
+                    "name": "test"
+                }
+            }
+        ],
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: single item: can have \"tech\" string field",
+        "obj": [
+            "input",
+            {
+                "elems": {
+                    "elem": "button",
+                    "tech": "bemhtml"
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: mixed array item: elems value: single item: can have \"include\" boolean `false` field",
+        "obj": [
+            "input",
+            {
+                "elems": {
+                    "elem": "button",
+                    "include": false
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: mixed array item: elems value: single item: \"tech\" field can not be a number",
+        "obj": [
+            "input",
+            {
+                "elems": {
+                    "elem": "button",
+                    "tech": 1234
+                }
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: single item: include can not be a string",
+        "obj": [
+            "input",
+            {
+                "elems": {
+                    "elem": "button",
+                    "include": "yes"
+                }
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: single item: include can not be true",
+        "obj": [
+            "input",
+            {
+                "elems": {
+                    "elem": "button",
+                    "include": true
+                }
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
         "title": "root: mixed array item: elems value: single item: elem value: can be a string",
         "obj": [
             "input",
@@ -4969,70 +5838,51 @@
         }
     },
     {
-        "title": "root: mixed array item: elems value: single item: can have \"tech\" string field",
+        "title": "root: mixed array item: elems value: single item: can have \"mod\" string field",
         "obj": [
             "input",
             {
                 "elems": {
-                    "elem": "key",
-                    "tech": "bemhtml"
+                    "elem": "button",
+                    "mod": "color"
                 }
             }
         ]
     },
     {
-        "title": "root: mixed array item: elems value: single item: can have \"include\" boolean `false` field",
+        "title": "root: mixed array item: elems value: single item: can have \"val\" string field with \"mod\"",
         "obj": [
             "input",
             {
                 "elems": {
-                    "elem": "key",
-                    "include": false
+                    "elem": "button",
+                    "mod": "color",
+                    "val": "black"
                 }
             }
         ]
     },
     {
-        "title": "root: mixed array item: elems value: single item: can not be an empty object",
-        "obj": [
-            "input",
-            {
-                "elems": {}
-            }
-        ],
-        "error": {
-            "keyword": "required",
-            "params": {
-                "missingProperty": "elem"
-            }
-        }
-    },
-    {
-        "title": "root: mixed array item: elems value: single item: other fields are not allowed",
+        "title": "root: mixed array item: elems value: single item: can have \"val\" boolean `true` field",
         "obj": [
             "input",
             {
                 "elems": {
-                    "elem": "key",
-                    "name": "test"
+                    "elem": "button",
+                    "mod": "color",
+                    "val": true
                 }
             }
-        ],
-        "error": {
-            "keyword": "additionalProperties",
-            "params": {
-                "additionalProperty": "name"
-            }
-        }
+        ]
     },
     {
-        "title": "root: mixed array item: elems value: single item: \"tech\" field can not be a number",
+        "title": "root: mixed array item: elems value: single item: \"mod\" field can not be a number",
         "obj": [
             "input",
             {
                 "elems": {
-                    "elem": "key",
-                    "tech": 1234
+                    "elem": "button",
+                    "mod": 1234
                 }
             }
         ],
@@ -5044,39 +5894,82 @@
         }
     },
     {
-        "title": "root: mixed array item: elems value: single item: include can not be a string",
+        "title": "root: mixed array item: elems value: single item: \"val\" field can not be a number",
         "obj": [
             "input",
             {
                 "elems": {
-                    "elem": "key",
-                    "include": "yes"
+                    "elem": "button",
+                    "mod": "size",
+                    "val": 12
+                }
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: single item: \"val\" field can not be `false`",
+        "obj": [
+            "input",
+            {
+                "elems": {
+                    "elem": "button",
+                    "mod": "size",
+                    "val": false
                 }
             }
         ],
         "error": {
             "keyword": "enum",
             "schema": [
-                false
+                true
             ]
         }
     },
     {
-        "title": "root: mixed array item: elems value: single item: include can not be true",
+        "title": "root: mixed array item: elems value: single item: can not have \"val\" without \"mod\" fields",
         "obj": [
             "input",
             {
                 "elems": {
-                    "elem": "key",
-                    "include": true
+                    "elem": "button",
+                    "val": "red"
                 }
             }
         ],
         "error": {
-            "keyword": "enum",
+            "keyword": "required",
             "schema": [
-                false
+                "mod"
             ]
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: single item: can not have \"mod\" and \"mods\" fields",
+        "obj": [
+            "input",
+            {
+                "elems": {
+                    "elem": "button",
+                    "mod": "color",
+                    "mods": {
+                        "size": "s"
+                    }
+                }
+            }
+        ],
+        "error": {
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "mods"
+                ]
+            }
         }
     },
     {
@@ -5085,7 +5978,7 @@
             "input",
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": "red"
                     }
@@ -5099,7 +5992,7 @@
             "input",
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": true
                     }
@@ -5113,7 +6006,7 @@
             "input",
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": [
                             "red",
@@ -5130,7 +6023,7 @@
             "input",
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {}
                 }
             }
@@ -5148,7 +6041,7 @@
             "input",
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": 1234
                 }
             }
@@ -5166,7 +6059,7 @@
             "input",
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "color": false
                     }
@@ -5186,7 +6079,7 @@
             "input",
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "size": 1234
                     }
@@ -5206,7 +6099,7 @@
             "input",
             {
                 "elems": {
-                    "elem": "key",
+                    "elem": "button",
                     "mods": {
                         "size": [
                             1234,
@@ -5473,6 +6366,144 @@
         }
     },
     {
+        "title": "root: mixed array item: elems value: array item: can have \"elem\" string field",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    {
+                        "elem": "button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: mixed array item: elems value: array item: can not be an empty object",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    {}
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: array item: other fields are not allowed",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    {
+                        "elem": "key",
+                        "name": "test"
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: array item: can have \"tech\" string field",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "tech": "bemhtml"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: mixed array item: elems value: array item: can have \"include\" boolean `false` field",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "include": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: mixed array item: elems value: array item: \"tech\" field can not be a number",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "tech": 1234
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: array item: include can not be a string",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "include": "yes"
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: array item: include can not be true",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "include": true
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
         "title": "root: mixed array item: elems value: array item: elem value: can be a string",
         "obj": [
             "input",
@@ -5542,79 +6573,58 @@
         }
     },
     {
-        "title": "root: mixed array item: elems value: array item: can have \"tech\" string field",
+        "title": "root: mixed array item: elems value: array item: can have \"mod\" string field",
         "obj": [
             "input",
             {
                 "elems": [
                     {
-                        "elem": "key",
-                        "tech": "bemhtml"
+                        "elem": "button",
+                        "mod": "color"
                     }
                 ]
             }
         ]
     },
     {
-        "title": "root: mixed array item: elems value: array item: can have \"include\" boolean `false` field",
+        "title": "root: mixed array item: elems value: array item: can have \"val\" string field with \"mod\"",
         "obj": [
             "input",
             {
                 "elems": [
                     {
-                        "elem": "key",
-                        "include": false
+                        "elem": "button",
+                        "mod": "color",
+                        "val": "black"
                     }
                 ]
             }
         ]
     },
     {
-        "title": "root: mixed array item: elems value: array item: can not be an empty object",
-        "obj": [
-            "input",
-            {
-                "elems": [
-                    {}
-                ]
-            }
-        ],
-        "error": {
-            "keyword": "required",
-            "params": {
-                "missingProperty": "elem"
-            }
-        }
-    },
-    {
-        "title": "root: mixed array item: elems value: array item: other fields are not allowed",
+        "title": "root: mixed array item: elems value: array item: can have \"val\" boolean `true` field",
         "obj": [
             "input",
             {
                 "elems": [
                     {
-                        "elem": "key",
-                        "name": "test"
+                        "elem": "button",
+                        "mod": "color",
+                        "val": true
                     }
                 ]
             }
-        ],
-        "error": {
-            "keyword": "additionalProperties",
-            "params": {
-                "additionalProperty": "name"
-            }
-        }
+        ]
     },
     {
-        "title": "root: mixed array item: elems value: array item: \"tech\" field can not be a number",
+        "title": "root: mixed array item: elems value: array item: \"mod\" field can not be a number",
         "obj": [
             "input",
             {
                 "elems": [
                     {
-                        "elem": "key",
-                        "tech": 1234
+                        "elem": "button",
+                        "mod": 1234
                     }
                 ]
             }
@@ -5627,14 +6637,36 @@
         }
     },
     {
-        "title": "root: mixed array item: elems value: array item: include can not be a string",
+        "title": "root: mixed array item: elems value: array item: \"val\" field can not be a number",
         "obj": [
             "input",
             {
                 "elems": [
                     {
-                        "elem": "key",
-                        "include": "yes"
+                        "elem": "button",
+                        "mod": "size",
+                        "val": 12
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: array item: \"val\" field can not be `false`",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "mod": "size",
+                        "val": false
                     }
                 ]
             }
@@ -5642,28 +6674,53 @@
         "error": {
             "keyword": "enum",
             "schema": [
-                false
+                true
             ]
         }
     },
     {
-        "title": "root: mixed array item: elems value: array item: include can not be true",
+        "title": "root: mixed array item: elems value: array item: can not have \"val\" without \"mod\" fields",
         "obj": [
             "input",
             {
                 "elems": [
                     {
-                        "elem": "key",
-                        "include": true
+                        "elem": "button",
+                        "val": "red"
                     }
                 ]
             }
         ],
         "error": {
-            "keyword": "enum",
+            "keyword": "required",
             "schema": [
-                false
+                "mod"
             ]
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: array item: can not have \"mod\" and \"mods\" fields",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    {
+                        "elem": "button",
+                        "mod": "color",
+                        "mods": {
+                            "size": "s"
+                        }
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "mods"
+                ]
+            }
         }
     },
     {
@@ -5673,7 +6730,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": "red"
                         }
@@ -5689,7 +6746,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": true
                         }
@@ -5705,7 +6762,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": [
                                 "red",
@@ -5724,7 +6781,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {}
                     }
                 ]
@@ -5744,7 +6801,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": 1234
                     }
                 ]
@@ -5764,7 +6821,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": false
                         }
@@ -5786,7 +6843,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "size": 1234
                         }
@@ -5808,7 +6865,7 @@
             {
                 "elems": [
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "size": [
                                 1234,
@@ -6106,6 +7163,152 @@
         }
     },
     {
+        "title": "root: mixed array item: elems value: mixed array item: can have \"elem\" string field",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: mixed array item: elems value: mixed array item: can not be an empty object",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    "spin",
+                    {}
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: mixed array item: other fields are not allowed",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "key",
+                        "name": "test"
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: mixed array item: can have \"tech\" string field",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "tech": "bemhtml"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: mixed array item: elems value: mixed array item: can have \"include\" boolean `false` field",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "include": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: mixed array item: elems value: mixed array item: \"tech\" field can not be a number",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "tech": 1234
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: mixed array item: include can not be a string",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "include": "yes"
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: mixed array item: include can not be true",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "include": true
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
         "title": "root: mixed array item: elems value: mixed array item: elem value: can be a string",
         "obj": [
             "input",
@@ -6179,84 +7382,62 @@
         }
     },
     {
-        "title": "root: mixed array item: elems value: mixed array item: can have \"tech\" string field",
+        "title": "root: mixed array item: elems value: mixed array item: can have \"mod\" string field",
         "obj": [
             "input",
             {
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
-                        "tech": "bemhtml"
+                        "elem": "button",
+                        "mod": "color"
                     }
                 ]
             }
         ]
     },
     {
-        "title": "root: mixed array item: elems value: mixed array item: can have \"include\" boolean `false` field",
+        "title": "root: mixed array item: elems value: mixed array item: can have \"val\" string field with \"mod\"",
         "obj": [
             "input",
             {
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
-                        "include": false
+                        "elem": "button",
+                        "mod": "color",
+                        "val": "black"
                     }
                 ]
             }
         ]
     },
     {
-        "title": "root: mixed array item: elems value: mixed array item: can not be an empty object",
-        "obj": [
-            "input",
-            {
-                "elems": [
-                    "spin",
-                    {}
-                ]
-            }
-        ],
-        "error": {
-            "keyword": "required",
-            "params": {
-                "missingProperty": "elem"
-            }
-        }
-    },
-    {
-        "title": "root: mixed array item: elems value: mixed array item: other fields are not allowed",
+        "title": "root: mixed array item: elems value: mixed array item: can have \"val\" boolean `true` field",
         "obj": [
             "input",
             {
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
-                        "name": "test"
+                        "elem": "button",
+                        "mod": "color",
+                        "val": true
                     }
                 ]
             }
-        ],
-        "error": {
-            "keyword": "additionalProperties",
-            "params": {
-                "additionalProperty": "name"
-            }
-        }
+        ]
     },
     {
-        "title": "root: mixed array item: elems value: mixed array item: \"tech\" field can not be a number",
+        "title": "root: mixed array item: elems value: mixed array item: \"mod\" field can not be a number",
         "obj": [
             "input",
             {
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
-                        "tech": 1234
+                        "elem": "button",
+                        "mod": 1234
                     }
                 ]
             }
@@ -6269,15 +7450,38 @@
         }
     },
     {
-        "title": "root: mixed array item: elems value: mixed array item: include can not be a string",
+        "title": "root: mixed array item: elems value: mixed array item: \"val\" field can not be a number",
         "obj": [
             "input",
             {
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
-                        "include": "yes"
+                        "elem": "button",
+                        "mod": "size",
+                        "val": 12
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: mixed array item: \"val\" field can not be `false`",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "mod": "size",
+                        "val": false
                     }
                 ]
             }
@@ -6285,29 +7489,55 @@
         "error": {
             "keyword": "enum",
             "schema": [
-                false
+                true
             ]
         }
     },
     {
-        "title": "root: mixed array item: elems value: mixed array item: include can not be true",
+        "title": "root: mixed array item: elems value: mixed array item: can not have \"val\" without \"mod\" fields",
         "obj": [
             "input",
             {
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
-                        "include": true
+                        "elem": "button",
+                        "val": "red"
                     }
                 ]
             }
         ],
         "error": {
-            "keyword": "enum",
+            "keyword": "required",
             "schema": [
-                false
+                "mod"
             ]
+        }
+    },
+    {
+        "title": "root: mixed array item: elems value: mixed array item: can not have \"mod\" and \"mods\" fields",
+        "obj": [
+            "input",
+            {
+                "elems": [
+                    "spin",
+                    {
+                        "elem": "button",
+                        "mod": "color",
+                        "mods": {
+                            "size": "s"
+                        }
+                    }
+                ]
+            }
+        ],
+        "error": {
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "mods"
+                ]
+            }
         }
     },
     {
@@ -6318,7 +7548,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": "red"
                         }
@@ -6335,7 +7565,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": true
                         }
@@ -6352,7 +7582,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": [
                                 "red",
@@ -6372,7 +7602,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {}
                     }
                 ]
@@ -6393,7 +7623,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": 1234
                     }
                 ]
@@ -6414,7 +7644,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "color": false
                         }
@@ -6437,7 +7667,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "size": 1234
                         }
@@ -6460,7 +7690,7 @@
                 "elems": [
                     "spin",
                     {
-                        "elem": "key",
+                        "elem": "button",
                         "mods": {
                             "size": [
                                 1234,
@@ -6769,6 +7999,117 @@
             "keyword": "minItems",
             "params": {
                 "limit": 1
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: can have \"mod\" string field",
+        "obj": [
+            "input",
+            {
+                "mod": "color"
+            }
+        ]
+    },
+    {
+        "title": "root: mixed array item: can have \"val\" string field with \"mod\"",
+        "obj": [
+            "input",
+            {
+                "mod": "color",
+                "val": "black"
+            }
+        ]
+    },
+    {
+        "title": "root: mixed array item: can have \"val\" boolean `true` field",
+        "obj": [
+            "input",
+            {
+                "mod": "color",
+                "val": true
+            }
+        ]
+    },
+    {
+        "title": "root: mixed array item: \"mod\" field can not be a number",
+        "obj": [
+            "input",
+            {
+                "mod": 1234
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: \"val\" field can not be a number",
+        "obj": [
+            "input",
+            {
+                "mod": "size",
+                "val": 12
+            }
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: mixed array item: \"val\" field can not be `false`",
+        "obj": [
+            "input",
+            {
+                "mod": "size",
+                "val": false
+            }
+        ],
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: mixed array item: can not have \"val\" without \"mod\" fields",
+        "obj": [
+            "input",
+            {
+                "val": "red"
+            }
+        ],
+        "error": {
+            "keyword": "required",
+            "schema": [
+                "mod"
+            ]
+        }
+    },
+    {
+        "title": "root: mixed array item: can not have \"mod\" and \"mods\" fields",
+        "obj": [
+            "input",
+            {
+                "mod": "color",
+                "mods": {
+                    "size": "s"
+                }
+            }
+        ],
+        "error": {
+            "keyword": "not",
+            "schema": {
+                "required": [
+                    "mods"
+                ]
             }
         }
     },

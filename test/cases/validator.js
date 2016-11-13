@@ -73,16 +73,6 @@ function validateEntity(wrapper, recursiveFlag){
 
     wrapper.addCase('can have "block" string field', { block: 'b-page' });
 
-    wrapper.addCase('can have "mod" string field', { mod: 'color' });
-
-    wrapper.addCase('can have "val" string field with "mod"', { mod: 'color', val: 'black' });
-
-    wrapper.addCase('can have "val" boolean `true` field', { mod: 'color', val: true });
-
-    wrapper.addCase('can have "tech" string field', { tech: 'bemhtml' });
-
-    wrapper.addCase('can have "include" boolean `false` field', { include: false });
-
     // negative
 
     wrapper.addCase('can not be an empty object', {}, {
@@ -97,43 +87,13 @@ function validateEntity(wrapper, recursiveFlag){
         keyword: 'type', params: { type: 'string' }
     });
 
-    wrapper.addCase('"mod" field can not be a number', { mod: 1234 }, {
-        keyword: 'type', params: { type: 'string' }
-    });
-
-    wrapper.addCase('"val" field can not be a number', { mod: 'size', val: 12 }, {
-        keyword: 'type', params: { type: 'string,boolean' }
-    });
-
-    wrapper.addCase('"val" field can not be `false`', { mod: 'size', val: false }, {
-        keyword: 'enum', schema: [true]
-    });
-
-    wrapper.addCase('"tech" field can not be a number', { tech: 1234 }, {
-        keyword: 'type', params: { type: 'string' }
-    });
-
-    wrapper.addCase('include can not be a string', { include: 'yes' }, {
-        keyword: 'enum', schema: [false]
-    });
-
-    wrapper.addCase('include can not be true', { include: true }, {
-        keyword: 'enum', schema: [false]
-    });
-
     wrapper.addCase('can not have "elem" and "elems" fields', { elem: 'test', elems: 'test' }, {
         keyword: 'not', schema: { required: ['elems'] }
     });
 
-    wrapper.addCase('can not have "mod" and "mods" fields', { mod: 'color', mods: { size: 's' } }, {
-        keyword: 'not', schema: { required: ['mods'] }
-    });
-
-    wrapper.addCase('can not have "val" without "mod" fields', { val: 'red' }, {
-        keyword: 'required', schema: ['mod']
-    });
-
     // inner
+
+    validateTechAndInclude(wrapper);
 
     validateElemPlainEntity(
         wrapper.createInnerWrapper('elem value', plain => ({ elem: plain }))
@@ -143,9 +103,7 @@ function validateEntity(wrapper, recursiveFlag){
         wrapper.createInnerWrapper('elems value', elems => ({ elems: elems }))
     );
 
-    validateModifiers(
-        wrapper.createInnerWrapper('mods value', mods => ({ mods: mods }))
-    );
+    validateModifiers(wrapper);
 
     if (recursiveFlag) {
         validateSet(
@@ -216,15 +174,7 @@ function validateElemEntity(wrapper) {
 
     // positive
 
-    validateElemPlainEntity(
-        wrapper.createInnerWrapper('elem value', plain => ({ elem: plain }))
-    );
-
-    // TODO: mod/val в элемете
-
-    wrapper.addCase('can have "tech" string field', { elem: 'key', tech: 'bemhtml' });
-
-    wrapper.addCase('can have "include" boolean `false` field', { elem: 'key', include: false });
+    wrapper.addCase('can have "elem" string field', { elem: 'button' });
 
     // negative
 
@@ -236,22 +186,18 @@ function validateElemEntity(wrapper) {
         keyword: 'additionalProperties', params: { additionalProperty: 'name' }
     });
 
-    wrapper.addCase('"tech" field can not be a number', { elem: 'key', tech: 1234 }, {
-        keyword: 'type', params: { type: 'string' }
-    });
-
-    wrapper.addCase('include can not be a string', { elem: 'key', include: 'yes' }, {
-        keyword: 'enum', schema: [false]
-    });
-
-    wrapper.addCase('include can not be true', { elem: 'key', include: true }, {
-        keyword: 'enum', schema: [false]
-    });
-
     // inner
 
+    validateTechAndInclude(
+        wrapper.createInnerWrapper('', extra => Object.assign({ elem: 'button' }, extra))
+    );
+
+    validateElemPlainEntity(
+        wrapper.createInnerWrapper('elem value', plain => ({ elem: plain }))
+    );
+
     validateModifiers(
-        wrapper.createInnerWrapper('mods value', mods => ({ elem: 'key', mods: mods }))
+        wrapper.createInnerWrapper('', extra => Object.assign({ elem: 'button' }, extra))
     );
 
     validateSet(
@@ -268,6 +214,45 @@ function validateElemEntity(wrapper) {
 }
 
 function validateModifiers(wrapper) {
+
+    // positive
+
+    wrapper.addCase('can have "mod" string field', { mod: 'color' });
+
+    wrapper.addCase('can have "val" string field with "mod"', { mod: 'color', val: 'black' });
+
+    wrapper.addCase('can have "val" boolean `true` field', { mod: 'color', val: true });
+
+    // negative
+
+    wrapper.addCase('"mod" field can not be a number', { mod: 1234 }, {
+        keyword: 'type', params: { type: 'string' }
+    });
+
+    wrapper.addCase('"val" field can not be a number', { mod: 'size', val: 12 }, {
+        keyword: 'type', params: { type: 'string,boolean' }
+    });
+
+    wrapper.addCase('"val" field can not be `false`', { mod: 'size', val: false }, {
+        keyword: 'enum', schema: [true]
+    });
+
+    wrapper.addCase('can not have "val" without "mod" fields', { val: 'red' }, {
+        keyword: 'required', schema: ['mod']
+    });
+
+    wrapper.addCase('can not have "mod" and "mods" fields', { mod: 'color', mods: { size: 's' } }, {
+        keyword: 'not', schema: { required: ['mods'] }
+    });
+
+    // inner
+
+    validateHashModifiers(
+        wrapper.createInnerWrapper('mods value', mods => ({ mods: mods }))
+    );
+}
+
+function validateHashModifiers(wrapper) {
 
     // positive
 
@@ -297,5 +282,28 @@ function validateModifiers(wrapper) {
 
     wrapper.addCase('can not have number in array value', { size: [1234, 'small'] }, {
         keyword: 'type', params: { type: 'string' }
+    });
+}
+
+function validateTechAndInclude(wrapper) {
+
+    // positive
+
+    wrapper.addCase('can have "tech" string field', { tech: 'bemhtml' });
+
+    wrapper.addCase('can have "include" boolean `false` field', { include: false });
+
+    // negative
+
+    wrapper.addCase('"tech" field can not be a number', { tech: 1234 }, {
+        keyword: 'type', params: { type: 'string' }
+    });
+
+    wrapper.addCase('include can not be a string', { include: 'yes' }, {
+        keyword: 'enum', schema: [false]
+    });
+
+    wrapper.addCase('include can not be true', { include: true }, {
+        keyword: 'enum', schema: [false]
     });
 }
