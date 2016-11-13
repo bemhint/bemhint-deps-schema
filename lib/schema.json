@@ -59,15 +59,7 @@
                     ]
                 },
                 "mod": { "type": "string" },
-                "val": {
-                    "type": ["string", "boolean"],
-                    "switch": [
-                        {
-                            "if": { "type": "boolean" },
-                            "then": { "enum": [true] }
-                        }
-                    ]
-                },
+                "val": { "$ref": "#/definitions/modVal" },
                 "mods": { "$ref": "#/definitions/modifiers" },
                 "tech": { "type": "string" },
                 "include": { "enum": [false] },
@@ -99,6 +91,8 @@
             "additionalProperties": false,
             "properties": {
                 "elem": { "$ref": "#/definitions/elemPlainEntity" },
+                "mod": { "type": "string" },
+                "val": { "$ref": "#/definitions/modVal" },
                 "mods": { "$ref": "#/definitions/modifiers" },
                 "tech": { "type": "string" },
                 "include": { "enum": [false] },
@@ -106,6 +100,12 @@
                 "noDeps": { "$ref": "#/definitions/set" },
                 "mustDeps": { "$ref": "#/definitions/set" },
                 "shouldDeps": { "$ref": "#/definitions/set" }
+            },
+            "dependencies": {
+                "mod": {
+                    "not": { "required": ["mods"] }
+                },
+                "val": { "required": ["mod"] }
             },
             "required": ["elem"]
         },
@@ -129,6 +129,16 @@
                     }
                 ]
             }
+        },
+
+        "modVal": {
+            "type": ["string", "boolean"],
+            "switch": [
+                {
+                    "if": { "type": "boolean" },
+                    "then": { "enum": [true] }
+                }
+            ]
         }
     }
 }
