@@ -1,5 +1,5 @@
 # bemhint-deps-schema
-Плагин для [bemhint](https://github.com/bemhint/bemhint), который проверяет, что файлы *.deps.js соответствуют [спецификации](https://ru.bem.info/technology/deps/about/).
+Плагин для [bemhint](https://github.com/bemhint/bemhint), который проверяет, что файлы *.deps.js соответствуют [спецификации](https://ru.bem.info/technology/deps/about/). Требутеся bemhint версии 0.7.0 или выше.
 
 ## Установка 
 
@@ -34,3 +34,48 @@ module.exports = {
 ```
 
 Советуем при написании собственной схемы использовать за основу стандартную схему плагина.
+
+## Позиции ошибки
+
+По умолчанию валидатор указывает на место ошибки с помощью пути в JSON-е, например: `shouldDeps[1].elem`. Для получения позиции ошибки в виде пары строка-колонка нужно реализовать специальную функцию:
+
+```js
+module.exports = {
+    plugins: {
+        'bemhint-deps-schema': {
+            /**
+             * Вернуть позицию, соответствующую dataPath в content
+             *
+             * @param {String} content
+             * @param {String} dataPath
+             *
+             * @returns {Location}
+             */
+            locator: (content, dataPath) => {
+                // ...
+            }
+        }
+    }
+};
+
+/**
+ * @typedef {Object} Location
+ *
+ * @property {Number} line - номер строки, считая с 1
+ * @property {Number} column - номер колонки, считая с 1
+ */
+```
+
+Может быть использован сторонний модуль, например [Json-file-pointer](https://github.com/Vittly/json-file-pointer):
+
+```js
+const pointer = require('json-file-pointer');
+
+module.exports = {
+    plugins: {
+        'bemhint-deps-schema': {
+            locator: (content, dataPath) => pointer.getLocationOf(content, dataPath)
+        }
+    }
+};
+```
