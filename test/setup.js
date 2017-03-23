@@ -4,8 +4,7 @@ const fs = require('fs'),
     chai = require('chai'),
     loader = require('../lib/loader'),
     validator = require('../lib/validator'),
-    formatter = require('../lib/formatter'),
-    locator = require('../lib/locator');
+    formatter = require('../lib/formatter');
 
 chai.use(require('chai-subset'));
 
@@ -16,7 +15,6 @@ sinon.assert.expose(chai.assert, {prefix: ''});
 
 global.loader = loader;
 global.validate = validator;
-global.locateError = locator;
 
 global.Wrapper = require('./wrapper');
 
