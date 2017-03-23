@@ -6,5 +6,44 @@
     {
         "title": "root: can be an object",
         "obj": {}
+    },
+    {
+        "title": "root: can be an empty array",
+        "obj": []
+    },
+    {
+        "title": "root: can be a string array",
+        "obj": [
+            "input",
+            "select"
+        ]
+    },
+    {
+        "title": "root: can be an object array",
+        "obj": [
+            {}
+        ]
+    },
+    {
+        "title": "root: can not be a number",
+        "obj": 1234,
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object,array"
+            }
+        }
+    },
+    {
+        "title": "root: can not be a number array",
+        "obj": [
+            1234
+        ],
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object"
+            }
+        }
     }
 ]

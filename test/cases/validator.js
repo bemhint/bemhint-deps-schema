@@ -13,21 +13,22 @@ function validateEntity(wrapper, recursiveFlag) {
 
     wrapper.addCase('can be an object', {});
 
-    // wrapper.addCase('can be a string array', ['input', 'select']);
-    //
-    // // negative
-    //
-    // wrapper.addCase('can not be a number', 1234, {
-    //     keyword: 'type', params: { type: 'string,object,array' }
-    // });
-    //
-    // wrapper.addCase('can not be a number array', [1234], {
-    //     keyword: 'type', params: { type: 'string,object' }
-    // });
-    //
-    // wrapper.addCase('can not be an empty array', [], {
-    //     keyword: 'minItems', params: { limit: 1 }
-    // });
+    wrapper.addCase('can be an empty array', []);
+
+    wrapper.addCase('can be a string array', ['input', 'select']);
+
+    wrapper.addCase('can be an object array', [{}]);
+
+    // negative
+
+    wrapper.addCase('can not be a number', 1234, {
+        keyword: 'type', params: { type: 'string,object,array' }
+    });
+
+    wrapper.addCase('can not be a number array', [1234], {
+        keyword: 'type', params: { type: 'string,object' }
+    });
+
     //
     // // inner
     //

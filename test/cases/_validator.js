@@ -3,27 +3,27 @@
 const baseSchema = require('../../lib/schema.json'),
     testCases = buildTestCases();
 
-dump('testcases.json', testCases);
-
-describe('_base-schema', () => {
-
-    testCases.forEach(data => {
-        it(data.title, () => {
-            const content = '(' + JSON.stringify(data.obj) + ')',
-                errorCallback = sinon.spy();
-
-            validate(baseSchema, content, errorCallback);
-
-            if (data.error) {
-                assert.calledOnce(errorCallback);
-                assert.containSubset(errorCallback.getCall(0).args[1], data.error);
-            } else {
-                assert.notCalled(errorCallback);
-            }
-        });
-    });
-
-});
+// dump('testcases.json', testCases);
+//
+// describe('_base-schema', () => {
+//
+//     testCases.forEach(data => {
+//         it(data.title, () => {
+//             const content = '(' + JSON.stringify(data.obj) + ')',
+//                 errorCallback = sinon.spy();
+//
+//             validate(baseSchema, content, errorCallback);
+//
+//             if (data.error) {
+//                 assert.calledOnce(errorCallback);
+//                 assert.containSubset(errorCallback.getCall(0).args[1], data.error);
+//             } else {
+//                 assert.notCalled(errorCallback);
+//             }
+//         });
+//     });
+//
+// });
 
 function buildTestCases() {
     const wrapper = new Wrapper('root');
