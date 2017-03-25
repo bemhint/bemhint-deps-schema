@@ -13,6 +13,12 @@ function validateEntity(wrapper, recursiveFlag) {
 
     wrapper.addCase('can be an object', {});
 
+    wrapper.addCase('can have "block" string field', { block: 'b-page' });
+
+    wrapper.addCase('can have "tech" string field', { tech: 'bemhtml' });
+
+    wrapper.addCase('can have "include" boolean `false` field', { include: false });
+
     wrapper.addCase('can be an empty array', []);
 
     wrapper.addCase('can be a string array', ['input', 'select']);
@@ -29,17 +35,24 @@ function validateEntity(wrapper, recursiveFlag) {
         keyword: 'type', params: { type: 'string,object' }
     });
 
-    //
-    // // inner
-    //
-    // if (recursiveFlag) {
-    //     validateEntity(wrapper.createInnerWrapper('single item'), recursiveFlag);
-    //
-    //     validateEntity(wrapper.createInnerWrapper('array item', obj => [obj]), recursiveFlag);
-    //
-    //     validateEntity(wrapper.createInnerWrapper('mixed array item', obj => ['input', obj]), recursiveFlag);
-    // }
+    wrapper.addCase('other fields are not allowed', { name: 'test' }, {
+        keyword: 'additionalProperties', params: { additionalProperty: 'name' }
+    });
+
+    wrapper.addCase('"block" field can not be a number', { block: 1234 }, {
+        keyword: 'type', params: { type: 'string' }
+    });
+
+    wrapper.addCase('"tech" field can not be a number', { tech: 1234 }, {
+        keyword: 'type', params: { type: 'string' }
+    });
+
+    wrapper.addCase('include can not be true', { include: true }, {
+        keyword: 'enum', schema: [false]
+    });
 }
+
+
 
 const testCases = rootWrapper.getCases();
 

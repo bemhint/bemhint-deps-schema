@@ -67,9 +67,6 @@
                 "shouldDeps": { "$ref": "#/definitions/set" }
             },
             "dependencies": {
-                "elem": {
-                    "not": { "required": ["elems"] }
-                },
                 "mod": {
                     "not": { "required": ["mods"] }
                 },

@@ -8,6 +8,24 @@
         "obj": {}
     },
     {
+        "title": "root: can have \"block\" string field",
+        "obj": {
+            "block": "b-page"
+        }
+    },
+    {
+        "title": "root: can have \"tech\" string field",
+        "obj": {
+            "tech": "bemhtml"
+        }
+    },
+    {
+        "title": "root: can have \"include\" boolean `false` field",
+        "obj": {
+            "include": false
+        }
+    },
+    {
         "title": "root: can be an empty array",
         "obj": []
     },
@@ -44,6 +62,54 @@
             "params": {
                 "type": "string,object"
             }
+        }
+    },
+    {
+        "title": "root: other fields are not allowed",
+        "obj": {
+            "name": "test"
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: \"block\" field can not be a number",
+        "obj": {
+            "block": 1234
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: \"tech\" field can not be a number",
+        "obj": {
+            "tech": 1234
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: include can not be true",
+        "obj": {
+            "include": true
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
         }
     }
 ]
