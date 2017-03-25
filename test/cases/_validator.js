@@ -1,7 +1,7 @@
 'use strict';
 
-const baseSchema = require('../../lib/schema.json'),
-    testCases = buildTestCases();
+//const baseSchema = require('../../lib/schema.json'),
+//    testCases = buildTestCases();
 
 // dump('testcases.json', testCases);
 //

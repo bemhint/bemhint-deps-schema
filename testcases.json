@@ -14,6 +14,26 @@
         }
     },
     {
+        "title": "root: can have \"mod\" string field",
+        "obj": {
+            "mod": "color"
+        }
+    },
+    {
+        "title": "root: can have \"val\" string field with \"mod\"",
+        "obj": {
+            "mod": "color",
+            "val": "black"
+        }
+    },
+    {
+        "title": "root: can have \"val\" boolean `true` field",
+        "obj": {
+            "mod": "color",
+            "val": true
+        }
+    },
+    {
         "title": "root: can have \"tech\" string field",
         "obj": {
             "tech": "bemhtml"
@@ -65,18 +85,6 @@
         }
     },
     {
-        "title": "root: other fields are not allowed",
-        "obj": {
-            "name": "test"
-        },
-        "error": {
-            "keyword": "additionalProperties",
-            "params": {
-                "additionalProperty": "name"
-            }
-        }
-    },
-    {
         "title": "root: \"block\" field can not be a number",
         "obj": {
             "block": 1234
@@ -86,6 +94,44 @@
             "params": {
                 "type": "string"
             }
+        }
+    },
+    {
+        "title": "root: \"mod\" field can not be a number",
+        "obj": {
+            "mod": 1234
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: \"val\" field can not be a number",
+        "obj": {
+            "mod": "size",
+            "val": 12
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: \"val\" field can not be `false`",
+        "obj": {
+            "mod": "size",
+            "val": false
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
         }
     },
     {
@@ -110,6 +156,18 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: other fields are not allowed",
+        "obj": {
+            "name": "test"
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
         }
     }
 ]

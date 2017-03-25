@@ -9,50 +9,66 @@ function validateEntity(wrapper, recursiveFlag) {
 
     // positive
 
-    wrapper.addCase('can be a string', 'b-page');
+    wrapper.it('can be a string', 'b-page');
 
-    wrapper.addCase('can be an object', {});
+    wrapper.it('can be an object', {});
 
-    wrapper.addCase('can have "block" string field', { block: 'b-page' });
+    wrapper.it('can have "block" string field', { block: 'b-page' });
 
-    wrapper.addCase('can have "tech" string field', { tech: 'bemhtml' });
+    wrapper.it('can have "mod" string field', { mod: 'color' });
 
-    wrapper.addCase('can have "include" boolean `false` field', { include: false });
+    wrapper.it('can have "val" string field with "mod"', { mod: 'color', val: 'black' });
 
-    wrapper.addCase('can be an empty array', []);
+    wrapper.it('can have "val" boolean `true` field', { mod: 'color', val: true });
 
-    wrapper.addCase('can be a string array', ['input', 'select']);
+    wrapper.it('can have "tech" string field', { tech: 'bemhtml' });
 
-    wrapper.addCase('can be an object array', [{}]);
+    wrapper.it('can have "include" boolean `false` field', { include: false });
+
+    wrapper.it('can be an empty array', []);
+
+    wrapper.it('can be a string array', ['input', 'select']);
+
+    wrapper.it('can be an object array', [{}]);
 
     // negative
 
-    wrapper.addCase('can not be a number', 1234, {
+    wrapper.it('can not be a number', 1234).throws({
         keyword: 'type', params: { type: 'string,object,array' }
     });
 
-    wrapper.addCase('can not be a number array', [1234], {
+    wrapper.it('can not be a number array', [1234]).throws({
         keyword: 'type', params: { type: 'string,object' }
     });
 
-    wrapper.addCase('other fields are not allowed', { name: 'test' }, {
-        keyword: 'additionalProperties', params: { additionalProperty: 'name' }
-    });
-
-    wrapper.addCase('"block" field can not be a number', { block: 1234 }, {
+    wrapper.it('"block" field can not be a number', { block: 1234 }).throws({
         keyword: 'type', params: { type: 'string' }
     });
 
-    wrapper.addCase('"tech" field can not be a number', { tech: 1234 }, {
+    wrapper.it('"mod" field can not be a number', { mod: 1234 }).throws({
         keyword: 'type', params: { type: 'string' }
     });
 
-    wrapper.addCase('include can not be true', { include: true }, {
+    wrapper.it('"val" field can not be a number', { mod: 'size', val: 12 }).throws({
+        keyword: 'type', params: { type: 'string,boolean' }
+    });
+
+    wrapper.it('"val" field can not be `false`', { mod: 'size', val: false }).throws({
+        keyword: 'enum', schema: [true]
+    });
+
+    wrapper.it('"tech" field can not be a number', { tech: 1234 }).throws({
+        keyword: 'type', params: { type: 'string' }
+    });
+
+    wrapper.it('include can not be true', { include: true }).throws({
         keyword: 'enum', schema: [false]
     });
+
+    wrapper.it('other fields are not allowed', { name: 'test' }).throws({
+        keyword: 'additionalProperties', params: { additionalProperty: 'name' }
+    });
 }
-
-
 
 const testCases = rootWrapper.getCases();
 

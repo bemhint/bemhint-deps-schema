@@ -21,14 +21,25 @@ class Wrapper {
      *
      * @param {String} subTitle - short definition of test case
      * @param {Object} obj - an argument to wrapper function
-     * @param {ValidationError} [error] - error if obj validation fails, omitted for positive cases
      */
-    addCase(subTitle, obj, error) {
-        this.cases.push({
+    it(subTitle, obj) {
+        const item = {
             title: this.formatTitle(subTitle),
-            obj: this.builder(obj),
-            error: error
-        });
+            obj: this.builder(obj)
+        };
+
+        this.cases.push(item);
+
+        return {
+            /**
+             * Converts test case to error case
+             *
+             * @param {ValidationError} [error] - error if obj validation fails, omitted for positive cases
+             */
+            throws: error => {
+                item.error = error;
+            }
+        };
     }
 
     /**
