@@ -5,67 +5,67 @@ const baseSchema = require('../../lib/schema.json'),
 
 validateEntity(rootWrapper, true);
 
-function validateEntity(wrapper, recursiveFlag) {
+function validateEntity(cases, recursiveFlag) {
 
     // positive
 
-    wrapper.it('can be a string', 'b-page');
+    cases.it('can be a string', 'b-page');
 
-    wrapper.it('can be an object', {});
+    cases.it('can be an object', {});
 
-    wrapper.it('can have "block" string field', { block: 'b-page' });
+    cases.it('can have "block" string field', { block: 'b-page' });
 
-    wrapper.it('can have "mod" string field', { mod: 'color' });
+    cases.it('can have "mod" string field', { mod: 'color' });
 
-    wrapper.it('can have "val" string field with "mod"', { mod: 'color', val: 'black' });
+    cases.it('can have "val" string field with "mod"', { mod: 'color', val: 'black' });
 
-    wrapper.it('can have "val" boolean `true` field', { mod: 'color', val: true });
+    cases.it('can have "val" boolean `true` field', { mod: 'color', val: true });
 
-    wrapper.it('can have "tech" string field', { tech: 'bemhtml' });
+    cases.it('can have "tech" string field', { tech: 'bemhtml' });
 
-    wrapper.it('can have "include" boolean `false` field', { include: false });
+    cases.it('can have "include" boolean `false` field', { include: false });
 
-    wrapper.it('can be an empty array', []);
+    cases.it('can be an empty array', []);
 
-    wrapper.it('can be a string array', ['input', 'select']);
+    cases.it('can be a string array', ['input', 'select']);
 
-    wrapper.it('can be an object array', [{}]);
+    cases.it('can be an object array', [{}]);
 
     // negative
 
-    wrapper.it('can not be a number', 1234).throws({
+    cases.it('can not be a number', 1234).throws({
         keyword: 'type', params: { type: 'string,object,array' }
     });
 
-    wrapper.it('can not be a number array', [1234]).throws({
+    cases.it('can not be a number array', [1234]).throws({
         keyword: 'type', params: { type: 'string,object' }
     });
 
-    wrapper.it('"block" field can not be a number', { block: 1234 }).throws({
+    cases.it('"block" field can not be a number', { block: 1234 }).throws({
         keyword: 'type', params: { type: 'string' }
     });
 
-    wrapper.it('"mod" field can not be a number', { mod: 1234 }).throws({
+    cases.it('"mod" field can not be a number', { mod: 1234 }).throws({
         keyword: 'type', params: { type: 'string' }
     });
 
-    wrapper.it('"val" field can not be a number', { mod: 'size', val: 12 }).throws({
+    cases.it('"val" field can not be a number', { mod: 'size', val: 12 }).throws({
         keyword: 'type', params: { type: 'string,boolean' }
     });
 
-    wrapper.it('"val" field can not be `false`', { mod: 'size', val: false }).throws({
+    cases.it('"val" field can not be `false`', { mod: 'size', val: false }).throws({
         keyword: 'enum', schema: [true]
     });
 
-    wrapper.it('"tech" field can not be a number', { tech: 1234 }).throws({
+    cases.it('"tech" field can not be a number', { tech: 1234 }).throws({
         keyword: 'type', params: { type: 'string' }
     });
 
-    wrapper.it('include can not be true', { include: true }).throws({
+    cases.it('include can not be true', { include: true }).throws({
         keyword: 'enum', schema: [false]
     });
 
-    wrapper.it('other fields are not allowed', { name: 'test' }).throws({
+    cases.it('other fields are not allowed', { name: 'test' }).throws({
         keyword: 'additionalProperties', params: { additionalProperty: 'name' }
     });
 }
