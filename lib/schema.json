@@ -77,7 +77,6 @@
         "elemPlainEntity": {
             "type": ["string", "array"],
 
-            "minItems": 1,
             "items": { "type": "string" }
         },
 

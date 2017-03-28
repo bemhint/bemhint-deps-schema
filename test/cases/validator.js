@@ -39,6 +39,24 @@ function validateEntity(cases, recursiveFlag) {
 
     // endregion
 
+    // region field 'elem'
+
+    cases.it('can have "elem" string field', { elem: 'spin' });
+
+    cases.it('can have "elem" array field', { elem: [] });
+
+    cases.it('can have "elem" string array field', { elem: ['spin', 'button'] });
+
+    cases.it('"elem" field can not be a number', { elem: 1234 }).throws({
+        keyword: 'type', params: { type: 'string,array' }
+    });
+
+    cases.it('"elem" field can not be a number array', { elem: [1234] }).throws({
+        keyword: 'type', params: { type: 'string' }
+    });
+
+    // endregion
+
     // region field 'mod'
 
     cases.it('can have "mod" string field', { mod: 'color' });

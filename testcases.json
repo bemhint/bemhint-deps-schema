@@ -65,6 +65,53 @@
         }
     },
     {
+        "title": "root: can have \"elem\" string field",
+        "obj": {
+            "elem": "spin"
+        }
+    },
+    {
+        "title": "root: can have \"elem\" array field",
+        "obj": {
+            "elem": []
+        }
+    },
+    {
+        "title": "root: can have \"elem\" string array field",
+        "obj": {
+            "elem": [
+                "spin",
+                "button"
+            ]
+        }
+    },
+    {
+        "title": "root: \"elem\" field can not be a number",
+        "obj": {
+            "elem": 1234
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: \"elem\" field can not be a number array",
+        "obj": {
+            "elem": [
+                1234
+            ]
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
         "title": "root: can have \"mod\" string field",
         "obj": {
             "mod": "color"
@@ -268,6 +315,63 @@
         "obj": {
             "noDeps": {
                 "block": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: can have \"elem\" string field",
+        "obj": {
+            "noDeps": {
+                "elem": "spin"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: can have \"elem\" array field",
+        "obj": {
+            "noDeps": {
+                "elem": []
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: can have \"elem\" string array field",
+        "obj": {
+            "noDeps": {
+                "elem": [
+                    "spin",
+                    "button"
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: \"elem\" field can not be a number",
+        "obj": {
+            "noDeps": {
+                "elem": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: \"elem\" field can not be a number array",
+        "obj": {
+            "noDeps": {
+                "elem": [
+                    1234
+                ]
             }
         },
         "error": {
@@ -517,6 +621,63 @@
         }
     },
     {
+        "title": "root: [shouldDeps]: can have \"elem\" string field",
+        "obj": {
+            "shouldDeps": {
+                "elem": "spin"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: can have \"elem\" array field",
+        "obj": {
+            "shouldDeps": {
+                "elem": []
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: can have \"elem\" string array field",
+        "obj": {
+            "shouldDeps": {
+                "elem": [
+                    "spin",
+                    "button"
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: \"elem\" field can not be a number",
+        "obj": {
+            "shouldDeps": {
+                "elem": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: \"elem\" field can not be a number array",
+        "obj": {
+            "shouldDeps": {
+                "elem": [
+                    1234
+                ]
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
         "title": "root: [shouldDeps]: can have \"mod\" string field",
         "obj": {
             "shouldDeps": {
@@ -746,6 +907,63 @@
         "obj": {
             "mustDeps": {
                 "block": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: can have \"elem\" string field",
+        "obj": {
+            "mustDeps": {
+                "elem": "spin"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: can have \"elem\" array field",
+        "obj": {
+            "mustDeps": {
+                "elem": []
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: can have \"elem\" string array field",
+        "obj": {
+            "mustDeps": {
+                "elem": [
+                    "spin",
+                    "button"
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: \"elem\" field can not be a number",
+        "obj": {
+            "mustDeps": {
+                "elem": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: \"elem\" field can not be a number array",
+        "obj": {
+            "mustDeps": {
+                "elem": [
+                    1234
+                ]
             }
         },
         "error": {
