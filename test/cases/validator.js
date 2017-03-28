@@ -96,6 +96,20 @@ function validateEntity(cases, recursiveFlag) {
     cases.it('other fields are not allowed', { name: 'test' }).throws({
         keyword: 'additionalProperties', params: { additionalProperty: 'name' }
     });
+
+    if (recursiveFlag) {
+        validateEntity(
+            cases.inner('[noDeps]', target => ({ noDeps: target }))
+        );
+
+        validateEntity(
+            cases.inner('[shouldDeps]', target => ({ shouldDeps: target }))
+        );
+
+        validateEntity(
+            cases.inner('[mustDeps]', target => ({ mustDeps: target }))
+        );
+    }
 }
 
 const testCases = rootWrapper.getCases();
