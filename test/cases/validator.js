@@ -7,31 +7,17 @@ validateEntity(rootWrapper, true);
 
 function validateEntity(cases, recursiveFlag) {
 
-    // positive
+    // region root
 
     cases.it('can be a string', 'b-page');
 
     cases.it('can be an object', {});
-
-    cases.it('can have "block" string field', { block: 'b-page' });
-
-    cases.it('can have "mod" string field', { mod: 'color' });
-
-    cases.it('can have "val" string field with "mod"', { mod: 'color', val: 'black' });
-
-    cases.it('can have "val" boolean `true` field', { mod: 'color', val: true });
-
-    cases.it('can have "tech" string field', { tech: 'bemhtml' });
-
-    cases.it('can have "include" boolean `false` field', { include: false });
 
     cases.it('can be an empty array', []);
 
     cases.it('can be a string array', ['input', 'select']);
 
     cases.it('can be an object array', [{}]);
-
-    // negative
 
     cases.it('can not be a number', 1234).throws({
         keyword: 'type', params: { type: 'string,object,array' }
@@ -41,13 +27,33 @@ function validateEntity(cases, recursiveFlag) {
         keyword: 'type', params: { type: 'string,object' }
     });
 
+    // endregion
+
+    // region field 'block'
+
+    cases.it('can have "block" string field', { block: 'b-page' });
+
     cases.it('"block" field can not be a number', { block: 1234 }).throws({
         keyword: 'type', params: { type: 'string' }
     });
 
+    // endregion
+
+    // region field 'mod'
+
+    cases.it('can have "mod" string field', { mod: 'color' });
+
     cases.it('"mod" field can not be a number', { mod: 1234 }).throws({
         keyword: 'type', params: { type: 'string' }
     });
+
+    // endregion
+
+    // region field 'val'
+
+    cases.it('can have "val" string field with "mod"', { mod: 'color', val: 'black' });
+
+    cases.it('can have "val" boolean `true` field', { mod: 'color', val: true });
 
     cases.it('"val" field can not be a number', { mod: 'size', val: 12 }).throws({
         keyword: 'type', params: { type: 'string,boolean' }
@@ -57,13 +63,35 @@ function validateEntity(cases, recursiveFlag) {
         keyword: 'enum', schema: [true]
     });
 
+    cases.it('"val" field can not be without "mod"', { val: 'red' }).throws({
+        keyword: 'required', params: { missingProperty: 'mod' }
+    });
+
+    // endregion
+
+    // region field 'tech'
+
+    cases.it('can have "tech" string field', { tech: 'bemhtml' });
+
     cases.it('"tech" field can not be a number', { tech: 1234 }).throws({
         keyword: 'type', params: { type: 'string' }
     });
 
+    // endregion
+
+    // region field 'include'
+
+    cases.it('can have "include" boolean `false` field', { include: false });
+
     cases.it('include can not be true', { include: true }).throws({
         keyword: 'enum', schema: [false]
     });
+
+    cases.it('include can not be string', { include: 'yes' }).throws({
+        keyword: 'enum', schema: [false]
+    });
+
+    // endregion
 
     cases.it('other fields are not allowed', { name: 'test' }).throws({
         keyword: 'additionalProperties', params: { additionalProperty: 'name' }

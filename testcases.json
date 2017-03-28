@@ -8,44 +8,6 @@
         "obj": {}
     },
     {
-        "title": "root: can have \"block\" string field",
-        "obj": {
-            "block": "b-page"
-        }
-    },
-    {
-        "title": "root: can have \"mod\" string field",
-        "obj": {
-            "mod": "color"
-        }
-    },
-    {
-        "title": "root: can have \"val\" string field with \"mod\"",
-        "obj": {
-            "mod": "color",
-            "val": "black"
-        }
-    },
-    {
-        "title": "root: can have \"val\" boolean `true` field",
-        "obj": {
-            "mod": "color",
-            "val": true
-        }
-    },
-    {
-        "title": "root: can have \"tech\" string field",
-        "obj": {
-            "tech": "bemhtml"
-        }
-    },
-    {
-        "title": "root: can have \"include\" boolean `false` field",
-        "obj": {
-            "include": false
-        }
-    },
-    {
         "title": "root: can be an empty array",
         "obj": []
     },
@@ -85,6 +47,12 @@
         }
     },
     {
+        "title": "root: can have \"block\" string field",
+        "obj": {
+            "block": "b-page"
+        }
+    },
+    {
         "title": "root: \"block\" field can not be a number",
         "obj": {
             "block": 1234
@@ -97,6 +65,12 @@
         }
     },
     {
+        "title": "root: can have \"mod\" string field",
+        "obj": {
+            "mod": "color"
+        }
+    },
+    {
         "title": "root: \"mod\" field can not be a number",
         "obj": {
             "mod": 1234
@@ -106,6 +80,20 @@
             "params": {
                 "type": "string"
             }
+        }
+    },
+    {
+        "title": "root: can have \"val\" string field with \"mod\"",
+        "obj": {
+            "mod": "color",
+            "val": "black"
+        }
+    },
+    {
+        "title": "root: can have \"val\" boolean `true` field",
+        "obj": {
+            "mod": "color",
+            "val": true
         }
     },
     {
@@ -135,6 +123,24 @@
         }
     },
     {
+        "title": "root: \"val\" field can not be without \"mod\"",
+        "obj": {
+            "val": "red"
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "mod"
+            }
+        }
+    },
+    {
+        "title": "root: can have \"tech\" string field",
+        "obj": {
+            "tech": "bemhtml"
+        }
+    },
+    {
         "title": "root: \"tech\" field can not be a number",
         "obj": {
             "tech": 1234
@@ -144,6 +150,24 @@
             "params": {
                 "type": "string"
             }
+        }
+    },
+    {
+        "title": "root: can have \"include\" boolean `false` field",
+        "obj": {
+            "include": false
+        }
+    },
+    {
+        "title": "root: include can not be true",
+        "obj": {
+            "include": 1234
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
         }
     },
     {
