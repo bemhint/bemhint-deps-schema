@@ -642,6 +642,130 @@
         }
     },
     {
+        "title": "root: [elems]: [mods]: can be an object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mods": {}
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mods]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mods": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mods]: can have string value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mods": {
+                    "color": "red"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mods]: can not have number value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mods": {
+                    "color": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mods]: can have `true` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mods": {
+                    "color": true
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mods]: can not have `false` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mods": {
+                    "color": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [mods]: can have empty array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mods": {
+                    "color": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mods]: can have string array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mods": {
+                    "color": [
+                        "red",
+                        "white"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mods]: can not have number array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mods": {
+                    "color": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
         "title": "root: [elems]: [noDeps]: can be a string",
         "obj": {
             "elems": {
@@ -1590,6 +1714,175 @@
             "keyword": "additionalProperties",
             "params": {
                 "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: [mods]: can be an object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {}
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: [mods]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: [mods]: can have string value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": "red"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: [mods]: can not have number value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": 1234
+                        }
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: [mods]: can have `true` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: [mods]: can not have `false` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": false
+                        }
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: [mods]: can have empty array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": []
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: [mods]: can have string array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": [
+                                "red",
+                                "white"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: [mods]: can not have number array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": [
+                                1234
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
             }
         }
     },
@@ -2546,6 +2839,175 @@
         }
     },
     {
+        "title": "root: [elems]: [shouldDeps]: [elems]: [mods]: can be an object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {}
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: [mods]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: [mods]: can have string value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": "red"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: [mods]: can not have number value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": 1234
+                        }
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: [mods]: can have `true` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: [mods]: can not have `false` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": false
+                        }
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: [mods]: can have empty array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": []
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: [mods]: can have string array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": [
+                                "red",
+                                "white"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: [mods]: can not have number array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": [
+                                1234
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
         "title": "root: [elems]: [mustDeps]: can be a string",
         "obj": {
             "elems": {
@@ -3498,6 +3960,175 @@
         }
     },
     {
+        "title": "root: [elems]: [mustDeps]: [elems]: [mods]: can be an object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {}
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: [mods]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: [mods]: can have string value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": "red"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: [mods]: can not have number value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": 1234
+                        }
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: [mods]: can have `true` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: [mods]: can not have `false` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": false
+                        }
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: [mods]: can have empty array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": []
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: [mods]: can have string array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": [
+                                "red",
+                                "white"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: [mods]: can not have number array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mods": {
+                            "color": [
+                                1234
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
         "title": "root: [noDeps]: can be a string",
         "obj": {
             "noDeps": "b-page"
@@ -4260,6 +4891,148 @@
             "keyword": "additionalProperties",
             "params": {
                 "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: [mods]: can be an object",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {}
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: [mods]: can not be a number",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: [mods]: can have string value",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": "red"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: [mods]: can not have number value",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: [mods]: can have `true` value",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": true
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: [mods]: can not have `false` value",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": false
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: [mods]: can have empty array value",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: [mods]: can have string array value",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": [
+                            "red",
+                            "white"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: [mods]: can not have number array value",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": [
+                            1234
+                        ]
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
             }
         }
     },
@@ -5030,6 +5803,148 @@
         }
     },
     {
+        "title": "root: [shouldDeps]: [elems]: [mods]: can be an object",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {}
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: [mods]: can not be a number",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: [mods]: can have string value",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": "red"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: [mods]: can not have number value",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: [mods]: can have `true` value",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": true
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: [mods]: can not have `false` value",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": false
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: [mods]: can have empty array value",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: [mods]: can have string array value",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": [
+                            "red",
+                            "white"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: [mods]: can not have number array value",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": [
+                            1234
+                        ]
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
         "title": "root: [mustDeps]: can be a string",
         "obj": {
             "mustDeps": "b-page"
@@ -5792,6 +6707,148 @@
             "keyword": "additionalProperties",
             "params": {
                 "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: [mods]: can be an object",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {}
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: [mods]: can not be a number",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: [mods]: can have string value",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": "red"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: [mods]: can not have number value",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: [mods]: can have `true` value",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": true
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: [mods]: can not have `false` value",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": false
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: [mods]: can have empty array value",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: [mods]: can have string array value",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": [
+                            "red",
+                            "white"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: [mods]: can not have number array value",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mods": {
+                        "color": [
+                            1234
+                        ]
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
             }
         }
     }

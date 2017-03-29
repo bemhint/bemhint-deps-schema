@@ -112,10 +112,6 @@ function validateEntity(cases, recursiveFlag) {
 
     // endregion
 
-    cases.it('other fields are not allowed', { name: 'test' }).throws({
-        keyword: 'additionalProperties', params: { additionalProperty: 'name' }
-    });
-
     validateModifiers(
         cases.inner('[mods]', target => ({ mods: target }))
     );
@@ -138,6 +134,10 @@ function validateEntity(cases, recursiveFlag) {
             cases.inner('[mustDeps]', target => ({ mustDeps: target }))
         );
     }
+
+    cases.it('other fields are not allowed', { name: 'test' }).throws({
+        keyword: 'additionalProperties', params: { additionalProperty: 'name' }
+    });
 }
 
 function validateModifiers(cases) {
@@ -285,9 +285,9 @@ function validateElements(cases, recursiveFlag) {
 
     // endregion
 
-    cases.it('other fields are not allowed', { elem: 'header', name: 'test' }).throws({
-        keyword: 'additionalProperties', params: { additionalProperty: 'name' }
-    });
+    validateModifiers(
+        cases.inner('[mods]', target => ({ elem: 'header', mods: target }))
+    );
 
     if (recursiveFlag) {
         validateEntity(
@@ -302,6 +302,10 @@ function validateElements(cases, recursiveFlag) {
             cases.inner('[mustDeps]', target => ({ elem: 'header', mustDeps: target }))
         );
     }
+
+    cases.it('other fields are not allowed', { elem: 'header', name: 'test' }).throws({
+        keyword: 'additionalProperties', params: { additionalProperty: 'name' }
+    });
 }
 
 const testCases = rootWrapper.getCases();
