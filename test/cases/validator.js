@@ -7,8 +7,6 @@ validateEntity(rootWrapper, true);
 
 function validateEntity(cases, recursiveFlag) {
 
-    // region root
-
     cases.it('can be a string', 'b-page');
 
     cases.it('can be an object', {});
@@ -17,7 +15,6 @@ function validateEntity(cases, recursiveFlag) {
 
     cases.it('can be a string array', ['input', 'select']);
 
-    // TODO: проверять через inner?
     cases.it('can be an object array', [{}]);
 
     cases.it('can not be a number', 1234).throws({
@@ -28,8 +25,15 @@ function validateEntity(cases, recursiveFlag) {
         keyword: 'type', params: { type: 'string,object' }
     });
 
-    // endregion
+    validateEntityFields(cases, recursiveFlag);
 
+    validateEntityFields(
+        cases.inner('[0]', target => [target]),
+        recursiveFlag
+    );
+}
+
+function validateEntityFields(cases, recursiveFlag) {
     // region field 'block'
 
     cases.it('can have `block` string field', { block: 'b-page' });
