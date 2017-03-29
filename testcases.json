@@ -47,13 +47,13 @@
         }
     },
     {
-        "title": "root: can have \"block\" string field",
+        "title": "root: can have `block` string field",
         "obj": {
             "block": "b-page"
         }
     },
     {
-        "title": "root: \"block\" field can not be a number",
+        "title": "root: `block` field can not be a number",
         "obj": {
             "block": 1234
         },
@@ -65,19 +65,19 @@
         }
     },
     {
-        "title": "root: can have \"elem\" string field",
+        "title": "root: can have `elem` string field",
         "obj": {
             "elem": "spin"
         }
     },
     {
-        "title": "root: can have \"elem\" array field",
+        "title": "root: can have `elem` array field",
         "obj": {
             "elem": []
         }
     },
     {
-        "title": "root: can have \"elem\" string array field",
+        "title": "root: can have `elem` string array field",
         "obj": {
             "elem": [
                 "spin",
@@ -86,7 +86,7 @@
         }
     },
     {
-        "title": "root: \"elem\" field can not be a number",
+        "title": "root: `elem` field can not be a number",
         "obj": {
             "elem": 1234
         },
@@ -98,7 +98,7 @@
         }
     },
     {
-        "title": "root: \"elem\" field can not be a number array",
+        "title": "root: `elem` field can not be a number array",
         "obj": {
             "elem": [
                 1234
@@ -112,13 +112,13 @@
         }
     },
     {
-        "title": "root: can have \"mod\" string field",
+        "title": "root: can have `mod` string field",
         "obj": {
             "mod": "color"
         }
     },
     {
-        "title": "root: \"mod\" field can not be a number",
+        "title": "root: `mod` field can not be a number",
         "obj": {
             "mod": 1234
         },
@@ -130,21 +130,21 @@
         }
     },
     {
-        "title": "root: can have \"val\" string field with \"mod\"",
+        "title": "root: can have `val` string field with `mod`",
         "obj": {
             "mod": "color",
             "val": "black"
         }
     },
     {
-        "title": "root: can have \"val\" boolean `true` field",
+        "title": "root: can have `val` boolean `true` field",
         "obj": {
             "mod": "color",
             "val": true
         }
     },
     {
-        "title": "root: \"val\" field can not be a number",
+        "title": "root: `val` field can not be a number",
         "obj": {
             "mod": "size",
             "val": 12
@@ -157,7 +157,7 @@
         }
     },
     {
-        "title": "root: \"val\" field can not be `false`",
+        "title": "root: `val` field can not be `false`",
         "obj": {
             "mod": "size",
             "val": false
@@ -170,7 +170,7 @@
         }
     },
     {
-        "title": "root: \"val\" field can not be without \"mod\"",
+        "title": "root: `val` field can not be without `mod`",
         "obj": {
             "val": "red"
         },
@@ -182,13 +182,13 @@
         }
     },
     {
-        "title": "root: can have \"tech\" string field",
+        "title": "root: can have `tech` string field",
         "obj": {
             "tech": "bemhtml"
         }
     },
     {
-        "title": "root: \"tech\" field can not be a number",
+        "title": "root: `tech` field can not be a number",
         "obj": {
             "tech": 1234
         },
@@ -200,7 +200,7 @@
         }
     },
     {
-        "title": "root: can have \"include\" boolean `false` field",
+        "title": "root: can have `include` boolean `false` field",
         "obj": {
             "include": false
         }
@@ -248,10 +248,36 @@
         }
     },
     {
+        "title": "root: [mods]: can not be a number",
+        "obj": {
+            "mods": 1234
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
         "title": "root: [mods]: can have string value",
         "obj": {
             "mods": {
                 "color": "red"
+            }
+        }
+    },
+    {
+        "title": "root: [mods]: can not have number value",
+        "obj": {
+            "mods": {
+                "color": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
             }
         }
     },
@@ -261,6 +287,20 @@
             "mods": {
                 "color": true
             }
+        }
+    },
+    {
+        "title": "root: [mods]: can not have `false` value",
+        "obj": {
+            "mods": {
+                "color": false
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
         }
     },
     {
@@ -283,46 +323,6 @@
         }
     },
     {
-        "title": "root: [mods]: can not be a number",
-        "obj": {
-            "mods": 1234
-        },
-        "error": {
-            "keyword": "type",
-            "params": {
-                "type": "object"
-            }
-        }
-    },
-    {
-        "title": "root: [mods]: can not have number value",
-        "obj": {
-            "mods": {
-                "color": 1234
-            }
-        },
-        "error": {
-            "keyword": "type",
-            "params": {
-                "type": "boolean,string,array"
-            }
-        }
-    },
-    {
-        "title": "root: [mods]: can not have `false` value",
-        "obj": {
-            "mods": {
-                "color": false
-            }
-        },
-        "error": {
-            "keyword": "enum",
-            "schema": [
-                true
-            ]
-        }
-    },
-    {
         "title": "root: [mods]: can not have number array value",
         "obj": {
             "mods": {
@@ -335,6 +335,140 @@
             "keyword": "type",
             "params": {
                 "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: can be a string",
+        "obj": {
+            "elems": "header"
+        }
+    },
+    {
+        "title": "root: [elems]: can be elem-object",
+        "obj": {
+            "elems": {
+                "elem": "header"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: can be an empty array",
+        "obj": {
+            "elems": []
+        }
+    },
+    {
+        "title": "root: [elems]: can be a string array",
+        "obj": {
+            "elems": [
+                "header",
+                "footer"
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: can be elem-object array",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header"
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: can not be a number",
+        "obj": {
+            "elems": 1234
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: can not be a number array",
+        "obj": {
+            "elems": [
+                1234
+            ]
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: can have `elem` string field",
+        "obj": {
+            "elems": {
+                "elem": "spin"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: can have `elem` array field",
+        "obj": {
+            "elems": {
+                "elem": []
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: can have `elem` string array field",
+        "obj": {
+            "elems": {
+                "elem": [
+                    "spin",
+                    "button"
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: `elem` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: `elem` field can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": [
+                    1234
+                ]
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: `elem` field is required",
+        "obj": {
+            "elems": {}
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
             }
         }
     },
@@ -400,7 +534,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: can have \"block\" string field",
+        "title": "root: [noDeps]: can have `block` string field",
         "obj": {
             "noDeps": {
                 "block": "b-page"
@@ -408,7 +542,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: \"block\" field can not be a number",
+        "title": "root: [noDeps]: `block` field can not be a number",
         "obj": {
             "noDeps": {
                 "block": 1234
@@ -422,7 +556,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: can have \"elem\" string field",
+        "title": "root: [noDeps]: can have `elem` string field",
         "obj": {
             "noDeps": {
                 "elem": "spin"
@@ -430,7 +564,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: can have \"elem\" array field",
+        "title": "root: [noDeps]: can have `elem` array field",
         "obj": {
             "noDeps": {
                 "elem": []
@@ -438,7 +572,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: can have \"elem\" string array field",
+        "title": "root: [noDeps]: can have `elem` string array field",
         "obj": {
             "noDeps": {
                 "elem": [
@@ -449,7 +583,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: \"elem\" field can not be a number",
+        "title": "root: [noDeps]: `elem` field can not be a number",
         "obj": {
             "noDeps": {
                 "elem": 1234
@@ -463,7 +597,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: \"elem\" field can not be a number array",
+        "title": "root: [noDeps]: `elem` field can not be a number array",
         "obj": {
             "noDeps": {
                 "elem": [
@@ -479,7 +613,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: can have \"mod\" string field",
+        "title": "root: [noDeps]: can have `mod` string field",
         "obj": {
             "noDeps": {
                 "mod": "color"
@@ -487,7 +621,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: \"mod\" field can not be a number",
+        "title": "root: [noDeps]: `mod` field can not be a number",
         "obj": {
             "noDeps": {
                 "mod": 1234
@@ -501,7 +635,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: can have \"val\" string field with \"mod\"",
+        "title": "root: [noDeps]: can have `val` string field with `mod`",
         "obj": {
             "noDeps": {
                 "mod": "color",
@@ -510,7 +644,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: can have \"val\" boolean `true` field",
+        "title": "root: [noDeps]: can have `val` boolean `true` field",
         "obj": {
             "noDeps": {
                 "mod": "color",
@@ -519,7 +653,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: \"val\" field can not be a number",
+        "title": "root: [noDeps]: `val` field can not be a number",
         "obj": {
             "noDeps": {
                 "mod": "size",
@@ -534,7 +668,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: \"val\" field can not be `false`",
+        "title": "root: [noDeps]: `val` field can not be `false`",
         "obj": {
             "noDeps": {
                 "mod": "size",
@@ -549,7 +683,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: \"val\" field can not be without \"mod\"",
+        "title": "root: [noDeps]: `val` field can not be without `mod`",
         "obj": {
             "noDeps": {
                 "val": "red"
@@ -563,7 +697,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: can have \"tech\" string field",
+        "title": "root: [noDeps]: can have `tech` string field",
         "obj": {
             "noDeps": {
                 "tech": "bemhtml"
@@ -571,7 +705,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: \"tech\" field can not be a number",
+        "title": "root: [noDeps]: `tech` field can not be a number",
         "obj": {
             "noDeps": {
                 "tech": 1234
@@ -585,7 +719,7 @@
         }
     },
     {
-        "title": "root: [noDeps]: can have \"include\" boolean `false` field",
+        "title": "root: [noDeps]: can have `include` boolean `false` field",
         "obj": {
             "noDeps": {
                 "include": false
@@ -643,12 +777,42 @@
         }
     },
     {
+        "title": "root: [noDeps]: [mods]: can not be a number",
+        "obj": {
+            "noDeps": {
+                "mods": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
         "title": "root: [noDeps]: [mods]: can have string value",
         "obj": {
             "noDeps": {
                 "mods": {
                     "color": "red"
                 }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [mods]: can not have number value",
+        "obj": {
+            "noDeps": {
+                "mods": {
+                    "color": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
             }
         }
     },
@@ -660,6 +824,22 @@
                     "color": true
                 }
             }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [mods]: can not have `false` value",
+        "obj": {
+            "noDeps": {
+                "mods": {
+                    "color": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
         }
     },
     {
@@ -686,52 +866,6 @@
         }
     },
     {
-        "title": "root: [noDeps]: [mods]: can not be a number",
-        "obj": {
-            "noDeps": {
-                "mods": 1234
-            }
-        },
-        "error": {
-            "keyword": "type",
-            "params": {
-                "type": "object"
-            }
-        }
-    },
-    {
-        "title": "root: [noDeps]: [mods]: can not have number value",
-        "obj": {
-            "noDeps": {
-                "mods": {
-                    "color": 1234
-                }
-            }
-        },
-        "error": {
-            "keyword": "type",
-            "params": {
-                "type": "boolean,string,array"
-            }
-        }
-    },
-    {
-        "title": "root: [noDeps]: [mods]: can not have `false` value",
-        "obj": {
-            "noDeps": {
-                "mods": {
-                    "color": false
-                }
-            }
-        },
-        "error": {
-            "keyword": "enum",
-            "schema": [
-                true
-            ]
-        }
-    },
-    {
         "title": "root: [noDeps]: [mods]: can not have number array value",
         "obj": {
             "noDeps": {
@@ -746,6 +880,166 @@
             "keyword": "type",
             "params": {
                 "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can be a string",
+        "obj": {
+            "noDeps": {
+                "elems": "header"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can be elem-object",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can be an empty array",
+        "obj": {
+            "noDeps": {
+                "elems": []
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can be a string array",
+        "obj": {
+            "noDeps": {
+                "elems": [
+                    "header",
+                    "footer"
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can be elem-object array",
+        "obj": {
+            "noDeps": {
+                "elems": [
+                    {
+                        "elem": "header"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can not be a number",
+        "obj": {
+            "noDeps": {
+                "elems": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object,array"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can not be a number array",
+        "obj": {
+            "noDeps": {
+                "elems": [
+                    1234
+                ]
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can have `elem` string field",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "spin"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can have `elem` array field",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can have `elem` string array field",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": [
+                        "spin",
+                        "button"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: `elem` field can not be a number",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: `elem` field can not be a number array",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: `elem` field is required",
+        "obj": {
+            "noDeps": {
+                "elems": {}
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
             }
         }
     },
@@ -811,7 +1105,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: can have \"block\" string field",
+        "title": "root: [shouldDeps]: can have `block` string field",
         "obj": {
             "shouldDeps": {
                 "block": "b-page"
@@ -819,7 +1113,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: \"block\" field can not be a number",
+        "title": "root: [shouldDeps]: `block` field can not be a number",
         "obj": {
             "shouldDeps": {
                 "block": 1234
@@ -833,7 +1127,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: can have \"elem\" string field",
+        "title": "root: [shouldDeps]: can have `elem` string field",
         "obj": {
             "shouldDeps": {
                 "elem": "spin"
@@ -841,7 +1135,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: can have \"elem\" array field",
+        "title": "root: [shouldDeps]: can have `elem` array field",
         "obj": {
             "shouldDeps": {
                 "elem": []
@@ -849,7 +1143,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: can have \"elem\" string array field",
+        "title": "root: [shouldDeps]: can have `elem` string array field",
         "obj": {
             "shouldDeps": {
                 "elem": [
@@ -860,7 +1154,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: \"elem\" field can not be a number",
+        "title": "root: [shouldDeps]: `elem` field can not be a number",
         "obj": {
             "shouldDeps": {
                 "elem": 1234
@@ -874,7 +1168,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: \"elem\" field can not be a number array",
+        "title": "root: [shouldDeps]: `elem` field can not be a number array",
         "obj": {
             "shouldDeps": {
                 "elem": [
@@ -890,7 +1184,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: can have \"mod\" string field",
+        "title": "root: [shouldDeps]: can have `mod` string field",
         "obj": {
             "shouldDeps": {
                 "mod": "color"
@@ -898,7 +1192,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: \"mod\" field can not be a number",
+        "title": "root: [shouldDeps]: `mod` field can not be a number",
         "obj": {
             "shouldDeps": {
                 "mod": 1234
@@ -912,7 +1206,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: can have \"val\" string field with \"mod\"",
+        "title": "root: [shouldDeps]: can have `val` string field with `mod`",
         "obj": {
             "shouldDeps": {
                 "mod": "color",
@@ -921,7 +1215,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: can have \"val\" boolean `true` field",
+        "title": "root: [shouldDeps]: can have `val` boolean `true` field",
         "obj": {
             "shouldDeps": {
                 "mod": "color",
@@ -930,7 +1224,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: \"val\" field can not be a number",
+        "title": "root: [shouldDeps]: `val` field can not be a number",
         "obj": {
             "shouldDeps": {
                 "mod": "size",
@@ -945,7 +1239,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: \"val\" field can not be `false`",
+        "title": "root: [shouldDeps]: `val` field can not be `false`",
         "obj": {
             "shouldDeps": {
                 "mod": "size",
@@ -960,7 +1254,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: \"val\" field can not be without \"mod\"",
+        "title": "root: [shouldDeps]: `val` field can not be without `mod`",
         "obj": {
             "shouldDeps": {
                 "val": "red"
@@ -974,7 +1268,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: can have \"tech\" string field",
+        "title": "root: [shouldDeps]: can have `tech` string field",
         "obj": {
             "shouldDeps": {
                 "tech": "bemhtml"
@@ -982,7 +1276,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: \"tech\" field can not be a number",
+        "title": "root: [shouldDeps]: `tech` field can not be a number",
         "obj": {
             "shouldDeps": {
                 "tech": 1234
@@ -996,7 +1290,7 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: can have \"include\" boolean `false` field",
+        "title": "root: [shouldDeps]: can have `include` boolean `false` field",
         "obj": {
             "shouldDeps": {
                 "include": false
@@ -1054,12 +1348,42 @@
         }
     },
     {
+        "title": "root: [shouldDeps]: [mods]: can not be a number",
+        "obj": {
+            "shouldDeps": {
+                "mods": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
         "title": "root: [shouldDeps]: [mods]: can have string value",
         "obj": {
             "shouldDeps": {
                 "mods": {
                     "color": "red"
                 }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [mods]: can not have number value",
+        "obj": {
+            "shouldDeps": {
+                "mods": {
+                    "color": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
             }
         }
     },
@@ -1071,6 +1395,22 @@
                     "color": true
                 }
             }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [mods]: can not have `false` value",
+        "obj": {
+            "shouldDeps": {
+                "mods": {
+                    "color": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
         }
     },
     {
@@ -1097,52 +1437,6 @@
         }
     },
     {
-        "title": "root: [shouldDeps]: [mods]: can not be a number",
-        "obj": {
-            "shouldDeps": {
-                "mods": 1234
-            }
-        },
-        "error": {
-            "keyword": "type",
-            "params": {
-                "type": "object"
-            }
-        }
-    },
-    {
-        "title": "root: [shouldDeps]: [mods]: can not have number value",
-        "obj": {
-            "shouldDeps": {
-                "mods": {
-                    "color": 1234
-                }
-            }
-        },
-        "error": {
-            "keyword": "type",
-            "params": {
-                "type": "boolean,string,array"
-            }
-        }
-    },
-    {
-        "title": "root: [shouldDeps]: [mods]: can not have `false` value",
-        "obj": {
-            "shouldDeps": {
-                "mods": {
-                    "color": false
-                }
-            }
-        },
-        "error": {
-            "keyword": "enum",
-            "schema": [
-                true
-            ]
-        }
-    },
-    {
         "title": "root: [shouldDeps]: [mods]: can not have number array value",
         "obj": {
             "shouldDeps": {
@@ -1157,6 +1451,166 @@
             "keyword": "type",
             "params": {
                 "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can be a string",
+        "obj": {
+            "shouldDeps": {
+                "elems": "header"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can be elem-object",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can be an empty array",
+        "obj": {
+            "shouldDeps": {
+                "elems": []
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can be a string array",
+        "obj": {
+            "shouldDeps": {
+                "elems": [
+                    "header",
+                    "footer"
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can be elem-object array",
+        "obj": {
+            "shouldDeps": {
+                "elems": [
+                    {
+                        "elem": "header"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can not be a number",
+        "obj": {
+            "shouldDeps": {
+                "elems": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object,array"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can not be a number array",
+        "obj": {
+            "shouldDeps": {
+                "elems": [
+                    1234
+                ]
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can have `elem` string field",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "spin"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can have `elem` array field",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can have `elem` string array field",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": [
+                        "spin",
+                        "button"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: `elem` field can not be a number",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: `elem` field can not be a number array",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: `elem` field is required",
+        "obj": {
+            "shouldDeps": {
+                "elems": {}
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
             }
         }
     },
@@ -1222,7 +1676,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: can have \"block\" string field",
+        "title": "root: [mustDeps]: can have `block` string field",
         "obj": {
             "mustDeps": {
                 "block": "b-page"
@@ -1230,7 +1684,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: \"block\" field can not be a number",
+        "title": "root: [mustDeps]: `block` field can not be a number",
         "obj": {
             "mustDeps": {
                 "block": 1234
@@ -1244,7 +1698,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: can have \"elem\" string field",
+        "title": "root: [mustDeps]: can have `elem` string field",
         "obj": {
             "mustDeps": {
                 "elem": "spin"
@@ -1252,7 +1706,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: can have \"elem\" array field",
+        "title": "root: [mustDeps]: can have `elem` array field",
         "obj": {
             "mustDeps": {
                 "elem": []
@@ -1260,7 +1714,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: can have \"elem\" string array field",
+        "title": "root: [mustDeps]: can have `elem` string array field",
         "obj": {
             "mustDeps": {
                 "elem": [
@@ -1271,7 +1725,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: \"elem\" field can not be a number",
+        "title": "root: [mustDeps]: `elem` field can not be a number",
         "obj": {
             "mustDeps": {
                 "elem": 1234
@@ -1285,7 +1739,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: \"elem\" field can not be a number array",
+        "title": "root: [mustDeps]: `elem` field can not be a number array",
         "obj": {
             "mustDeps": {
                 "elem": [
@@ -1301,7 +1755,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: can have \"mod\" string field",
+        "title": "root: [mustDeps]: can have `mod` string field",
         "obj": {
             "mustDeps": {
                 "mod": "color"
@@ -1309,7 +1763,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: \"mod\" field can not be a number",
+        "title": "root: [mustDeps]: `mod` field can not be a number",
         "obj": {
             "mustDeps": {
                 "mod": 1234
@@ -1323,7 +1777,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: can have \"val\" string field with \"mod\"",
+        "title": "root: [mustDeps]: can have `val` string field with `mod`",
         "obj": {
             "mustDeps": {
                 "mod": "color",
@@ -1332,7 +1786,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: can have \"val\" boolean `true` field",
+        "title": "root: [mustDeps]: can have `val` boolean `true` field",
         "obj": {
             "mustDeps": {
                 "mod": "color",
@@ -1341,7 +1795,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: \"val\" field can not be a number",
+        "title": "root: [mustDeps]: `val` field can not be a number",
         "obj": {
             "mustDeps": {
                 "mod": "size",
@@ -1356,7 +1810,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: \"val\" field can not be `false`",
+        "title": "root: [mustDeps]: `val` field can not be `false`",
         "obj": {
             "mustDeps": {
                 "mod": "size",
@@ -1371,7 +1825,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: \"val\" field can not be without \"mod\"",
+        "title": "root: [mustDeps]: `val` field can not be without `mod`",
         "obj": {
             "mustDeps": {
                 "val": "red"
@@ -1385,7 +1839,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: can have \"tech\" string field",
+        "title": "root: [mustDeps]: can have `tech` string field",
         "obj": {
             "mustDeps": {
                 "tech": "bemhtml"
@@ -1393,7 +1847,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: \"tech\" field can not be a number",
+        "title": "root: [mustDeps]: `tech` field can not be a number",
         "obj": {
             "mustDeps": {
                 "tech": 1234
@@ -1407,7 +1861,7 @@
         }
     },
     {
-        "title": "root: [mustDeps]: can have \"include\" boolean `false` field",
+        "title": "root: [mustDeps]: can have `include` boolean `false` field",
         "obj": {
             "mustDeps": {
                 "include": false
@@ -1465,12 +1919,42 @@
         }
     },
     {
+        "title": "root: [mustDeps]: [mods]: can not be a number",
+        "obj": {
+            "mustDeps": {
+                "mods": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
         "title": "root: [mustDeps]: [mods]: can have string value",
         "obj": {
             "mustDeps": {
                 "mods": {
                     "color": "red"
                 }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [mods]: can not have number value",
+        "obj": {
+            "mustDeps": {
+                "mods": {
+                    "color": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
             }
         }
     },
@@ -1482,6 +1966,22 @@
                     "color": true
                 }
             }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [mods]: can not have `false` value",
+        "obj": {
+            "mustDeps": {
+                "mods": {
+                    "color": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
         }
     },
     {
@@ -1508,52 +2008,6 @@
         }
     },
     {
-        "title": "root: [mustDeps]: [mods]: can not be a number",
-        "obj": {
-            "mustDeps": {
-                "mods": 1234
-            }
-        },
-        "error": {
-            "keyword": "type",
-            "params": {
-                "type": "object"
-            }
-        }
-    },
-    {
-        "title": "root: [mustDeps]: [mods]: can not have number value",
-        "obj": {
-            "mustDeps": {
-                "mods": {
-                    "color": 1234
-                }
-            }
-        },
-        "error": {
-            "keyword": "type",
-            "params": {
-                "type": "boolean,string,array"
-            }
-        }
-    },
-    {
-        "title": "root: [mustDeps]: [mods]: can not have `false` value",
-        "obj": {
-            "mustDeps": {
-                "mods": {
-                    "color": false
-                }
-            }
-        },
-        "error": {
-            "keyword": "enum",
-            "schema": [
-                true
-            ]
-        }
-    },
-    {
         "title": "root: [mustDeps]: [mods]: can not have number array value",
         "obj": {
             "mustDeps": {
@@ -1568,6 +2022,166 @@
             "keyword": "type",
             "params": {
                 "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can be a string",
+        "obj": {
+            "mustDeps": {
+                "elems": "header"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can be elem-object",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can be an empty array",
+        "obj": {
+            "mustDeps": {
+                "elems": []
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can be a string array",
+        "obj": {
+            "mustDeps": {
+                "elems": [
+                    "header",
+                    "footer"
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can be elem-object array",
+        "obj": {
+            "mustDeps": {
+                "elems": [
+                    {
+                        "elem": "header"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can not be a number",
+        "obj": {
+            "mustDeps": {
+                "elems": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object,array"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can not be a number array",
+        "obj": {
+            "mustDeps": {
+                "elems": [
+                    1234
+                ]
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can have `elem` string field",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "spin"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can have `elem` array field",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can have `elem` string array field",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": [
+                        "spin",
+                        "button"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: `elem` field can not be a number",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: `elem` field can not be a number array",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: `elem` field is required",
+        "obj": {
+            "mustDeps": {
+                "elems": {}
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
             }
         }
     }

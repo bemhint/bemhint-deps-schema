@@ -42,7 +42,6 @@
                         {
                             "if": { "type": "array" },
                             "then": {
-                                "minItems": 1,
                                 "items": {
                                     "type": ["string", "object"],
                                     "switch": [

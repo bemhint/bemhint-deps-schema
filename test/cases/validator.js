@@ -17,6 +17,7 @@ function validateEntity(cases, recursiveFlag) {
 
     cases.it('can be a string array', ['input', 'select']);
 
+    // TODO: проверять через inner?
     cases.it('can be an object array', [{}]);
 
     cases.it('can not be a number', 1234).throws({
@@ -31,9 +32,9 @@ function validateEntity(cases, recursiveFlag) {
 
     // region field 'block'
 
-    cases.it('can have "block" string field', { block: 'b-page' });
+    cases.it('can have `block` string field', { block: 'b-page' });
 
-    cases.it('"block" field can not be a number', { block: 1234 }).throws({
+    cases.it('`block` field can not be a number', { block: 1234 }).throws({
         keyword: 'type', params: { type: 'string' }
     });
 
@@ -41,17 +42,17 @@ function validateEntity(cases, recursiveFlag) {
 
     // region field 'elem'
 
-    cases.it('can have "elem" string field', { elem: 'spin' });
+    cases.it('can have `elem` string field', { elem: 'spin' });
 
-    cases.it('can have "elem" array field', { elem: [] });
+    cases.it('can have `elem` array field', { elem: [] });
 
-    cases.it('can have "elem" string array field', { elem: ['spin', 'button'] });
+    cases.it('can have `elem` string array field', { elem: ['spin', 'button'] });
 
-    cases.it('"elem" field can not be a number', { elem: 1234 }).throws({
+    cases.it('`elem` field can not be a number', { elem: 1234 }).throws({
         keyword: 'type', params: { type: 'string,array' }
     });
 
-    cases.it('"elem" field can not be a number array', { elem: [1234] }).throws({
+    cases.it('`elem` field can not be a number array', { elem: [1234] }).throws({
         keyword: 'type', params: { type: 'string' }
     });
 
@@ -59,9 +60,9 @@ function validateEntity(cases, recursiveFlag) {
 
     // region field 'mod'
 
-    cases.it('can have "mod" string field', { mod: 'color' });
+    cases.it('can have `mod` string field', { mod: 'color' });
 
-    cases.it('"mod" field can not be a number', { mod: 1234 }).throws({
+    cases.it('`mod` field can not be a number', { mod: 1234 }).throws({
         keyword: 'type', params: { type: 'string' }
     });
 
@@ -69,19 +70,19 @@ function validateEntity(cases, recursiveFlag) {
 
     // region field 'val'
 
-    cases.it('can have "val" string field with "mod"', { mod: 'color', val: 'black' });
+    cases.it('can have `val` string field with `mod`', { mod: 'color', val: 'black' });
 
-    cases.it('can have "val" boolean `true` field', { mod: 'color', val: true });
+    cases.it('can have `val` boolean `true` field', { mod: 'color', val: true });
 
-    cases.it('"val" field can not be a number', { mod: 'size', val: 12 }).throws({
+    cases.it('`val` field can not be a number', { mod: 'size', val: 12 }).throws({
         keyword: 'type', params: { type: 'string,boolean' }
     });
 
-    cases.it('"val" field can not be `false`', { mod: 'size', val: false }).throws({
+    cases.it('`val` field can not be `false`', { mod: 'size', val: false }).throws({
         keyword: 'enum', schema: [true]
     });
 
-    cases.it('"val" field can not be without "mod"', { val: 'red' }).throws({
+    cases.it('`val` field can not be without `mod`', { val: 'red' }).throws({
         keyword: 'required', params: { missingProperty: 'mod' }
     });
 
@@ -89,9 +90,9 @@ function validateEntity(cases, recursiveFlag) {
 
     // region field 'tech'
 
-    cases.it('can have "tech" string field', { tech: 'bemhtml' });
+    cases.it('can have `tech` string field', { tech: 'bemhtml' });
 
-    cases.it('"tech" field can not be a number', { tech: 1234 }).throws({
+    cases.it('`tech` field can not be a number', { tech: 1234 }).throws({
         keyword: 'type', params: { type: 'string' }
     });
 
@@ -99,7 +100,7 @@ function validateEntity(cases, recursiveFlag) {
 
     // region field 'include'
 
-    cases.it('can have "include" boolean `false` field', { include: false });
+    cases.it('can have `include` boolean `false` field', { include: false });
 
     cases.it('include can not be true', { include: true }).throws({
         keyword: 'enum', schema: [false]
@@ -117,6 +118,10 @@ function validateEntity(cases, recursiveFlag) {
 
     validateModifiers(
         cases.inner('[mods]', target => ({ mods: target }))
+    );
+
+    validateElements(
+        cases.inner('[elems]', target => ({ elems: target }))
     );
 
     if (recursiveFlag) {
@@ -174,6 +179,53 @@ function validateModifiers(cases) {
 
     cases.it('can not have number array value', { color: [1234] }).throws({
         keyword: 'type', params: { type: 'string' }
+    });
+
+    // endregion
+}
+
+function validateElements(cases) {
+
+    // region root
+
+    cases.it('can be a string', 'header');
+
+    cases.it('can be elem-object', { elem: 'header' });
+
+    cases.it('can be an empty array', []);
+
+    cases.it('can be a string array', ['header', 'footer']);
+
+    cases.it('can be elem-object array', [{ elem: 'header' }]);
+
+    cases.it('can not be a number', 1234).throws({
+        keyword: 'type', params: { type: 'string,object,array' }
+    });
+
+    cases.it('can not be a number array', [1234]).throws({
+        keyword: 'type', params: { type: 'string,object' }
+    });
+
+    // endregion
+
+    // region field 'elem'
+
+    cases.it('can have `elem` string field', { elem: 'spin' });
+
+    cases.it('can have `elem` array field', { elem: [] });
+
+    cases.it('can have `elem` string array field', { elem: ['spin', 'button'] });
+
+    cases.it('`elem` field can not be a number', { elem: 1234 }).throws({
+        keyword: 'type', params: { type: 'string,array' }
+    });
+
+    cases.it('`elem` field can not be a number array', { elem: [1234] }).throws({
+        keyword: 'type', params: { type: 'string' }
+    });
+
+    cases.it('`elem` field is required', {}).throws({
+        keyword: 'required', params: { missingProperty: 'elem' }
     });
 
     // endregion
