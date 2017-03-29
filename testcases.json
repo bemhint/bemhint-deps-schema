@@ -642,6 +642,2862 @@
         }
     },
     {
+        "title": "root: [elems]: [noDeps]: can be a string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": "b-page"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can be an object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {}
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can be an empty array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": []
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can be a string array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": [
+                    "input",
+                    "select"
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can be an object array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": [
+                    {}
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": [
+                    1234
+                ]
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can have `block` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "block": "b-page"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: `block` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "block": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can have `elem` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elem": "spin"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can have `elem` array field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elem": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can have `elem` string array field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elem": [
+                        "spin",
+                        "button"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: `elem` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elem": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: `elem` field can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elem": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can have `mod` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mod": "color"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: `mod` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mod": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can have `val` string field with `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mod": "color",
+                    "val": "black"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can have `val` boolean `true` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mod": "color",
+                    "val": true
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: `val` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mod": "size",
+                    "val": 12
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: `val` field can not be `false`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mod": "size",
+                    "val": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: `val` field can not be without `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "val": "red"
+                }
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "mod"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can have `tech` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "tech": "bemhtml"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: `tech` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "tech": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can have `include` boolean `false` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "include": false
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: include can not be true",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "include": true
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: include can not be string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "include": "yes"
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: other fields are not allowed",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "name": "test"
+                }
+            }
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [mods]: can be an object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mods": {}
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [mods]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mods": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [mods]: can have string value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mods": {
+                        "color": "red"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [mods]: can not have number value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mods": {
+                        "color": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [mods]: can have `true` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mods": {
+                        "color": true
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [mods]: can not have `false` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mods": {
+                        "color": false
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [mods]: can have empty array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mods": {
+                        "color": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [mods]: can have string array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mods": {
+                        "color": [
+                            "red",
+                            "white"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [mods]: can not have number array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mods": {
+                        "color": [
+                            1234
+                        ]
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can be a string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": "header"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can be elem-object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can be an empty array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can be a string array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": [
+                        "header",
+                        "footer"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can be elem-object array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": [
+                        {
+                            "elem": "header"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can have `elem` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "spin"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can have `elem` array field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can have `elem` string array field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": [
+                            "spin",
+                            "button"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: `elem` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: `elem` field can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": [
+                            1234
+                        ]
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: `elem` field is required",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {}
+                }
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can have `mod` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: `mod` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can have `val` string field with `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "val": "black"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can have `val` boolean `true` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "val": true
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: `val` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "size",
+                        "val": 12
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: `val` field can not be `false`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "size",
+                        "val": false
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: `val` field can not be without `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "val": "red"
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "mod"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can have `tech` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "tech": "bemhtml"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: `tech` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "tech": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: can have `include` boolean `false` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "include": false
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: include can not be true",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "include": true
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: include can not be string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "include": "yes"
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: other fields are not allowed",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "name": "test"
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can be a string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": "b-page"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can be an object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {}
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can be an empty array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": []
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can be a string array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": [
+                    "input",
+                    "select"
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can be an object array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": [
+                    {}
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": [
+                    1234
+                ]
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can have `block` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "block": "b-page"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: `block` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "block": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can have `elem` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elem": "spin"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can have `elem` array field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elem": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can have `elem` string array field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elem": [
+                        "spin",
+                        "button"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: `elem` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elem": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: `elem` field can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elem": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can have `mod` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mod": "color"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: `mod` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mod": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can have `val` string field with `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mod": "color",
+                    "val": "black"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can have `val` boolean `true` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mod": "color",
+                    "val": true
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: `val` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mod": "size",
+                    "val": 12
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: `val` field can not be `false`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mod": "size",
+                    "val": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: `val` field can not be without `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "val": "red"
+                }
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "mod"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can have `tech` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "tech": "bemhtml"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: `tech` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "tech": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can have `include` boolean `false` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "include": false
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: include can not be true",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "include": true
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: include can not be string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "include": "yes"
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: other fields are not allowed",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "name": "test"
+                }
+            }
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [mods]: can be an object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mods": {}
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [mods]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mods": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [mods]: can have string value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mods": {
+                        "color": "red"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [mods]: can not have number value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mods": {
+                        "color": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [mods]: can have `true` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mods": {
+                        "color": true
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [mods]: can not have `false` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mods": {
+                        "color": false
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [mods]: can have empty array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mods": {
+                        "color": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [mods]: can have string array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mods": {
+                        "color": [
+                            "red",
+                            "white"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [mods]: can not have number array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mods": {
+                        "color": [
+                            1234
+                        ]
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can be a string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": "header"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can be elem-object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can be an empty array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can be a string array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": [
+                        "header",
+                        "footer"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can be elem-object array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": [
+                        {
+                            "elem": "header"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can have `elem` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "spin"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can have `elem` array field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can have `elem` string array field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": [
+                            "spin",
+                            "button"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: `elem` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: `elem` field can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": [
+                            1234
+                        ]
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: `elem` field is required",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {}
+                }
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can have `mod` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: `mod` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can have `val` string field with `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "val": "black"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can have `val` boolean `true` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "val": true
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: `val` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "size",
+                        "val": 12
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: `val` field can not be `false`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "size",
+                        "val": false
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: `val` field can not be without `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "val": "red"
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "mod"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can have `tech` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "tech": "bemhtml"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: `tech` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "tech": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can have `include` boolean `false` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "include": false
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: include can not be true",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "include": true
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: include can not be string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "include": "yes"
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: other fields are not allowed",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "name": "test"
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can be a string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": "b-page"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can be an object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {}
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can be an empty array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": []
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can be a string array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": [
+                    "input",
+                    "select"
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can be an object array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": [
+                    {}
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": [
+                    1234
+                ]
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can have `block` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "block": "b-page"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: `block` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "block": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can have `elem` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elem": "spin"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can have `elem` array field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elem": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can have `elem` string array field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elem": [
+                        "spin",
+                        "button"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: `elem` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elem": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: `elem` field can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elem": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can have `mod` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mod": "color"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: `mod` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mod": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can have `val` string field with `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mod": "color",
+                    "val": "black"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can have `val` boolean `true` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mod": "color",
+                    "val": true
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: `val` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mod": "size",
+                    "val": 12
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: `val` field can not be `false`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mod": "size",
+                    "val": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: `val` field can not be without `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "val": "red"
+                }
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "mod"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can have `tech` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "tech": "bemhtml"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: `tech` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "tech": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can have `include` boolean `false` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "include": false
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: include can not be true",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "include": true
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: include can not be string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "include": "yes"
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: other fields are not allowed",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "name": "test"
+                }
+            }
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [mods]: can be an object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mods": {}
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [mods]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mods": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [mods]: can have string value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mods": {
+                        "color": "red"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [mods]: can not have number value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mods": {
+                        "color": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [mods]: can have `true` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mods": {
+                        "color": true
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [mods]: can not have `false` value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mods": {
+                        "color": false
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [mods]: can have empty array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mods": {
+                        "color": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [mods]: can have string array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mods": {
+                        "color": [
+                            "red",
+                            "white"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [mods]: can not have number array value",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mods": {
+                        "color": [
+                            1234
+                        ]
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can be a string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": "header"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can be elem-object",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can be an empty array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can be a string array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": [
+                        "header",
+                        "footer"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can be elem-object array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": [
+                        {
+                            "elem": "header"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,object"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can have `elem` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "spin"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can have `elem` array field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can have `elem` string array field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": [
+                            "spin",
+                            "button"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: `elem` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: `elem` field can not be a number array",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": [
+                            1234
+                        ]
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: `elem` field is required",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {}
+                }
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can have `mod` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: `mod` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can have `val` string field with `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "val": "black"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can have `val` boolean `true` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "val": true
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: `val` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "size",
+                        "val": 12
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: `val` field can not be `false`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "size",
+                        "val": false
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: `val` field can not be without `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "val": "red"
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "mod"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can have `tech` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "tech": "bemhtml"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: `tech` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "tech": 1234
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: can have `include` boolean `false` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "include": false
+                    }
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: include can not be true",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "include": true
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: include can not be string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "include": "yes"
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: other fields are not allowed",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "name": "test"
+                    }
+                }
+            }
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
         "title": "root: [noDeps]: can be a string",
         "obj": {
             "noDeps": "b-page"

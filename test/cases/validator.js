@@ -121,7 +121,8 @@ function validateEntity(cases, recursiveFlag) {
     );
 
     validateElements(
-        cases.inner('[elems]', target => ({ elems: target }))
+        cases.inner('[elems]', target => ({ elems: target })),
+        recursiveFlag
     );
 
     if (recursiveFlag) {
@@ -184,7 +185,7 @@ function validateModifiers(cases) {
     // endregion
 }
 
-function validateElements(cases) {
+function validateElements(cases, recursiveFlag) {
 
     // region root
 
@@ -287,6 +288,20 @@ function validateElements(cases) {
     cases.it('other fields are not allowed', { elem: 'header', name: 'test' }).throws({
         keyword: 'additionalProperties', params: { additionalProperty: 'name' }
     });
+
+    if (recursiveFlag) {
+        validateEntity(
+            cases.inner('[noDeps]', target => ({ elem: 'header', noDeps: target }))
+        );
+
+        validateEntity(
+            cases.inner('[shouldDeps]', target => ({ elem: 'header', shouldDeps: target }))
+        );
+
+        validateEntity(
+            cases.inner('[mustDeps]', target => ({ elem: 'header', mustDeps: target }))
+        );
+    }
 }
 
 const testCases = rootWrapper.getCases();
