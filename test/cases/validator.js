@@ -117,6 +117,10 @@ function validateEntityFields(cases, recursiveFlag) {
 
     // endregion
 
+    cases.it('can have `mod` and `mods` fields', { mod: 'color', mods: {} });
+
+    cases.it('can have `elem` and `elems` fields', { elem: 'header', elems: [] });
+
     validateModifiers(
         cases.inner('[mods]', target => ({ mods: target }))
     );
@@ -296,6 +300,8 @@ function validateElementFields(cases, recursiveFlag) {
 
     // endregion
 
+    cases.it('can have `mod` and `mods` fields', { elem: 'header', mod: 'color', mods: {} });
+
     validateModifiers(
         cases.inner('[mods]', target => ({ elem: 'header', mods: target }))
     );
@@ -318,10 +324,6 @@ function validateElementFields(cases, recursiveFlag) {
         keyword: 'additionalProperties', params: { additionalProperty: 'name' }
     });
 }
-
-// TODO: elem + elems
-
-// TODO: mod + mds
 
 const testCases = rootWrapper.getCases();
 

@@ -66,9 +66,6 @@
                 "shouldDeps": { "$ref": "#/definitions/set" }
             },
             "dependencies": {
-                "mod": {
-                    "not": { "required": ["mods"] }
-                },
                 "val": { "required": ["mod"] }
             }
         },
@@ -95,9 +92,6 @@
                 "shouldDeps": { "$ref": "#/definitions/set" }
             },
             "dependencies": {
-                "mod": {
-                    "not": { "required": ["mods"] }
-                },
                 "val": { "required": ["mod"] }
             },
             "required": ["elem"]

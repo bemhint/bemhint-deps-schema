@@ -230,6 +230,20 @@
         }
     },
     {
+        "title": "root: can have `mod` and `mods` fields",
+        "obj": {
+            "mod": "color",
+            "mods": {}
+        }
+    },
+    {
+        "title": "root: can have `elem` and `elems` fields",
+        "obj": {
+            "elem": "header",
+            "elems": []
+        }
+    },
+    {
         "title": "root: [mods]: can be an object",
         "obj": {
             "mods": {}
@@ -612,6 +626,16 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mod": "color",
+                "mods": {}
+            }
         }
     },
     {
@@ -1096,6 +1120,30 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "mod": "color",
+                    "mods": {}
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: can have `elem` and `elems` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elem": "header",
+                    "elems": []
+                }
+            }
         }
     },
     {
@@ -1654,6 +1702,21 @@
         }
     },
     {
+        "title": "root: [elems]: [noDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            }
+        }
+    },
+    {
         "title": "root: [elems]: [noDeps]: [elems]: [mods]: can be an object",
         "obj": {
             "elems": {
@@ -2189,6 +2252,23 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": {
+                    "elems": [
+                        {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            }
         }
     },
     {
@@ -2731,6 +2811,34 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": [
+                    {
+                        "mod": "color",
+                        "mods": {}
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": [
+                    {
+                        "elem": "header",
+                        "elems": []
+                    }
+                ]
+            }
         }
     },
     {
@@ -3357,6 +3465,23 @@
         }
     },
     {
+        "title": "root: [elems]: [noDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": [
+                    {
+                        "elems": {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    {
         "title": "root: [elems]: [noDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": {
             "elems": {
@@ -3948,6 +4073,25 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [elems]: [noDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "noDeps": [
+                    {
+                        "elems": [
+                            {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                ]
+            }
         }
     },
     {
@@ -4559,6 +4703,30 @@
         }
     },
     {
+        "title": "root: [elems]: [shouldDeps]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "mod": "color",
+                    "mods": {}
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: can have `elem` and `elems` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elem": "header",
+                    "elems": []
+                }
+            }
+        }
+    },
+    {
         "title": "root: [elems]: [shouldDeps]: [mods]: can be an object",
         "obj": {
             "elems": {
@@ -5114,6 +5282,21 @@
         }
     },
     {
+        "title": "root: [elems]: [shouldDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            }
+        }
+    },
+    {
         "title": "root: [elems]: [shouldDeps]: [elems]: [mods]: can be an object",
         "obj": {
             "elems": {
@@ -5649,6 +5832,23 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": {
+                    "elems": [
+                        {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            }
         }
     },
     {
@@ -6191,6 +6391,34 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": [
+                    {
+                        "mod": "color",
+                        "mods": {}
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": [
+                    {
+                        "elem": "header",
+                        "elems": []
+                    }
+                ]
+            }
         }
     },
     {
@@ -6817,6 +7045,23 @@
         }
     },
     {
+        "title": "root: [elems]: [shouldDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": [
+                    {
+                        "elems": {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    {
         "title": "root: [elems]: [shouldDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": {
             "elems": {
@@ -7408,6 +7653,25 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [elems]: [shouldDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "shouldDeps": [
+                    {
+                        "elems": [
+                            {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                ]
+            }
         }
     },
     {
@@ -8019,6 +8283,30 @@
         }
     },
     {
+        "title": "root: [elems]: [mustDeps]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "mod": "color",
+                    "mods": {}
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: can have `elem` and `elems` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elem": "header",
+                    "elems": []
+                }
+            }
+        }
+    },
+    {
         "title": "root: [elems]: [mustDeps]: [mods]: can be an object",
         "obj": {
             "elems": {
@@ -8574,6 +8862,21 @@
         }
     },
     {
+        "title": "root: [elems]: [mustDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            }
+        }
+    },
+    {
         "title": "root: [elems]: [mustDeps]: [elems]: [mods]: can be an object",
         "obj": {
             "elems": {
@@ -9109,6 +9412,23 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": {
+                    "elems": [
+                        {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            }
         }
     },
     {
@@ -9651,6 +9971,34 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": [
+                    {
+                        "mod": "color",
+                        "mods": {}
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: [mustDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": [
+                    {
+                        "elem": "header",
+                        "elems": []
+                    }
+                ]
+            }
         }
     },
     {
@@ -10277,6 +10625,23 @@
         }
     },
     {
+        "title": "root: [elems]: [mustDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": [
+                    {
+                        "elems": {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    {
         "title": "root: [elems]: [mustDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": {
             "elems": {
@@ -10871,6 +11236,25 @@
         }
     },
     {
+        "title": "root: [elems]: [mustDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mustDeps": [
+                    {
+                        "elems": [
+                            {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
         "title": "root: [elems]: [mustDeps]: [0]: [elems]: [0]: [mods]: can be an object",
         "obj": {
             "elems": {
@@ -11389,6 +11773,18 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "mod": "color",
+                    "mods": {}
+                }
             ]
         }
     },
@@ -11943,6 +12339,34 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [noDeps]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "noDeps": {
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [noDeps]: can have `elem` and `elems` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "noDeps": {
+                        "elem": "header",
+                        "elems": []
+                    }
+                }
             ]
         }
     },
@@ -12570,6 +12994,23 @@
         }
     },
     {
+        "title": "root: [elems]: [0]: [noDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "noDeps": {
+                        "elems": {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [elems]: [0]: [noDeps]: [elems]: [mods]: can be an object",
         "obj": {
             "elems": [
@@ -13160,6 +13601,25 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [noDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "noDeps": {
+                        "elems": [
+                            {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                }
             ]
         }
     },
@@ -13762,6 +14222,38 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [noDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "noDeps": [
+                        {
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [noDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "noDeps": [
+                        {
+                            "elem": "header",
+                            "elems": []
+                        }
+                    ]
+                }
             ]
         }
     },
@@ -14457,6 +14949,25 @@
         }
     },
     {
+        "title": "root: [elems]: [0]: [noDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "noDeps": [
+                        {
+                            "elems": {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [elems]: [0]: [noDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": {
             "elems": [
@@ -15103,6 +15614,27 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [noDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "noDeps": [
+                        {
+                            "elems": [
+                                {
+                                    "elem": "header",
+                                    "mod": "color",
+                                    "mods": {}
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         }
     },
@@ -15789,6 +16321,34 @@
         }
     },
     {
+        "title": "root: [elems]: [0]: [shouldDeps]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "shouldDeps": {
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [shouldDeps]: can have `elem` and `elems` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "shouldDeps": {
+                        "elem": "header",
+                        "elems": []
+                    }
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [elems]: [0]: [shouldDeps]: [mods]: can be an object",
         "obj": {
             "elems": [
@@ -16412,6 +16972,23 @@
         }
     },
     {
+        "title": "root: [elems]: [0]: [shouldDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "shouldDeps": {
+                        "elems": {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [elems]: [0]: [shouldDeps]: [elems]: [mods]: can be an object",
         "obj": {
             "elems": [
@@ -17002,6 +17579,25 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [shouldDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "shouldDeps": {
+                        "elems": [
+                            {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                }
             ]
         }
     },
@@ -17604,6 +18200,38 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [shouldDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "shouldDeps": [
+                        {
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [shouldDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "shouldDeps": [
+                        {
+                            "elem": "header",
+                            "elems": []
+                        }
+                    ]
+                }
             ]
         }
     },
@@ -18299,6 +18927,25 @@
         }
     },
     {
+        "title": "root: [elems]: [0]: [shouldDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "shouldDeps": [
+                        {
+                            "elems": {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [elems]: [0]: [shouldDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": {
             "elems": [
@@ -18945,6 +19592,27 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [shouldDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "shouldDeps": [
+                        {
+                            "elems": [
+                                {
+                                    "elem": "header",
+                                    "mod": "color",
+                                    "mods": {}
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         }
     },
@@ -19631,6 +20299,34 @@
         }
     },
     {
+        "title": "root: [elems]: [0]: [mustDeps]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "mustDeps": {
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [mustDeps]: can have `elem` and `elems` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "mustDeps": {
+                        "elem": "header",
+                        "elems": []
+                    }
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [elems]: [0]: [mustDeps]: [mods]: can be an object",
         "obj": {
             "elems": [
@@ -20254,6 +20950,23 @@
         }
     },
     {
+        "title": "root: [elems]: [0]: [mustDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "mustDeps": {
+                        "elems": {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [elems]: [0]: [mustDeps]: [elems]: [mods]: can be an object",
         "obj": {
             "elems": [
@@ -20844,6 +21557,25 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [mustDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "mustDeps": {
+                        "elems": [
+                            {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                }
             ]
         }
     },
@@ -21446,6 +22178,38 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [mustDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "mustDeps": [
+                        {
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: [0]: [mustDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "mustDeps": [
+                        {
+                            "elem": "header",
+                            "elems": []
+                        }
+                    ]
+                }
             ]
         }
     },
@@ -22141,6 +22905,25 @@
         }
     },
     {
+        "title": "root: [elems]: [0]: [mustDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "mustDeps": [
+                        {
+                            "elems": {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [elems]: [0]: [mustDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": {
             "elems": [
@@ -22791,6 +23574,27 @@
         }
     },
     {
+        "title": "root: [elems]: [0]: [mustDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "elems": [
+                {
+                    "elem": "header",
+                    "mustDeps": [
+                        {
+                            "elems": [
+                                {
+                                    "elem": "header",
+                                    "mod": "color",
+                                    "mods": {}
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [elems]: [0]: [mustDeps]: [0]: [elems]: [0]: [mods]: can be an object",
         "obj": {
             "elems": [
@@ -23360,6 +24164,24 @@
         }
     },
     {
+        "title": "root: [noDeps]: can have `mod` and `mods` fields",
+        "obj": {
+            "noDeps": {
+                "mod": "color",
+                "mods": {}
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: can have `elem` and `elems` fields",
+        "obj": {
+            "noDeps": {
+                "elem": "header",
+                "elems": []
+            }
+        }
+    },
+    {
         "title": "root: [noDeps]: [mods]: can be an object",
         "obj": {
             "noDeps": {
@@ -23810,6 +24632,18 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color",
+                    "mods": {}
+                }
+            }
         }
     },
     {
@@ -24267,6 +25101,20 @@
         }
     },
     {
+        "title": "root: [noDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "noDeps": {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                ]
+            }
+        }
+    },
+    {
         "title": "root: [noDeps]: [elems]: [0]: [mods]: can be an object",
         "obj": {
             "noDeps": {
@@ -24715,6 +25563,28 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [noDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "noDeps": [
+                {
+                    "mod": "color",
+                    "mods": {}
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: [noDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": {
+            "noDeps": [
+                {
+                    "elem": "header",
+                    "elems": []
+                }
             ]
         }
     },
@@ -25240,6 +26110,20 @@
         }
     },
     {
+        "title": "root: [noDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "noDeps": [
+                {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [noDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": {
             "noDeps": [
@@ -25750,6 +26634,22 @@
         }
     },
     {
+        "title": "root: [noDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "noDeps": [
+                {
+                    "elems": [
+                        {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [noDeps]: [0]: [elems]: [0]: [mods]: can be an object",
         "obj": {
             "noDeps": [
@@ -26247,6 +27147,24 @@
         }
     },
     {
+        "title": "root: [shouldDeps]: can have `mod` and `mods` fields",
+        "obj": {
+            "shouldDeps": {
+                "mod": "color",
+                "mods": {}
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: can have `elem` and `elems` fields",
+        "obj": {
+            "shouldDeps": {
+                "elem": "header",
+                "elems": []
+            }
+        }
+    },
+    {
         "title": "root: [shouldDeps]: [mods]: can be an object",
         "obj": {
             "shouldDeps": {
@@ -26697,6 +27615,18 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color",
+                    "mods": {}
+                }
+            }
         }
     },
     {
@@ -27154,6 +28084,20 @@
         }
     },
     {
+        "title": "root: [shouldDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "shouldDeps": {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                ]
+            }
+        }
+    },
+    {
         "title": "root: [shouldDeps]: [elems]: [0]: [mods]: can be an object",
         "obj": {
             "shouldDeps": {
@@ -27602,6 +28546,28 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "shouldDeps": [
+                {
+                    "mod": "color",
+                    "mods": {}
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": {
+            "shouldDeps": [
+                {
+                    "elem": "header",
+                    "elems": []
+                }
             ]
         }
     },
@@ -28127,6 +29093,20 @@
         }
     },
     {
+        "title": "root: [shouldDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "shouldDeps": [
+                {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [shouldDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": {
             "shouldDeps": [
@@ -28637,6 +29617,22 @@
         }
     },
     {
+        "title": "root: [shouldDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "shouldDeps": [
+                {
+                    "elems": [
+                        {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [shouldDeps]: [0]: [elems]: [0]: [mods]: can be an object",
         "obj": {
             "shouldDeps": [
@@ -29134,6 +30130,24 @@
         }
     },
     {
+        "title": "root: [mustDeps]: can have `mod` and `mods` fields",
+        "obj": {
+            "mustDeps": {
+                "mod": "color",
+                "mods": {}
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: can have `elem` and `elems` fields",
+        "obj": {
+            "mustDeps": {
+                "elem": "header",
+                "elems": []
+            }
+        }
+    },
+    {
         "title": "root: [mustDeps]: [mods]: can be an object",
         "obj": {
             "mustDeps": {
@@ -29584,6 +30598,18 @@
             "schema": [
                 false
             ]
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color",
+                    "mods": {}
+                }
+            }
         }
     },
     {
@@ -30041,6 +31067,20 @@
         }
     },
     {
+        "title": "root: [mustDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "mustDeps": {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                ]
+            }
+        }
+    },
+    {
         "title": "root: [mustDeps]: [elems]: [0]: [mods]: can be an object",
         "obj": {
             "mustDeps": {
@@ -30489,6 +31529,28 @@
             "keyword": "enum",
             "schema": [
                 false
+            ]
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "mustDeps": [
+                {
+                    "mod": "color",
+                    "mods": {}
+                }
+            ]
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": {
+            "mustDeps": [
+                {
+                    "elem": "header",
+                    "elems": []
+                }
             ]
         }
     },
@@ -31014,6 +32076,20 @@
         }
     },
     {
+        "title": "root: [mustDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": {
+            "mustDeps": [
+                {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [mustDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": {
             "mustDeps": [
@@ -31524,6 +32600,22 @@
         }
     },
     {
+        "title": "root: [mustDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": {
+            "mustDeps": [
+                {
+                    "elems": [
+                        {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
         "title": "root: [mustDeps]: [0]: [elems]: [0]: [mods]: can be an object",
         "obj": {
             "mustDeps": [
@@ -31970,6 +33062,24 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "mod": "color",
+                "mods": {}
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elem": "header",
+                "elems": []
+            }
+        ]
     },
     {
         "title": "root: [0]: [mods]: can be an object",
@@ -32423,6 +33533,18 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color",
+                    "mods": {}
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [mods]: can be an object",
@@ -32977,6 +34099,34 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [noDeps]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "noDeps": {
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [elems]: [noDeps]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "noDeps": {
+                        "elem": "header",
+                        "elems": []
+                    }
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [noDeps]: [mods]: can be an object",
@@ -33602,6 +34752,23 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [noDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "noDeps": {
+                        "elems": {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [noDeps]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -34194,6 +35361,25 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [noDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "noDeps": {
+                        "elems": [
+                            {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [noDeps]: [elems]: [0]: [mods]: can be an object",
@@ -34796,6 +35982,38 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [noDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "noDeps": [
+                        {
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [elems]: [noDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "noDeps": [
+                        {
+                            "elem": "header",
+                            "elems": []
+                        }
+                    ]
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [noDeps]: [0]: [mods]: can be an object",
@@ -35489,6 +36707,25 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [noDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "noDeps": [
+                        {
+                            "elems": {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [noDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -36137,6 +37374,27 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [noDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "noDeps": [
+                        {
+                            "elems": [
+                                {
+                                    "elem": "header",
+                                    "mod": "color",
+                                    "mods": {}
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [noDeps]: [0]: [elems]: [0]: [mods]: can be an object",
@@ -36821,6 +38079,34 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [shouldDeps]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "shouldDeps": {
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [elems]: [shouldDeps]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "shouldDeps": {
+                        "elem": "header",
+                        "elems": []
+                    }
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [shouldDeps]: [mods]: can be an object",
         "obj": [
             {
@@ -37444,6 +38730,23 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [shouldDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "shouldDeps": {
+                        "elems": {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [shouldDeps]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -38036,6 +39339,25 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [shouldDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "shouldDeps": {
+                        "elems": [
+                            {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [shouldDeps]: [elems]: [0]: [mods]: can be an object",
@@ -38638,6 +39960,38 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [shouldDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "shouldDeps": [
+                        {
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [elems]: [shouldDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "shouldDeps": [
+                        {
+                            "elem": "header",
+                            "elems": []
+                        }
+                    ]
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [shouldDeps]: [0]: [mods]: can be an object",
@@ -39331,6 +40685,25 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [shouldDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "shouldDeps": [
+                        {
+                            "elems": {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [shouldDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -39979,6 +41352,27 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [shouldDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "shouldDeps": [
+                        {
+                            "elems": [
+                                {
+                                    "elem": "header",
+                                    "mod": "color",
+                                    "mods": {}
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [shouldDeps]: [0]: [elems]: [0]: [mods]: can be an object",
@@ -40663,6 +42057,34 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [mustDeps]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "mustDeps": {
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [elems]: [mustDeps]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "mustDeps": {
+                        "elem": "header",
+                        "elems": []
+                    }
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [mustDeps]: [mods]: can be an object",
         "obj": [
             {
@@ -41286,6 +42708,23 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [mustDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "mustDeps": {
+                        "elems": {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [mustDeps]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -41878,6 +43317,25 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [mustDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "mustDeps": {
+                        "elems": [
+                            {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [mustDeps]: [elems]: [0]: [mods]: can be an object",
@@ -42480,6 +43938,38 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [mustDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "mustDeps": [
+                        {
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [elems]: [mustDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "mustDeps": [
+                        {
+                            "elem": "header",
+                            "elems": []
+                        }
+                    ]
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [mustDeps]: [0]: [mods]: can be an object",
@@ -43173,6 +44663,25 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [mustDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "mustDeps": [
+                        {
+                            "elems": {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [mustDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -43823,6 +45332,27 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [mustDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": {
+                    "elem": "header",
+                    "mustDeps": [
+                        {
+                            "elems": [
+                                {
+                                    "elem": "header",
+                                    "mod": "color",
+                                    "mods": {}
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [mustDeps]: [0]: [elems]: [0]: [mods]: can be an object",
         "obj": [
             {
@@ -44403,6 +45933,20 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [0]: [mods]: can be an object",
@@ -45027,6 +46571,38 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [noDeps]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "noDeps": {
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [noDeps]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "noDeps": {
+                            "elem": "header",
+                            "elems": []
+                        }
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [0]: [noDeps]: [mods]: can be an object",
@@ -45720,6 +47296,25 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [0]: [noDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "noDeps": {
+                            "elems": {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [0]: [noDeps]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -46368,6 +47963,27 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [noDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "noDeps": {
+                            "elems": [
+                                {
+                                    "elem": "header",
+                                    "mod": "color",
+                                    "mods": {}
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [0]: [noDeps]: [elems]: [0]: [mods]: can be an object",
@@ -47030,6 +48646,42 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [noDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "noDeps": [
+                            {
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [noDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "noDeps": [
+                            {
+                                "elem": "header",
+                                "elems": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [0]: [noDeps]: [0]: [mods]: can be an object",
@@ -47791,6 +49443,27 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [0]: [noDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "noDeps": [
+                            {
+                                "elems": {
+                                    "elem": "header",
+                                    "mod": "color",
+                                    "mods": {}
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [0]: [noDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -48495,6 +50168,29 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [noDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "noDeps": [
+                            {
+                                "elems": [
+                                    {
+                                        "elem": "header",
+                                        "mod": "color",
+                                        "mods": {}
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [0]: [noDeps]: [0]: [elems]: [0]: [mods]: can be an object",
@@ -49253,6 +50949,38 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [0]: [shouldDeps]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "shouldDeps": {
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [shouldDeps]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "shouldDeps": {
+                            "elem": "header",
+                            "elems": []
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [0]: [shouldDeps]: [mods]: can be an object",
         "obj": [
             {
@@ -49944,6 +51672,25 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [0]: [shouldDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "shouldDeps": {
+                            "elems": {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [0]: [shouldDeps]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -50592,6 +52339,27 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [shouldDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "shouldDeps": {
+                            "elems": [
+                                {
+                                    "elem": "header",
+                                    "mod": "color",
+                                    "mods": {}
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [0]: [shouldDeps]: [elems]: [0]: [mods]: can be an object",
@@ -51254,6 +53022,42 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [shouldDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "shouldDeps": [
+                            {
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [shouldDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "shouldDeps": [
+                            {
+                                "elem": "header",
+                                "elems": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [0]: [shouldDeps]: [0]: [mods]: can be an object",
@@ -52015,6 +53819,27 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [0]: [shouldDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "shouldDeps": [
+                            {
+                                "elems": {
+                                    "elem": "header",
+                                    "mod": "color",
+                                    "mods": {}
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [0]: [shouldDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -52719,6 +54544,29 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [shouldDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "shouldDeps": [
+                            {
+                                "elems": [
+                                    {
+                                        "elem": "header",
+                                        "mod": "color",
+                                        "mods": {}
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [0]: [shouldDeps]: [0]: [elems]: [0]: [mods]: can be an object",
@@ -53477,6 +55325,38 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [0]: [mustDeps]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "mustDeps": {
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [mustDeps]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "mustDeps": {
+                            "elem": "header",
+                            "elems": []
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [0]: [mustDeps]: [mods]: can be an object",
         "obj": [
             {
@@ -54168,6 +56048,25 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [0]: [mustDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "mustDeps": {
+                            "elems": {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [0]: [mustDeps]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -54816,6 +56715,27 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [mustDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "mustDeps": {
+                            "elems": [
+                                {
+                                    "elem": "header",
+                                    "mod": "color",
+                                    "mods": {}
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [0]: [mustDeps]: [elems]: [0]: [mods]: can be an object",
@@ -55478,6 +57398,42 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [mustDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "mustDeps": [
+                            {
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [elems]: [0]: [mustDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "mustDeps": [
+                            {
+                                "elem": "header",
+                                "elems": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [elems]: [0]: [mustDeps]: [0]: [mods]: can be an object",
@@ -56239,6 +58195,27 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [0]: [mustDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "mustDeps": [
+                            {
+                                "elems": {
+                                    "elem": "header",
+                                    "mod": "color",
+                                    "mods": {}
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [0]: [mustDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -56945,6 +58922,29 @@
         }
     },
     {
+        "title": "root: [0]: [elems]: [0]: [mustDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "elems": [
+                    {
+                        "elem": "header",
+                        "mustDeps": [
+                            {
+                                "elems": [
+                                    {
+                                        "elem": "header",
+                                        "mod": "color",
+                                        "mods": {}
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [elems]: [0]: [mustDeps]: [0]: [elems]: [0]: [mods]: can be an object",
         "obj": [
             {
@@ -57590,6 +59590,28 @@
         }
     },
     {
+        "title": "root: [0]: [noDeps]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "noDeps": {
+                    "mod": "color",
+                    "mods": {}
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [noDeps]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "noDeps": {
+                    "elem": "header",
+                    "elems": []
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [noDeps]: [mods]: can be an object",
         "obj": [
             {
@@ -58111,6 +60133,20 @@
         }
     },
     {
+        "title": "root: [0]: [noDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "noDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [noDeps]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -58619,6 +60655,22 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [noDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "noDeps": {
+                    "elems": [
+                        {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [noDeps]: [elems]: [0]: [mods]: can be an object",
@@ -59131,6 +61183,32 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [noDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "noDeps": [
+                    {
+                        "mod": "color",
+                        "mods": {}
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [noDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "noDeps": [
+                    {
+                        "elem": "header",
+                        "elems": []
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [noDeps]: [0]: [mods]: can be an object",
@@ -59722,6 +61800,22 @@
         }
     },
     {
+        "title": "root: [0]: [noDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "noDeps": [
+                    {
+                        "elems": {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [noDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -60286,6 +62380,24 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [noDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "noDeps": [
+                    {
+                        "elems": [
+                            {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [noDeps]: [0]: [elems]: [0]: [mods]: can be an object",
@@ -60859,6 +62971,28 @@
         }
     },
     {
+        "title": "root: [0]: [shouldDeps]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "shouldDeps": {
+                    "mod": "color",
+                    "mods": {}
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [shouldDeps]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "shouldDeps": {
+                    "elem": "header",
+                    "elems": []
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [shouldDeps]: [mods]: can be an object",
         "obj": [
             {
@@ -61380,6 +63514,20 @@
         }
     },
     {
+        "title": "root: [0]: [shouldDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "shouldDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [shouldDeps]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -61888,6 +64036,22 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [shouldDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "shouldDeps": {
+                    "elems": [
+                        {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [shouldDeps]: [elems]: [0]: [mods]: can be an object",
@@ -62400,6 +64564,32 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [shouldDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "shouldDeps": [
+                    {
+                        "mod": "color",
+                        "mods": {}
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [shouldDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "shouldDeps": [
+                    {
+                        "elem": "header",
+                        "elems": []
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [shouldDeps]: [0]: [mods]: can be an object",
@@ -62991,6 +65181,22 @@
         }
     },
     {
+        "title": "root: [0]: [shouldDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "shouldDeps": [
+                    {
+                        "elems": {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [shouldDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -63555,6 +65761,24 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [shouldDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "shouldDeps": [
+                    {
+                        "elems": [
+                            {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [shouldDeps]: [0]: [elems]: [0]: [mods]: can be an object",
@@ -64128,6 +66352,28 @@
         }
     },
     {
+        "title": "root: [0]: [mustDeps]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "mustDeps": {
+                    "mod": "color",
+                    "mods": {}
+                }
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [mustDeps]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "mustDeps": {
+                    "elem": "header",
+                    "elems": []
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [mustDeps]: [mods]: can be an object",
         "obj": [
             {
@@ -64649,6 +66895,20 @@
         }
     },
     {
+        "title": "root: [0]: [mustDeps]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "mustDeps": {
+                    "elems": {
+                        "elem": "header",
+                        "mod": "color",
+                        "mods": {}
+                    }
+                }
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [mustDeps]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -65157,6 +67417,22 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [mustDeps]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "mustDeps": {
+                    "elems": [
+                        {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    ]
+                }
+            }
+        ]
     },
     {
         "title": "root: [0]: [mustDeps]: [elems]: [0]: [mods]: can be an object",
@@ -65669,6 +67945,32 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [mustDeps]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "mustDeps": [
+                    {
+                        "mod": "color",
+                        "mods": {}
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "root: [0]: [mustDeps]: [0]: can have `elem` and `elems` fields",
+        "obj": [
+            {
+                "mustDeps": [
+                    {
+                        "elem": "header",
+                        "elems": []
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [mustDeps]: [0]: [mods]: can be an object",
@@ -66260,6 +68562,22 @@
         }
     },
     {
+        "title": "root: [0]: [mustDeps]: [0]: [elems]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "mustDeps": [
+                    {
+                        "elems": {
+                            "elem": "header",
+                            "mod": "color",
+                            "mods": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "title": "root: [0]: [mustDeps]: [0]: [elems]: [mods]: can be an object",
         "obj": [
             {
@@ -66824,6 +69142,24 @@
                 false
             ]
         }
+    },
+    {
+        "title": "root: [0]: [mustDeps]: [0]: [elems]: [0]: can have `mod` and `mods` fields",
+        "obj": [
+            {
+                "mustDeps": [
+                    {
+                        "elems": [
+                            {
+                                "elem": "header",
+                                "mod": "color",
+                                "mods": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     {
         "title": "root: [0]: [mustDeps]: [0]: [elems]: [0]: [mods]: can be an object",
