@@ -242,6 +242,103 @@
         }
     },
     {
+        "title": "root: [mods]: can be an object",
+        "obj": {
+            "mods": {}
+        }
+    },
+    {
+        "title": "root: [mods]: can have string value",
+        "obj": {
+            "mods": {
+                "color": "red"
+            }
+        }
+    },
+    {
+        "title": "root: [mods]: can have `true` value",
+        "obj": {
+            "mods": {
+                "color": true
+            }
+        }
+    },
+    {
+        "title": "root: [mods]: can have empty array value",
+        "obj": {
+            "mods": {
+                "color": []
+            }
+        }
+    },
+    {
+        "title": "root: [mods]: can have string array value",
+        "obj": {
+            "mods": {
+                "color": [
+                    "red",
+                    "white"
+                ]
+            }
+        }
+    },
+    {
+        "title": "root: [mods]: can not be a number",
+        "obj": {
+            "mods": 1234
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [mods]: can not have number value",
+        "obj": {
+            "mods": {
+                "color": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [mods]: can not have `false` value",
+        "obj": {
+            "mods": {
+                "color": false
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [mods]: can not have number array value",
+        "obj": {
+            "mods": {
+                "color": [
+                    1234
+                ]
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
         "title": "root: [noDeps]: can be a string",
         "obj": {
             "noDeps": "b-page"
@@ -534,6 +631,121 @@
             "keyword": "additionalProperties",
             "params": {
                 "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [mods]: can be an object",
+        "obj": {
+            "noDeps": {
+                "mods": {}
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [mods]: can have string value",
+        "obj": {
+            "noDeps": {
+                "mods": {
+                    "color": "red"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [mods]: can have `true` value",
+        "obj": {
+            "noDeps": {
+                "mods": {
+                    "color": true
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [mods]: can have empty array value",
+        "obj": {
+            "noDeps": {
+                "mods": {
+                    "color": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [mods]: can have string array value",
+        "obj": {
+            "noDeps": {
+                "mods": {
+                    "color": [
+                        "red",
+                        "white"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [mods]: can not be a number",
+        "obj": {
+            "noDeps": {
+                "mods": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [mods]: can not have number value",
+        "obj": {
+            "noDeps": {
+                "mods": {
+                    "color": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [mods]: can not have `false` value",
+        "obj": {
+            "noDeps": {
+                "mods": {
+                    "color": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [noDeps]: [mods]: can not have number array value",
+        "obj": {
+            "noDeps": {
+                "mods": {
+                    "color": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
             }
         }
     },
@@ -834,6 +1046,121 @@
         }
     },
     {
+        "title": "root: [shouldDeps]: [mods]: can be an object",
+        "obj": {
+            "shouldDeps": {
+                "mods": {}
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [mods]: can have string value",
+        "obj": {
+            "shouldDeps": {
+                "mods": {
+                    "color": "red"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [mods]: can have `true` value",
+        "obj": {
+            "shouldDeps": {
+                "mods": {
+                    "color": true
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [mods]: can have empty array value",
+        "obj": {
+            "shouldDeps": {
+                "mods": {
+                    "color": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [mods]: can have string array value",
+        "obj": {
+            "shouldDeps": {
+                "mods": {
+                    "color": [
+                        "red",
+                        "white"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [mods]: can not be a number",
+        "obj": {
+            "shouldDeps": {
+                "mods": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [mods]: can not have number value",
+        "obj": {
+            "shouldDeps": {
+                "mods": {
+                    "color": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [mods]: can not have `false` value",
+        "obj": {
+            "shouldDeps": {
+                "mods": {
+                    "color": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [mods]: can not have number array value",
+        "obj": {
+            "shouldDeps": {
+                "mods": {
+                    "color": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
         "title": "root: [mustDeps]: can be a string",
         "obj": {
             "mustDeps": "b-page"
@@ -1126,6 +1453,121 @@
             "keyword": "additionalProperties",
             "params": {
                 "additionalProperty": "name"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [mods]: can be an object",
+        "obj": {
+            "mustDeps": {
+                "mods": {}
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [mods]: can have string value",
+        "obj": {
+            "mustDeps": {
+                "mods": {
+                    "color": "red"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [mods]: can have `true` value",
+        "obj": {
+            "mustDeps": {
+                "mods": {
+                    "color": true
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [mods]: can have empty array value",
+        "obj": {
+            "mustDeps": {
+                "mods": {
+                    "color": []
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [mods]: can have string array value",
+        "obj": {
+            "mustDeps": {
+                "mods": {
+                    "color": [
+                        "red",
+                        "white"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [mods]: can not be a number",
+        "obj": {
+            "mustDeps": {
+                "mods": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "object"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [mods]: can not have number value",
+        "obj": {
+            "mustDeps": {
+                "mods": {
+                    "color": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "boolean,string,array"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [mods]: can not have `false` value",
+        "obj": {
+            "mustDeps": {
+                "mods": {
+                    "color": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [mods]: can not have number array value",
+        "obj": {
+            "mustDeps": {
+                "mods": {
+                    "color": [
+                        1234
+                    ]
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
             }
         }
     }

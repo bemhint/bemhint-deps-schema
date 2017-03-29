@@ -115,6 +115,10 @@ function validateEntity(cases, recursiveFlag) {
         keyword: 'additionalProperties', params: { additionalProperty: 'name' }
     });
 
+    validateModifiers(
+        cases.inner('[mods]', target => ({ mods: target }))
+    );
+
     if (recursiveFlag) {
         validateEntity(
             cases.inner('[noDeps]', target => ({ noDeps: target }))
@@ -128,6 +132,51 @@ function validateEntity(cases, recursiveFlag) {
             cases.inner('[mustDeps]', target => ({ mustDeps: target }))
         );
     }
+}
+
+function validateModifiers(cases) {
+
+    // region root
+
+    cases.it('can be an object', {});
+
+    cases.it('can not be a number', 1234).throws({
+        keyword: 'type', params: { type: 'object' }
+    });
+
+    // endregion
+
+    // region string value
+
+    cases.it('can have string value', { color: 'red' });
+
+    cases.it('can not have number value', { color: 1234 }).throws({
+        keyword: 'type', params: { type: 'boolean,string,array' }
+    });
+
+    // endregion
+
+    // region boolean value
+
+    cases.it('can have `true` value', { color: true });
+
+    cases.it('can not have `false` value', { color: false }).throws({
+        keyword: 'enum', schema: [true]
+    });
+
+    // endregion
+
+    // region array value
+
+    cases.it('can have empty array value', { color: [] });
+
+    cases.it('can have string array value', { color: ['red', 'white'] });
+
+    cases.it('can not have number array value', { color: [1234] }).throws({
+        keyword: 'type', params: { type: 'string' }
+    });
+
+    // endregion
 }
 
 const testCases = rootWrapper.getCases();

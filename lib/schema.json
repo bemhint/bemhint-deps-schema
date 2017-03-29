@@ -106,7 +106,6 @@
 
         "modifiers": {
             "type": "object",
-            "minProperties": 1,
             "additionalProperties": {
                 "type": ["boolean", "string", "array"],
                 "switch": [
@@ -117,7 +116,6 @@
                     {
                         "if": { "type": "array" },
                         "then": {
-                            "minItems": 1,
                             "items": { "type": "string" }
                         }
                     }
