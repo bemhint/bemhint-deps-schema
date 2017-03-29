@@ -34,6 +34,7 @@ function validateEntity(cases, recursiveFlag) {
 }
 
 function validateEntityFields(cases, recursiveFlag) {
+
     // region field 'block'
 
     cases.it('can have `block` string field', { block: 'b-page' });
@@ -191,8 +192,6 @@ function validateModifiers(cases) {
 
 function validateElements(cases, recursiveFlag) {
 
-    // region root
-
     cases.it('can be a string', 'header');
 
     cases.it('can be elem-object', { elem: 'header' });
@@ -211,7 +210,15 @@ function validateElements(cases, recursiveFlag) {
         keyword: 'type', params: { type: 'string,object' }
     });
 
-    // endregion
+    validateElementFields(cases, recursiveFlag);
+
+    validateElementFields(
+        cases.inner('[0]', target => [target]),
+        recursiveFlag
+    );
+}
+
+function validateElementFields(cases, recursiveFlag) {
 
     // region field 'elem'
 
@@ -311,6 +318,10 @@ function validateElements(cases, recursiveFlag) {
         keyword: 'additionalProperties', params: { additionalProperty: 'name' }
     });
 }
+
+// TODO: elem + elems
+
+// TODO: mod + mds
 
 const testCases = rootWrapper.getCases();
 
