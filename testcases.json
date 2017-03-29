@@ -473,6 +473,175 @@
         }
     },
     {
+        "title": "root: [elems]: can have `mod` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mod": "color"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: `mod` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mod": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: can have `val` string field with `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mod": "color",
+                "val": "black"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: can have `val` boolean `true` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mod": "color",
+                "val": true
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: `val` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mod": "size",
+                "val": 12
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: `val` field can not be `false`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "mod": "size",
+                "val": false
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: `val` field can not be without `mod`",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "val": "red"
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "mod"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: can have `tech` string field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "tech": "bemhtml"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: `tech` field can not be a number",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "tech": 1234
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: can have `include` boolean `false` field",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "include": false
+            }
+        }
+    },
+    {
+        "title": "root: [elems]: include can not be true",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "include": true
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: include can not be string",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "include": "yes"
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [elems]: other fields are not allowed",
+        "obj": {
+            "elems": {
+                "elem": "header",
+                "name": "test"
+            }
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
         "title": "root: [noDeps]: can be a string",
         "obj": {
             "noDeps": "b-page"
@@ -1040,6 +1209,201 @@
             "keyword": "required",
             "params": {
                 "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can have `mod` string field",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: `mod` field can not be a number",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can have `val` string field with `mod`",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color",
+                    "val": "black"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can have `val` boolean `true` field",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color",
+                    "val": true
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: `val` field can not be a number",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "size",
+                    "val": 12
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: `val` field can not be `false`",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "size",
+                    "val": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: `val` field can not be without `mod`",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "val": "red"
+                }
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "mod"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can have `tech` string field",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "tech": "bemhtml"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: `tech` field can not be a number",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "tech": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: can have `include` boolean `false` field",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "include": false
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: include can not be true",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "include": true
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: include can not be string",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "include": "yes"
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [noDeps]: [elems]: other fields are not allowed",
+        "obj": {
+            "noDeps": {
+                "elems": {
+                    "elem": "header",
+                    "name": "test"
+                }
+            }
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
             }
         }
     },
@@ -1615,6 +1979,201 @@
         }
     },
     {
+        "title": "root: [shouldDeps]: [elems]: can have `mod` string field",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: `mod` field can not be a number",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can have `val` string field with `mod`",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color",
+                    "val": "black"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can have `val` boolean `true` field",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color",
+                    "val": true
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: `val` field can not be a number",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "size",
+                    "val": 12
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: `val` field can not be `false`",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "size",
+                    "val": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: `val` field can not be without `mod`",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "val": "red"
+                }
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "mod"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can have `tech` string field",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "tech": "bemhtml"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: `tech` field can not be a number",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "tech": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: can have `include` boolean `false` field",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "include": false
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: include can not be true",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "include": true
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: include can not be string",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "include": "yes"
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [shouldDeps]: [elems]: other fields are not allowed",
+        "obj": {
+            "shouldDeps": {
+                "elems": {
+                    "elem": "header",
+                    "name": "test"
+                }
+            }
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
+            }
+        }
+    },
+    {
         "title": "root: [mustDeps]: can be a string",
         "obj": {
             "mustDeps": "b-page"
@@ -2182,6 +2741,201 @@
             "keyword": "required",
             "params": {
                 "missingProperty": "elem"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can have `mod` string field",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: `mod` field can not be a number",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can have `val` string field with `mod`",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color",
+                    "val": "black"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can have `val` boolean `true` field",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "color",
+                    "val": true
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: `val` field can not be a number",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "size",
+                    "val": 12
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string,boolean"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: `val` field can not be `false`",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "mod": "size",
+                    "val": false
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                true
+            ]
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: `val` field can not be without `mod`",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "val": "red"
+                }
+            }
+        },
+        "error": {
+            "keyword": "required",
+            "params": {
+                "missingProperty": "mod"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can have `tech` string field",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "tech": "bemhtml"
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: `tech` field can not be a number",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "tech": 1234
+                }
+            }
+        },
+        "error": {
+            "keyword": "type",
+            "params": {
+                "type": "string"
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: can have `include` boolean `false` field",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "include": false
+                }
+            }
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: include can not be true",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "include": true
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: include can not be string",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "include": "yes"
+                }
+            }
+        },
+        "error": {
+            "keyword": "enum",
+            "schema": [
+                false
+            ]
+        }
+    },
+    {
+        "title": "root: [mustDeps]: [elems]: other fields are not allowed",
+        "obj": {
+            "mustDeps": {
+                "elems": {
+                    "elem": "header",
+                    "name": "test"
+                }
+            }
+        },
+        "error": {
+            "keyword": "additionalProperties",
+            "params": {
+                "additionalProperty": "name"
             }
         }
     }

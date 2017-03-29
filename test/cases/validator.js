@@ -229,6 +229,64 @@ function validateElements(cases) {
     });
 
     // endregion
+
+    // region field 'mod'
+
+    cases.it('can have `mod` string field', { elem: 'header', mod: 'color' });
+
+    cases.it('`mod` field can not be a number', { elem: 'header', mod: 1234 }).throws({
+        keyword: 'type', params: { type: 'string' }
+    });
+
+    // endregion
+
+    // region field 'val'
+
+    cases.it('can have `val` string field with `mod`', { elem: 'header', mod: 'color', val: 'black' });
+
+    cases.it('can have `val` boolean `true` field', { elem: 'header', mod: 'color', val: true });
+
+    cases.it('`val` field can not be a number', { elem: 'header', mod: 'size', val: 12 }).throws({
+        keyword: 'type', params: { type: 'string,boolean' }
+    });
+
+    cases.it('`val` field can not be `false`', { elem: 'header', mod: 'size', val: false }).throws({
+        keyword: 'enum', schema: [true]
+    });
+
+    cases.it('`val` field can not be without `mod`', { elem: 'header', val: 'red' }).throws({
+        keyword: 'required', params: { missingProperty: 'mod' }
+    });
+
+    // endregion
+
+    // region field 'tech'
+
+    cases.it('can have `tech` string field', { elem: 'header', tech: 'bemhtml' });
+
+    cases.it('`tech` field can not be a number', { elem: 'header', tech: 1234 }).throws({
+        keyword: 'type', params: { type: 'string' }
+    });
+
+    // endregion
+
+    // region field 'include'
+
+    cases.it('can have `include` boolean `false` field', { elem: 'header', include: false });
+
+    cases.it('include can not be true', { elem: 'header', include: true }).throws({
+        keyword: 'enum', schema: [false]
+    });
+
+    cases.it('include can not be string', { elem: 'header', include: 'yes' }).throws({
+        keyword: 'enum', schema: [false]
+    });
+
+    // endregion
+
+    cases.it('other fields are not allowed', { elem: 'header', name: 'test' }).throws({
+        keyword: 'additionalProperties', params: { additionalProperty: 'name' }
+    });
 }
 
 const testCases = rootWrapper.getCases();
