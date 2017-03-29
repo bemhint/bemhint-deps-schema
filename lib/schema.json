@@ -12,7 +12,6 @@
                 {
                     "if": { "type": "array" },
                     "then": {
-                        "minItems": 1,
                         "items": {
                             "type": ["string", "object"],
                             "switch": [
@@ -29,7 +28,6 @@
 
         "entity": {
             "type": "object",
-            "minProperties": 1,
             "additionalProperties": false,
             "properties": {
                 "block": { "type": "string" },
@@ -44,7 +42,6 @@
                         {
                             "if": { "type": "array" },
                             "then": {
-                                "minItems": 1,
                                 "items": {
                                     "type": ["string", "object"],
                                     "switch": [
@@ -69,12 +66,6 @@
                 "shouldDeps": { "$ref": "#/definitions/set" }
             },
             "dependencies": {
-                "elem": {
-                    "not": { "required": ["elems"] }
-                },
-                "mod": {
-                    "not": { "required": ["mods"] }
-                },
                 "val": { "required": ["mod"] }
             }
         },
@@ -82,7 +73,6 @@
         "elemPlainEntity": {
             "type": ["string", "array"],
 
-            "minItems": 1,
             "items": { "type": "string" }
         },
 
@@ -102,9 +92,6 @@
                 "shouldDeps": { "$ref": "#/definitions/set" }
             },
             "dependencies": {
-                "mod": {
-                    "not": { "required": ["mods"] }
-                },
                 "val": { "required": ["mod"] }
             },
             "required": ["elem"]
@@ -112,7 +99,6 @@
 
         "modifiers": {
             "type": "object",
-            "minProperties": 1,
             "additionalProperties": {
                 "type": ["boolean", "string", "array"],
                 "switch": [
@@ -123,7 +109,6 @@
                     {
                         "if": { "type": "array" },
                         "then": {
-                            "minItems": 1,
                             "items": { "type": "string" }
                         }
                     }
