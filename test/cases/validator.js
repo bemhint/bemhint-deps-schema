@@ -336,7 +336,7 @@ describe.only('base-schema', () => {
             const content = '(' + JSON.stringify(data.obj) + ')',
                 errorCallback = sinon.spy();
 
-            validate(baseSchema, content, errorCallback);
+            validate(baseSchema, undefined, content, errorCallback);
 
             if (data.error) {
                 assert.calledOnce(errorCallback);

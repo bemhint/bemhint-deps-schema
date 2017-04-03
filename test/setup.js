@@ -2,7 +2,7 @@
 
 const fs = require('fs'),
     chai = require('chai'),
-    loader = require('../lib/loader'),
+    loader = require('../lib/schema-loader'),
     validator = require('../lib/validator'),
     formatter = require('../lib/formatter');
 
