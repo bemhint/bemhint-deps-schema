@@ -19,9 +19,9 @@ module.exports = {
 };
 ```
 
-## Custom schema
+## Codestyle checks
 
-To validate custom deps.js format (code style reasons or others) configure plugin with custom json-schema (path is relative to config location):
+To validate subset of deps.js format (code style reasons or others) configure plugin with custom json-schema (path is relative to config location):
 
 ```js
 module.exports = {
@@ -33,7 +33,7 @@ module.exports = {
 };
 ```
 
-We suggest to base your custom schema on standard plugin's schema.
+Plugin validates *.deps.js files with standard schema at first and custom schema if specified.
 
 ## Error location
 

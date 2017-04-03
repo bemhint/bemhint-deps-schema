@@ -10,18 +10,18 @@ describe('schema loader', () => {
         loader._loadFile.restore();
     });
 
-    function buildConfigStub(customSchema, resolver) {
+    function buildConfigStub(pluginConfig, resolver) {
         return {
-            getConfig: () => ({ schema: customSchema }),
+            getConfig: () => pluginConfig,
             resolvePath: resolver
         };
     }
 
     it('should load custom schema', () => {
         const resolver = sinon.spy(() => '/dir/foo.bar.json');
-        const config = buildConfigStub('./foo.bar.json', resolver);
+        const config = buildConfigStub({ schema: './foo.bar.json' }, resolver);
 
-        loader.load(config);
+        loader.getCustomSchema(config);
 
         assert.calledOnce(resolver);
         assert.calledWith(resolver, './foo.bar.json');
@@ -32,14 +32,12 @@ describe('schema loader', () => {
 
     it('should load base with no args', () => {
         const resolver = sinon.spy();
-        const config = buildConfigStub(undefined, resolver);
+        const config = buildConfigStub({}, resolver);
 
-        loader.load(config);
+        loader.getCustomSchema(config);
 
         assert.notCalled(resolver);
-
-        assert.calledOnce(loader._loadFile);
-        assert.calledWith(loader._loadFile, loader._getBaseSchema());
+        assert.notCalled(loader._loadFile);
     });
 
 });
