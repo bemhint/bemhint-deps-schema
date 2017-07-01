@@ -1,5 +1,5 @@
 # bemhint-deps-schema
-Plugin for [bemhint](https://github.com/bemhint/bemhint) checks *.deps.js to be written by [specification](https://en.bem.info/technology/deps/about/). Requires bemhint 0.7.0 or above.
+Plugin for [bemhint](https://github.com/bemhint/bemhint) checks *.deps.js to be written by [specification](https://en.bem.info/technology/deps/about/). Requires bemhint 0.9.0 or above.
 
 ## How to install
 
@@ -27,13 +27,30 @@ To validate custom deps.js format (code style reasons or others) configure plugi
 module.exports = {
     plugins: {
         'bemhint-deps-schema': {
-            schema: './dir/deps.schema.json'
+            'deps.js': {
+                schema: './dir/deps.schema.json' // will be required relatively to bemhint config
+            }
         }
     }
 };
 ```
 
-We suggest to base your custom schema on standard plugin's schema.
+We suggest to base your custom schema on standard plugin's schema:
+
+```js
+module.exports = {
+    plugins: {
+        'bemhint-deps-schema': {
+            'deps.js': {
+                schema: [
+                    require('bemhint-deps-schema/schema/deps.js'), // standard plugin's schema
+                    './dir/deps.schema.json', // your custom plugin's schema
+                ]
+            }
+        }
+    }
+};
+```
 
 ## Error location
 
