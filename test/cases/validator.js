@@ -1,6 +1,6 @@
 'use strict';
 
-const baseSchema = require('../../lib/schema.json'),
+const depsSchema = require('../../schema/deps.js'),
     rootWrapper = new Wrapper('root');
 
 validateEntity(rootWrapper, true);
@@ -329,14 +329,14 @@ const testCases = rootWrapper.getCases();
 
 dump('testcases.json', testCases);
 
-describe.only('base-schema', () => {
+describe('deps.js schema', () => {
 
     testCases.forEach(data => {
         it(data.title, () => {
             const content = '(' + JSON.stringify(data.obj) + ')',
                 errorCallback = sinon.spy();
 
-            validate(baseSchema, content, errorCallback);
+            validate({name: 'deps.js', content}, depsSchema, errorCallback);
 
             if (data.error) {
                 assert.calledOnce(errorCallback);

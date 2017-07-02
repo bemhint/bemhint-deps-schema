@@ -1,7 +1,7 @@
 # bemhint-deps-schema
-Плагин для [bemhint](https://github.com/bemhint/bemhint), который проверяет, что файлы *.deps.js соответствуют [спецификации](https://ru.bem.info/technology/deps/about/). Требутеся bemhint версии 0.7.0 или выше.
+Плагин для [bemhint](https://github.com/bemhint/bemhint), который проверяет, что файлы *.deps.js соответствуют [спецификации](https://ru.bem.info/technology/deps/about/). Требутеся bemhint версии 0.9.0 или выше.
 
-## Установка 
+## Установка
 
 ```bash
 $ npm install bemhint-deps-schema
@@ -27,13 +27,30 @@ module.exports = {
 module.exports = {
     plugins: {
         'bemhint-deps-schema': {
-            schema: './dir/deps.schema.json'
+            'deps.js': {
+                schema: './dir/deps.schema.json' // модуль будет загружаться относительно конфига bemhint-а
+            }
         }
     }
 };
 ```
 
-Советуем при написании собственной схемы использовать за основу стандартную схему плагина.
+Советуем при написании собственной схемы использовать за основу стандартную схему плагина:
+
+```js
+module.exports = {
+    plugins: {
+        'bemhint-deps-schema': {
+            'deps.js': {
+                schema: [
+                    require('bemhint-deps-schema/schema/deps.js'), // стандартная схема плагина
+                    './dir/deps.schema.json', // кастомная схема плагина
+                ]
+            }
+        }
+    }
+};
+```
 
 ## Позиции ошибки
 

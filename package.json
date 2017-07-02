@@ -22,12 +22,14 @@
   },
   "homepage": "https://github.com/bemhint/bemhint-deps-schema#readme",
   "dependencies": {
-    "ajv": "^4.8.2"
+    "ajv": "^4.8.2",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-subset": "^1.2.2",
     "mocha": "^2.4.5",
+    "proxyquire": "^1.8.0",
     "sinon": "^1.17.4"
   }
 }
