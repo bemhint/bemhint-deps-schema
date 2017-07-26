@@ -329,14 +329,13 @@ const testCases = rootWrapper.getCases();
 
 dump('testcases.json', testCases);
 
-describe.only('base-schema', () => {
+describe('base-schema', () => {
 
     testCases.forEach(data => {
         it(data.title, () => {
-            const content = '(' + JSON.stringify(data.obj) + ')',
-                errorCallback = sinon.spy();
+            const errorCallback = sinon.spy();
 
-            validate(baseSchema, content, errorCallback);
+            validate(baseSchema, data.obj, errorCallback);
 
             if (data.error) {
                 assert.calledOnce(errorCallback);
