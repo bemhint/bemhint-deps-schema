@@ -9,7 +9,7 @@ describe('plugin', () => {
     beforeEach(() => {
         sandbox = sinon.sandbox.create();
 
-        sandbox.stub(plugin._utils, 'load').returns('test-schema');
+        sandbox.stub(plugin._utils, 'loadSchema').returns('test-schema');
         sandbox.stub(plugin._utils, 'format').returns('test-format');
         sandbox.stub(plugin._utils, 'eval').returns('test-value');
         sandbox.stub(plugin._utils, 'validate');
@@ -28,8 +28,8 @@ describe('plugin', () => {
 
         plugin.forEachTech(tech, entity, config);
 
-        assert.calledOnce(plugin._utils.load);
-        assert.calledWith(plugin._utils.load, config);
+        assert.calledOnce(plugin._utils.loadSchema);
+        assert.calledWith(plugin._utils.loadSchema, config);
 
         assert.calledOnce(plugin._utils.eval);
         assert.calledWith(plugin._utils.eval, 'test-content');
@@ -103,5 +103,43 @@ describe('plugin', () => {
 
         assert.calledOnce(locator);
         assert.calledWith(locator, 'test-content', 'foo.bar.0.baz');
+    });
+
+    it('should throw with syntax error', () => {
+        const config = makeConfig({});
+
+        plugin._utils.eval.throws(new SyntaxError('bad-syntax'));
+
+        plugin.forEachTech(tech, entity, config);
+
+        assert.notCalled(plugin._utils.validate);
+
+        assert.calledOnce(entity.addError);
+        assert.calledWith(entity.addError, {
+            msg: 'Invalid content in source file',
+            tech: 'test',
+            value: 'bad-syntax',
+            location: undefined
+        });
+    });
+
+    it('should ignore falsy evaluated values', () => {
+        const config = makeConfig({});
+
+        plugin._utils.eval.returns();
+
+        plugin.forEachTech(tech, entity, config);
+
+        assert.notCalled(plugin._utils.validate);
+        assert.notCalled(entity.addError);
+    });
+
+    it('should deal with empty tech content', () => {
+        const config = makeConfig({});
+
+        plugin.forEachTech({}, entity, config);
+
+        assert.calledOnce(plugin._utils.eval);
+        assert.calledWith(plugin._utils.eval, '');
     });
 });
